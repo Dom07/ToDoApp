@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/dom/.android/build-cache/e8a5b9247ffff10f0a287c131c0098e7b64efec4/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/dom/.android/build-cache/e8a5b9247ffff10f0a287c131c0098e7b64efec4/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

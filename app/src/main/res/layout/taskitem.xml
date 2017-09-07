@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#1234"
-    android:layout_margin="5dp"
-    android:padding="5dp">
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="10dp"
+    android:padding="5dp"
+    android:elevation="5dp"
+    android:weightSum="1">
 
-            <CheckBox
-                android:id="@+id/cbTaskName"
-                android:layout_width="wrap_content"
-                android:layout_height="100px"
-                android:text="First Task"
-                android:textSize="25sp" />
+    <CheckBox
+        android:id="@+id/tvTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="testCheck"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:onClick="onSelect"/>
 
-            <TextView
-                android:id="@+id/tvTagHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Tags:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvTagHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTaskName"
+        android:layout_marginTop="10dp"
+        android:text="Tags:"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="tag1,tag2,tag3"
-                android:textSize="15sp" />
+    <TextView
+        android:id="@+id/tvTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTagHeader"
+        android:text="tag1,tag2,tag3"
+        android:textSize="12sp" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,4 +1,4 @@
-#Wed Aug 02 11:55:29 IST 2017
+#Sun Aug 13 14:05:14 IST 2017
 file.2=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_09964ddd65ff14b4790071cb0d77fdae46ead484/classes.dex
 base.2=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_09964ddd65ff14b4790071cb0d77fdae46ead484
 file.1=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_e567a8edf9bfcba73b5f72be4bdc1866438013ec/classes.dex

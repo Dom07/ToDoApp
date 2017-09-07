@@ -1,6 +1,8 @@
 package com.developers.mytodoapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,5 +88,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onSelect(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        if (checked) {
+            SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
+            String TaskName = ((CheckBox) view).getText().toString();
+            SQLiteDatabase db = taskHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("TASK_STATUS", "1");
+            db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'", null);
+        }
     }
 }

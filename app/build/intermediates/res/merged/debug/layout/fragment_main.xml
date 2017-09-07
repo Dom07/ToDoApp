@@ -18,6 +18,6 @@
         android:layout_alignParentRight="true"
         android:layout_margin="25dp"
         android:src="@drawable/ic_add_white_24dp"
-        android:backgroundTint="@color/ButtonColor"
+        android:backgroundTint="@color/colorAccent"
         />
 </RelativeLayout>

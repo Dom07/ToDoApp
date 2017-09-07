@@ -1,5 +1,6 @@
 package com.developers.mytodoapp;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(TaskAdapter.MyViewHolder holder, int position) {
         Task task = taskArrayList.get(position);
-        holder.cbTaskName.setText(task.getTaskName());
+        holder.tvTaskName.setText(task.getTaskName());
         holder.tvTags.setText(task.getTags());
     }
 
@@ -40,12 +41,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        CheckBox cbTaskName;
+        TextView tvTaskName;
         TextView tvTags;
 
         public MyViewHolder(View view) {
             super(view);
-            cbTaskName = (CheckBox)view.findViewById(R.id.cbTaskName);
+            tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
             tvTags = (TextView)view.findViewById(R.id.tvTags);
         }
     }

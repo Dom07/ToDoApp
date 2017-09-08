@@ -1,6 +1,7 @@
 package com.developers.mytodoapp;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -20,6 +21,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         // Set the default home fragment
         setTitle("Home");
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment,new MainFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 
     }
 
@@ -71,19 +76,19 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             setTitle("Home");
 
-            fragmentManager.beginTransaction().replace(R.id.fragment,new MainFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 
         } else if (id == R.id.nav_completedTask) {
             setTitle("Completed Task List");
-            fragmentManager.beginTransaction().replace(R.id.fragment,new CompTaskFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, new CompTaskFragment()).commit();
 
         } else if (id == R.id.nav_insights) {
             setTitle("Insights");
-            fragmentManager.beginTransaction().replace(R.id.fragment,new InsightFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, new InsightFragment()).commit();
 
         } else if (id == R.id.nav_log) {
             setTitle("Log");
-            fragmentManager.beginTransaction().replace(R.id.fragment,new LogFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, new LogFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -99,9 +104,29 @@ public class MainActivity extends AppCompatActivity
             SQLiteDatabase db = taskHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("TASK_STATUS", "1");
-            db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'", null);
+            db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
+            Toast.makeText(getBaseContext(),"Task moved to completed task list. Swipe down to refresh",Toast.LENGTH_SHORT).show();
         }
     }
 
-
+    public void onDelete(final View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmation");
+        builder.setMessage("Are you sure you want to delete this task?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                RelativeLayout rlCompletedTask = (RelativeLayout) view.findViewById(R.id.ivTaskDelete).getParent();
+                TextView tvCompletedTask = (TextView) rlCompletedTask.findViewById(R.id.tvCompletedTaskName);
+                String taskName = tvCompletedTask.getText().toString();
+                SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
+                SQLiteDatabase db = taskHelper.getWritableDatabase();
+                db.delete("TASK_LIST", "TASK_NAME='" + taskName + "'", null);
+                Toast.makeText(getBaseContext(),"Task Deleted Successfully. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }

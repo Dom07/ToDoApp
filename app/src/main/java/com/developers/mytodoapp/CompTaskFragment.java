@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,7 @@ public class CompTaskFragment extends Fragment {
     RecyclerView rvCompletedTaskList;
     ArrayList<Task> completedTaskList = new ArrayList<Task>();
     CompletedTaskAdapter completedTaskAdapter = new CompletedTaskAdapter(completedTaskList);
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     public CompTaskFragment() {
@@ -41,6 +43,21 @@ public class CompTaskFragment extends Fragment {
         rvCompletedTaskList.setItemAnimator(new DefaultItemAnimator());
         rvCompletedTaskList.setAdapter(completedTaskAdapter);
         prepareCompletedTask(getContext());
+
+//        Swipe To Refresh
+        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlCompTaskFragment);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                prepareCompletedTask(getContext());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
         return view;
     }
 

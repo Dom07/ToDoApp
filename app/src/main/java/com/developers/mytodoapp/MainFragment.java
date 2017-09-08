@@ -2,7 +2,6 @@ package com.developers.mytodoapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.os.Handler;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,11 +61,9 @@ public class MainFragment extends Fragment {
     //  SQL
     SqLiteTaskHelper taskHelper;
 
-
     public MainFragment() {
 //         Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -201,7 +198,7 @@ public class MainFragment extends Fragment {
         prepareTask(getContext());
         // Swipe To Refresh
 
-        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeRefreshLayout);
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlMainFragment);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -209,6 +206,7 @@ public class MainFragment extends Fragment {
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
+
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,

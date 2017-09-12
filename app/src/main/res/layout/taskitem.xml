@@ -22,7 +22,8 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:onClick="onSelect"/>
+        android:checked="false"
+        android:onClick="onSelect" />
 
     <TextView
         android:id="@+id/tvTagHeader"

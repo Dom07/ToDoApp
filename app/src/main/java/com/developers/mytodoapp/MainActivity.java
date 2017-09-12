@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity
     public void onSelect(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         if (checked) {
+            MainFragment mainFragment = new MainFragment();
             SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
             String TaskName = ((CheckBox) view).getText().toString();
             SQLiteDatabase db = taskHelper.getWritableDatabase();

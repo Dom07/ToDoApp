@@ -196,13 +196,13 @@ public class MainFragment extends Fragment {
         rvTaskList.setItemAnimator(new DefaultItemAnimator());
         rvTaskList.setAdapter(taskAdapter);
         prepareTask(getContext());
-        // Swipe To Refresh
 
+        // Swipe To Refresh
         final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlMainFragment);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                prepareTask(getContext());
+                refreshTaskList(getContext());
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -234,6 +234,14 @@ public class MainFragment extends Fragment {
         }
         cursor.close();
         taskAdapter.notifyDataSetChanged();
+    }
+
+    public void refreshTaskList(Context context){
+
+//      un-setting and resetting the adapter so the view is redrawn without old style
+        rvTaskList.setAdapter(null);
+        rvTaskList.setAdapter(taskAdapter);
+        prepareTask(context);
     }
 }
 

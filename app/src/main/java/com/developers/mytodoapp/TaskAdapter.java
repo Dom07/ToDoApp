@@ -47,6 +47,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         public MyViewHolder(View view) {
             super(view);
             tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
+            ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
             tvTags = (TextView)view.findViewById(R.id.tvTags);
         }
     }

@@ -250,7 +250,7 @@ public class MainFragment extends Fragment {
         rvTaskList.setAdapter(taskAdapter);
         prepareTask(context);
     }
-    
+
     // get number of active tasks
     public int getActiveTaskRowCount(){
         SqLiteTaskHelper sqLiteTaskHelper = new SqLiteTaskHelper(getContext());

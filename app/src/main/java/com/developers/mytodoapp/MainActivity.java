@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
     public void onSelect(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         if (checked) {
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(getBaseContext(),"Task restored to Uncompleted Task List. Swipe down to refresh",Toast.LENGTH_SHORT).show();
         }
     }
-
     public void onDelete(final View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirmation");

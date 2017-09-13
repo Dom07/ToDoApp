@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import java.util.zip.Inflater;
 
 
@@ -77,5 +78,4 @@ public class CompTaskFragment extends Fragment {
         cursor.close();
         completedTaskAdapter.notifyDataSetChanged();
     }
-
 }

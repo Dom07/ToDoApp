@@ -10,6 +10,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.text.SpannableString;
+import android.text.style.StrikethroughSpan;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -90,7 +92,6 @@ public class MainActivity extends AppCompatActivity
             setTitle("Log");
             fragmentManager.beginTransaction().replace(R.id.fragment, new LogFragment()).commit();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity
     public void onSelect(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         if (checked) {
-            MainFragment mainFragment = new MainFragment();
             SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
             String TaskName = ((CheckBox) view).getText().toString();
             SQLiteDatabase db = taskHelper.getWritableDatabase();
@@ -107,6 +107,14 @@ public class MainActivity extends AppCompatActivity
             values.put("TASK_STATUS", "1");
             db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
             Toast.makeText(getBaseContext(),"Task moved to completed task list. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+        }else{
+            SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
+            String TaskName = ((CheckBox) view).getText().toString();
+            SQLiteDatabase db = taskHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("TASK_STATUS", "0");
+            db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
+            Toast.makeText(getBaseContext(),"Task restored to Uncompleted Task List. Swipe down to refresh",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -119,11 +127,13 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 RelativeLayout rlCompletedTask = (RelativeLayout) view.findViewById(R.id.ivTaskDelete).getParent();
                 TextView tvCompletedTask = (TextView) rlCompletedTask.findViewById(R.id.tvCompletedTaskName);
-                String taskName = tvCompletedTask.getText().toString();
+                SpannableString taskName = SpannableString.valueOf(tvCompletedTask.getText().toString());
                 SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
                 SQLiteDatabase db = taskHelper.getWritableDatabase();
                 db.delete("TASK_LIST", "TASK_NAME='" + taskName + "'", null);
                 Toast.makeText(getBaseContext(),"Task Deleted Successfully. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+                taskName.setSpan(new StrikethroughSpan(),0,taskName.length(),0);
+                tvCompletedTask.setText(taskName);
             }
         });
         builder.setNegativeButton("No", null);

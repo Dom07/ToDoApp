@@ -39,6 +39,7 @@ import java.util.Calendar;
 
 public class MainFragment extends Fragment {
 
+    TextView tvNoTask;
     RecyclerView rvTaskList;
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;
@@ -70,6 +71,9 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+//      Method to check weather to Display A Message (or not) on the home screen if no active task available
+        noTaskMsgToggle(view);
 
 //      Check Box
         tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
@@ -167,7 +171,6 @@ public class MainFragment extends Fragment {
 //                        Inserting Values into database
                         taskHelper = new SqLiteTaskHelper(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
-
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
                         final String Date = tvCustomDate.getText().toString().trim();
@@ -183,6 +186,9 @@ public class MainFragment extends Fragment {
                         values.put("TASK_STATUS", Task_Status);
                         long row = db.insert("TASK_LIST", null, values);
                         Toast.makeText(getContext(), "row number is:" + row, Toast.LENGTH_SHORT).show();
+
+//                      Method to check weather to Display A Message (or not) on the home screen if no active task available
+                        noTaskMsgToggle(view);
                         prepareTask(getContext());
                     }
                 });
@@ -203,6 +209,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onRefresh() {
                 refreshTaskList(getContext());
+                noTaskMsgToggle(view);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -242,6 +249,27 @@ public class MainFragment extends Fragment {
         rvTaskList.setAdapter(null);
         rvTaskList.setAdapter(taskAdapter);
         prepareTask(context);
+    }
+    
+    // get number of active tasks
+    public int getActiveTaskRowCount(){
+        SqLiteTaskHelper sqLiteTaskHelper = new SqLiteTaskHelper(getContext());
+        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
+        String Projection[]={"TASK_STATUS"};
+        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_STATUS='"+0+"'",null,null,null,null,null);
+        int count = cursor.getCount();
+        return count;
+    }
+
+//    Check for the number of active tasks in db, if 0 then display msg if more then 0 hide msg
+    public void noTaskMsgToggle(View view){
+        tvNoTask = (TextView)view.findViewById(R.id.tvNoTask);
+        int count = getActiveTaskRowCount();
+        if(count==0){
+            tvNoTask.setVisibility(TextView.VISIBLE);
+        }else{
+            tvNoTask.setVisibility(TextView.INVISIBLE);
+        }
     }
 }
 

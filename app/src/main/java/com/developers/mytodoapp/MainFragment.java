@@ -169,7 +169,7 @@ public class MainFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
 
 //                        Inserting Values into database
-                        taskHelper = new SqLiteTaskHelper(getContext());
+                        taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
@@ -186,7 +186,8 @@ public class MainFragment extends Fragment {
                         values.put("TASK_STATUS", Task_Status);
                         long row = db.insert("TASK_LIST", null, values);
                         Toast.makeText(getContext(), "row number is:" + row, Toast.LENGTH_SHORT).show();
-
+                        db.close();
+                        taskHelper.close();
 //                      Method to check weather to Display A Message (or not) on the home screen if no active task available
                         noTaskMsgToggle(view);
                         prepareTask(getContext());
@@ -226,7 +227,7 @@ public class MainFragment extends Fragment {
 
 //      Clearing the Array List
         taskArrayList.clear();
-        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
         String Projection[] = {"TASK_NAME", "TASK_TAGS", "TASK_STATUS"};
         Cursor cursor = db.query("TASK_LIST", Projection, null, null, null, null, null);
@@ -240,6 +241,8 @@ public class MainFragment extends Fragment {
             }
         }
         cursor.close();
+        taskHelper.close();
+        db.close();
         taskAdapter.notifyDataSetChanged();
     }
 
@@ -253,11 +256,12 @@ public class MainFragment extends Fragment {
 
     // get number of active tasks
     public int getActiveTaskRowCount(){
-        SqLiteTaskHelper sqLiteTaskHelper = new SqLiteTaskHelper(getContext());
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(getContext());
         SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
         String Projection[]={"TASK_STATUS"};
         Cursor cursor = db.query("TASK_LIST", Projection,"TASK_STATUS='"+0+"'",null,null,null,null,null);
         int count = cursor.getCount();
+        cursor.close();
         return count;
     }
 

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:1-24:12
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
@@ -13,8 +13,12 @@ ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManif
 	android:versionCode
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
+uses-permission#com.android.alarm.permission.SET_ALARM
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:4:5-77
+	android:name
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:4:22-75
 application
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:5:5-22:19
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:5:5-23:19
 MERGED from [com.android.support:design:25.0.1] /home/dom/.android/build-cache/3137f89cc4f21103e5ce909f72f75be2d2213477/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.0.1] /home/dom/.android/build-cache/e8a5b9247ffff10f0a287c131c0098e7b64efec4/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.0.1] /home/dom/.android/build-cache/86c88b66cf0a9702085eff5705c0676e40d5ad69/output/AndroidManifest.xml:22:5-20
@@ -34,7 +38,7 @@ MERGED from [com.android.support:support-compat:25.0.1] /home/dom/.android/build
 	android:roundIcon
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:9:9-54
 	android:allowBackup
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:6:9-36
 	android:icon
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:7:9-43
 	android:theme
@@ -57,6 +61,10 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:19:17-77
 	android:name
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:19:27-74
+receiver#com.developers.mytodoapp.NotificationReceiver
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:22:9-57
+	android:name
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:22:19-55
 uses-sdk
 INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.0.1] /home/dom/.android/build-cache/3137f89cc4f21103e5ce909f72f75be2d2213477/output/AndroidManifest.xml:21:5-23:62

@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="04daa085760bc5d5cfc7bffc5d5f17048a866d5b">
+        sha1="db64370b6631cf2650671698a2ac8c35c8650742">
         <dex dex="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_732949d65715aa7681d73c169fa389d3a171a5ad/classes.dex" />
     </item>
 

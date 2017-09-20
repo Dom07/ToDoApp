@@ -9,9 +9,17 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class SqLiteTaskHelper extends SQLiteOpenHelper {
+    private static SqLiteTaskHelper mInstance = null;
 
     public SqLiteTaskHelper(Context context) {
         super(context, "tasks.db", null, 1);
+    }
+
+    public static SqLiteTaskHelper getInstance(Context context){
+        if(mInstance == null){
+            mInstance = new SqLiteTaskHelper(context);
+        }
+        return mInstance;
     }
 
     @Override

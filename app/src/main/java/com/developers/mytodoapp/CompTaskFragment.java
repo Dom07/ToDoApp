@@ -64,7 +64,7 @@ public class CompTaskFragment extends Fragment {
 
     public void prepareCompletedTask(Context context){
         completedTaskList.clear();
-        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
         String Projection[]={"TASK_NAME","TASK_TAGS","TASK_STATUS"};
         Cursor cursor = db.query("TASK_LIST",Projection,null,null,null,null,null);
@@ -76,6 +76,8 @@ public class CompTaskFragment extends Fragment {
             }
         }
         cursor.close();
+        db.close();
+        taskHelper.close();
         completedTaskAdapter.notifyDataSetChanged();
     }
 }

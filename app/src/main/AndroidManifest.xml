@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <receiver android:name=".NotificationReceiver"/>
+        <receiver android:name=".ClearDbReceiver"/>
     </application>
 
 </manifest>

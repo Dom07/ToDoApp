@@ -29,6 +29,7 @@
         </activity>
 
         <receiver android:name="com.developers.mytodoapp.NotificationReceiver" />
+        <receiver android:name="com.developers.mytodoapp.ClearDbReceiver" />
 
         <provider
             android:name="com.android.tools.fd.runtime.InstantRunContentProvider"

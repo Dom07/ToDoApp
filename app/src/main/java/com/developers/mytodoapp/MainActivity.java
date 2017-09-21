@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
             db.close();
             taskHelper.close();
-            Toast.makeText(getBaseContext(),"Task restored to Uncompleted Task List. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(),"Task restored to Active Task List. Swipe down to refresh",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -6,7 +6,8 @@
     android:background="#f1f1f1"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:padding="5dp"
     android:elevation="5dp"
     android:weightSum="1">
@@ -14,7 +15,7 @@
     <CheckBox
         android:id="@+id/tvTaskName"
         android:layout_width="wrap_content"
-        android:layout_height="100px"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"

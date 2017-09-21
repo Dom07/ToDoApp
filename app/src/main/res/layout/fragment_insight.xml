@@ -1,13 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.developers.mytodoapp.InsightFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello From Insight Fragment" />
+        android:id="@+id/tvLabelCTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:text="No. of Tasks Completed : " />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvLabelATask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvLabelCTask"
+        android:layout_alignStart="@+id/tvLabelCTask"
+        android:layout_below="@+id/tvLabelCTask"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="No. Of Incomplete Tasks :" />
+
+    <TextView
+        android:id="@+id/tvCtask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvLabelCTask"
+        android:layout_alignBottom="@+id/tvLabelCTask"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/tvLabelATask"
+        android:layout_toRightOf="@+id/tvLabelATask"
+        android:text="10" />
+
+    <TextView
+        android:id="@+id/tvATask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvCtask"
+        android:layout_alignRight="@+id/tvCtask"
+        android:layout_alignTop="@+id/tvLabelATask"
+        android:text="10" />
+
+    <TextView
+        android:id="@+id/tvLabelEffeciency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvLabelATask"
+        android:layout_alignStart="@+id/tvLabelATask"
+        android:layout_below="@+id/tvLabelATask"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Effeciency : " />
+
+    <TextView
+        android:id="@+id/tvEfficency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvATask"
+        android:layout_alignStart="@+id/tvATask"
+        android:layout_alignTop="@+id/tvLabelEffeciency"
+        android:text="100%" />
+</RelativeLayout>

@@ -114,6 +114,11 @@ public class MainActivity extends AppCompatActivity
             ContentValues values = new ContentValues();
             values.put("TASK_STATUS", "1");
             db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
+            Log.d("TASK_LIST","Task "+TaskName+" status set to 1");
+            ContentValues values1 = new ContentValues();
+            values1.put(taskHelper.KEY_STATUS,"1");
+            db.update(taskHelper.TABLE_TASK_INSIGHT,values1,"TASK_INSIGHT_NAME='"+TaskName+"'",null);
+            Log.d("TASK_INSIGHT","Task "+TaskName+" status set to 1");
             db.close();
             taskHelper.close();
             Toast.makeText(getBaseContext(),"Task moved to completed task list. Swipe down to refresh",Toast.LENGTH_SHORT).show();
@@ -144,6 +149,7 @@ public class MainActivity extends AppCompatActivity
                 SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(getBaseContext());
                 SQLiteDatabase db = taskHelper.getWritableDatabase();
                 db.delete("TASK_LIST", "TASK_NAME='" + taskName + "'", null);
+                Log.d("TASK_LIST", "Task "+taskName+" deleted");
                 Toast.makeText(getBaseContext(),"Task Deleted Successfully. Swipe down to refresh",Toast.LENGTH_SHORT).show();
                 db.close();
                 taskHelper.close();

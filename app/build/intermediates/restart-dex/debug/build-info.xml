@@ -6,29 +6,26 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1505992976801"
+    timestamp="1506001770244"
     token="3973575984698793688"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="125" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="20" />
+        duration="0" />
     <task
         name="verifier"
-        duration="1" />
+        duration="0" />
 
     <artifact
         location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
-    <artifact
-        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
-        type="SPLIT_MAIN" />
     <artifact
         location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
@@ -59,17 +56,17 @@
     <artifact
         location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
+    <artifact
+        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1505992976801"
+        timestamp="1506001770244"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
-        <artifact
-            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
@@ -100,6 +97,9 @@
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
+        <artifact
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

@@ -27,8 +27,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -157,38 +159,38 @@ public class MainActivity extends AppCompatActivity
         if(alarmSet){
 
             long timedifference;
-            long timeInMilli;
+            int alarmHour = 12;
+            int alarmMin = 30;
 
 //         make calendar instance for now and the time when we want to set the alarm
             Calendar now = Calendar.getInstance();
+            now.setTimeInMillis(System.currentTimeMillis());
             Calendar alarmTime = Calendar.getInstance();
+            alarmTime.setTimeInMillis(System.currentTimeMillis());
 
 //         set hours and minutes to 7 am
-            alarmTime.set(Calendar.HOUR_OF_DAY,7);
-            alarmTime.set(Calendar.MINUTE,00);
+            alarmTime.set(Calendar.HOUR_OF_DAY,alarmHour);
+            alarmTime.set(Calendar.MINUTE,alarmMin);
             long alarmTimeMilli = alarmTime.getTimeInMillis();
 
 //            if alarm time has passed then add 24 hours to alarm time to set it for the next day
             if(alarmTime.before(now)){
                 alarmTimeMilli = alarmTimeMilli+86400000L;
-                timeInMilli=alarmTimeMilli;
-            }else{
-                timeInMilli = now.getTimeInMillis();
             }
 
 //            calculate the time difference between the alarm set time and now
-            timedifference = timeInMilli - System.currentTimeMillis();
-            long seconds = timedifference/1000;
-            long minutes = seconds/60;
-            long hours = minutes/60;
-            long days = hours/24;
+            timedifference = alarmTimeMilli - now.getTimeInMillis();
+            int seconds = (int) TimeUnit.MILLISECONDS.toSeconds(timedifference);
+            int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(timedifference);
+            int hours = (int) TimeUnit.MILLISECONDS.toHours(timedifference);
+            int days = (int) TimeUnit.MILLISECONDS.toDays(timedifference);
 
 //            setting the notification manager and the alarm manager
             Intent intent = new Intent(getBaseContext(),NotificationReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),100,intent,0);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,timeInMilli,AlarmManager.INTERVAL_HOUR,pendingIntent);
-            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes % 60+"minutes" ,Toast.LENGTH_LONG).show();
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_HOUR,pendingIntent);
+            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
         }else {
 //            if alarm already exist just show toast
             Toast.makeText(getBaseContext(),"Alarm Service Already Exist",Toast.LENGTH_SHORT).show();

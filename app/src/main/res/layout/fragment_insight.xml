@@ -29,7 +29,7 @@
         android:text="No. Of Incomplete Tasks :" />
 
     <TextView
-        android:id="@+id/tvCtask"
+        android:id="@+id/tvNoOfCompTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvLabelCTask"
@@ -41,16 +41,16 @@
         android:text="10" />
 
     <TextView
-        android:id="@+id/tvATask"
+        android:id="@+id/tvNoOfInCompTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tvCtask"
-        android:layout_alignRight="@+id/tvCtask"
+        android:layout_alignEnd="@+id/tvNoOfCompTask"
+        android:layout_alignRight="@+id/tvNoOfCompTask"
         android:layout_alignTop="@+id/tvLabelATask"
         android:text="10" />
 
     <TextView
-        android:id="@+id/tvLabelEffeciency"
+        android:id="@+id/tvLabelEfficiency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvLabelATask"
@@ -58,14 +58,20 @@
         android:layout_below="@+id/tvLabelATask"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:text="Effeciency : " />
+        android:text="Efficiency : " />
 
     <TextView
-        android:id="@+id/tvEfficency"
+        android:id="@+id/tvEfficiency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvATask"
-        android:layout_alignStart="@+id/tvATask"
-        android:layout_alignTop="@+id/tvLabelEffeciency"
+        android:layout_alignLeft="@+id/tvNoOfInCompTask"
+        android:layout_alignStart="@+id/tvNoOfInCompTask"
+        android:layout_alignTop="@+id/tvLabelEfficiency"
         android:text="100%" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pcEfficiency"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tvLabelEfficiency" />
 </RelativeLayout>

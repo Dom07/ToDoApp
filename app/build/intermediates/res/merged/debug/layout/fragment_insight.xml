@@ -5,41 +5,73 @@
     tools:context="com.developers.mytodoapp.InsightFragment">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvLabelCTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="45dp"
-        android:text="TextView" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:text="No. of Tasks Completed : " />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvLabelATask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="25dp"
-        android:text="TextView" />
+        android:layout_alignLeft="@+id/tvLabelCTask"
+        android:layout_alignStart="@+id/tvLabelCTask"
+        android:layout_below="@+id/tvLabelCTask"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="No. Of Incomplete Tasks :" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvNoOfCompTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:text="TextView" />
+        android:layout_alignBaseline="@+id/tvLabelCTask"
+        android:layout_alignBottom="@+id/tvLabelCTask"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/tvLabelATask"
+        android:layout_toRightOf="@+id/tvLabelATask"
+        android:text="10" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvNoOfInCompTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignTop="@+id/textView4"
-        android:text="TextView" />
+        android:layout_alignEnd="@+id/tvNoOfCompTask"
+        android:layout_alignRight="@+id/tvNoOfCompTask"
+        android:layout_alignTop="@+id/tvLabelATask"
+        android:text="10" />
+
+    <TextView
+        android:id="@+id/tvLabelEfficiency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvLabelATask"
+        android:layout_alignStart="@+id/tvLabelATask"
+        android:layout_below="@+id/tvLabelATask"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Efficiency : " />
+
+    <TextView
+        android:id="@+id/tvEfficiency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvNoOfInCompTask"
+        android:layout_alignStart="@+id/tvNoOfInCompTask"
+        android:layout_alignTop="@+id/tvLabelEfficiency"
+        android:text="100%" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pcEfficiency"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tvLabelEfficiency" />
 </RelativeLayout>

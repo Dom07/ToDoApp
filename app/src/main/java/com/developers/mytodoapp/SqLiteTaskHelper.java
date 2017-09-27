@@ -1,6 +1,8 @@
 package com.developers.mytodoapp;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -38,5 +40,35 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS TASK_LIST");
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_TASK_INSIGHT);
         onCreate(db);
+    }
+
+    public static int getActiveTaskRowCount(Context context){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
+        String Projection[]={"TASK_STATUS"};
+        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_STATUS='"+0+"'",null,null,null,null,null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
+    public static int getTotalCompletedTask(Context context){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
+        String Projection[] = {sqLiteTaskHelper.KEY_STATUS};
+        Cursor cursor = db.query(sqLiteTaskHelper.TABLE_TASK_INSIGHT,Projection,sqLiteTaskHelper.KEY_STATUS+"='"+1+"'",null,null,null,null,null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
+    public static int getMissedTask(Context context){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
+        String Projection[] = {sqLiteTaskHelper.KEY_STATUS};
+        Cursor cursor = db.query(sqLiteTaskHelper.TABLE_TASK_INSIGHT,Projection,sqLiteTaskHelper.KEY_STATUS+"='"+0+"'",null,null,null,null,null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
     }
 }

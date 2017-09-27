@@ -179,21 +179,10 @@ public class MainFragment extends Fragment {
         prepareTask(context);
     }
 
-    // get number of active tasks
-    public int getActiveTaskRowCount(){
-        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(getContext());
-        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
-        String Projection[]={"TASK_STATUS"};
-        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_STATUS='"+0+"'",null,null,null,null,null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
-    }
-
 //    Check for the number of active tasks in db, if 0 then display msg if more then 0 hide msg
     public void noTaskMsgToggle(View view){
         tvNoTask = (TextView)view.findViewById(R.id.tvNoTask);
-        int count = getActiveTaskRowCount();
+        int count = SqLiteTaskHelper.getActiveTaskRowCount(getContext());
         if(count==0){
             tvNoTask.setVisibility(TextView.VISIBLE);
         }else{

@@ -30,4 +30,11 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-v4:25.0.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+}
+
+repositories{
+    maven {
+        url "https://jitpack.io"
+    }
 }

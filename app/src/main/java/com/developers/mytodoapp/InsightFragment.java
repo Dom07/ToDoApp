@@ -8,13 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
 import java.util.ArrayList;
 
 
@@ -65,8 +64,6 @@ public class InsightFragment extends Fragment {
         setDataSet();
         setData();
         toggleNoDataTextViewVisibility();
-        pieChart.setData(data);
-
         return  view;
     }
 
@@ -84,8 +81,8 @@ public class InsightFragment extends Fragment {
     }
 
     private void setYValues(){
-        yValues.add(new Entry(compTask,0));
-        yValues.add(new Entry(pendingTask,1));
+        yValues.add(new Entry(percentEfficiency,0));
+        yValues.add(new Entry(100-percentEfficiency,1));
     }
 
     private void setXValues(){
@@ -94,19 +91,24 @@ public class InsightFragment extends Fragment {
     }
 
     private void setDataSet(){
-        dataSet = new PieDataSet(yValues,"Task Insight");
+        dataSet = new PieDataSet(yValues,"");
         dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
     }
 
     private void setData(){
         data = new PieData(xValues,dataSet);
+        data.setValueFormatter(new PercentFormatter());
     }
 
     private void toggleNoDataTextViewVisibility(){
         if(totalTask==0){
             tvNoData.setVisibility(View.VISIBLE);
+            pieChart.setNoDataText("");
         }else{
             tvNoData.setVisibility(View.INVISIBLE);
+            pieChart.setData(data);
+            pieChart.setDescription("");
+            pieChart.animateXY(1400,1400);
         }
     }
 }

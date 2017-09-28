@@ -2,13 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context="com.developers.mytodoapp.CompTaskFragment"
     android:id="@+id/srlCompTaskFragment">
-
-    <android.support.v7.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rvCompletedTaskList">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tvNoDataCompFrag"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="No task has been marked has completed yet."
+            android:textSize="20sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvCompletedTaskList">
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

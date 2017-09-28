@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -28,7 +29,7 @@ public class CompTaskFragment extends Fragment {
     ArrayList<Task> completedTaskList = new ArrayList<Task>();
     CompletedTaskAdapter completedTaskAdapter = new CompletedTaskAdapter(completedTaskList);
     SwipeRefreshLayout swipeRefreshLayout;
-
+    TextView tvNoDataCompFrag;
 
     public CompTaskFragment() {
         // Required empty public constructor
@@ -39,11 +40,13 @@ public class CompTaskFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_comp_task,container,false);
+        tvNoDataCompFrag = (TextView)view.findViewById(R.id.tvNoDataCompFrag);
         rvCompletedTaskList = (RecyclerView)view.findViewById(R.id.rvCompletedTaskList);
         rvCompletedTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvCompletedTaskList.setItemAnimator(new DefaultItemAnimator());
         rvCompletedTaskList.setAdapter(completedTaskAdapter);
         prepareCompletedTask(getContext());
+        noDataMsgToggle();
 
 //        Swipe To Refresh
         swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlCompTaskFragment);
@@ -52,6 +55,7 @@ public class CompTaskFragment extends Fragment {
             public void onRefresh() {
                 prepareCompletedTask(getContext());
                 swipeRefreshLayout.setRefreshing(false);
+                noDataMsgToggle();
             }
         });
 
@@ -79,5 +83,14 @@ public class CompTaskFragment extends Fragment {
         db.close();
         taskHelper.close();
         completedTaskAdapter.notifyDataSetChanged();
+    }
+
+    private void noDataMsgToggle(){
+        int count = SqLiteTaskHelper.getNoOfCompletedTask(getContext());
+        if(count==0){
+            tvNoDataCompFrag.setVisibility(View.VISIBLE);
+        }else{
+            tvNoDataCompFrag.setVisibility(View.INVISIBLE);
+        }
     }
 }

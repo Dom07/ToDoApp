@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity
 
 
     // To navigate through fragments
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -167,8 +166,8 @@ public class MainActivity extends AppCompatActivity
         if(alarmSet){
 
             long timeDifference;
-            int alarmHour = 20;
-            int alarmMin = 30;
+            int alarmHour = 7;
+            int alarmMin = 1;
 
 //         make calendar instance for now and the time when we want to set the alarm
             Calendar now = Calendar.getInstance();
@@ -208,7 +207,7 @@ public class MainActivity extends AppCompatActivity
     public void deleteDbData() {
         boolean check = (PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(getBaseContext(), ClearDbReceiver.class), PendingIntent.FLAG_NO_CREATE)) == null;
         if (check) {
-            int alarmHour=20;
+            int alarmHour=2;
             int alarmMinutes=30;
             long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data

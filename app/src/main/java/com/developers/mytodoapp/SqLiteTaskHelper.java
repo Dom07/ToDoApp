@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by dom on 14/8/17.
@@ -70,5 +71,14 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         int count = cursor.getCount();
         cursor.close();
         return count;
+    }
+
+    public static void clearInsightTableData(Context context){
+        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
+        db.execSQL("DELETE FROM "+taskHelper.TABLE_TASK_INSIGHT);
+        Log.d("DB","Insight Table Rows Deleted");
+        taskHelper.close();
+        db.close();
     }
 }

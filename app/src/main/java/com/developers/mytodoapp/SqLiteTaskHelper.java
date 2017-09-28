@@ -43,7 +43,17 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public static int getActiveTaskRowCount(Context context){
+    public static int getNoOfCompletedTask(Context context){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
+        String Projection[]={"TASK_STATUS"};
+        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_STATUS='"+1+"'",null,null,null,null,null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
+    public static int getNoOfPendingTask(Context context){
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
         String Projection[]={"TASK_STATUS"};
@@ -53,32 +63,5 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public static int getTotalCompletedTask(Context context){
-        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
-        String Projection[] = {sqLiteTaskHelper.KEY_STATUS};
-        Cursor cursor = db.query(sqLiteTaskHelper.TABLE_TASK_INSIGHT,Projection,sqLiteTaskHelper.KEY_STATUS+"='"+1+"'",null,null,null,null,null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
-    }
 
-    public static int getMissedTask(Context context){
-        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = sqLiteTaskHelper.getReadableDatabase();
-        String Projection[] = {sqLiteTaskHelper.KEY_STATUS};
-        Cursor cursor = db.query(sqLiteTaskHelper.TABLE_TASK_INSIGHT,Projection,sqLiteTaskHelper.KEY_STATUS+"='"+0+"'",null,null,null,null,null);
-        int count = cursor.getCount();
-        cursor.close();
-        return count;
-    }
-
-    public static void clearInsightTableData(Context context){
-        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = taskHelper.getWritableDatabase();
-        db.execSQL("DELETE FROM "+taskHelper.TABLE_TASK_INSIGHT);
-        Log.d("DB","Insight Table Rows Deleted");
-        taskHelper.close();
-        db.close();
-    }
 }

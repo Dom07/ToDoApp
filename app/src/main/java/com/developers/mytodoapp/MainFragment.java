@@ -182,7 +182,7 @@ public class MainFragment extends Fragment {
 //    Check for the number of active tasks in db, if 0 then display msg if more then 0 hide msg
     public void noTaskMsgToggle(View view){
         tvNoTask = (TextView)view.findViewById(R.id.tvNoTask);
-        int count = SqLiteTaskHelper.getActiveTaskRowCount(getContext());
+        int count = SqLiteTaskHelper.getNoOfPendingTask(getContext());
         if(count==0){
             tvNoTask.setVisibility(TextView.VISIBLE);
         }else{

@@ -26,19 +26,18 @@
         android:layout_below="@+id/tvLabelCTask"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:text="No. Of Incomplete Tasks :" />
+        android:text="No. Of Pending Tasks :" />
 
     <TextView
         android:id="@+id/tvNoOfCompTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_alignBaseline="@+id/tvLabelCTask"
         android:layout_alignBottom="@+id/tvLabelCTask"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_toEndOf="@+id/tvLabelATask"
-        android:layout_toRightOf="@+id/tvLabelATask"
-        android:text="10" />
+        android:layout_toEndOf="@+id/tvLabelCTask"
+        android:text="10"
+        android:layout_toRightOf="@+id/tvLabelCTask" />
 
     <TextView
         android:id="@+id/tvNoOfInCompTask"
@@ -74,16 +73,6 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_below="@+id/tvLabelEfficiency" />
-
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_alignTop="@+id/tvNoOfCompTask"
-        android:layout_toRightOf="@+id/tvNoOfCompTask"
-        android:layout_marginLeft="10dp"
-         />
 
     <TextView
         android:id="@+id/tvNoData"

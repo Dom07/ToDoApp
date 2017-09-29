@@ -8,6 +8,10 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_timeline_black_24dp.png"
     },
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_arrow_drop_down_black_24dp.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_arrow_drop_down_black_24dp.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_home_black_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_home_black_24dp.png"
     },

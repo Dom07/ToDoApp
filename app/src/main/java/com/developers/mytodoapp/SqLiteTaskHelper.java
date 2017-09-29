@@ -74,6 +74,26 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public static void delItem(Context context,String TaskName){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
+        db.delete("TASK_LIST","TASK_NAME='"+TaskName+"'",null);
+        Log.d("DB","Task "+TaskName+" Deleted");
+        db.close();
+        sqLiteTaskHelper.close();
+    }
+
+    public static void changeStatus(Context context, String TaskName){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_STATUS","0");
+        db.update("TASK_LIST",values,"TASK_STATUS='"+2+"'",null);
+        Log.d("DB",TaskName+" status changed from 0 to 2");
+        db.close();
+        sqLiteTaskHelper.close();
+    }
+
     public void clearDb(Context context){
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();

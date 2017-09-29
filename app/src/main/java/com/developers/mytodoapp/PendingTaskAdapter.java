@@ -1,7 +1,6 @@
 package com.developers.mytodoapp;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,10 +47,17 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
+                        String TaskName;
                         switch (item.getItemId()){
                             case R.id.MenuItemTaskDelete:
+                                TaskName = holder.tvPendingTaskName.getText().toString();
+                                SqLiteTaskHelper.delItem(context,TaskName);
+                                Toast.makeText(context,"Task deleted successfully, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.MenuItemTaskRestore:
+                                TaskName = holder.tvPendingTaskName.getText().toString();
+                                SqLiteTaskHelper.changeStatus(context,TaskName);
+                                Toast.makeText(context,"Task restored to active task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                         }
                         return true;
@@ -68,9 +75,9 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvPendingTaskName;
-        ImageButton ibMenuButton;
-        TextView tvPendingTag;
+         TextView tvPendingTaskName;
+         ImageButton ibMenuButton;
+         TextView tvPendingTag;
 
         public MyViewHolder(View itemView) {
             super(itemView);

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 
         // Alarm Manager For Notification, Every Morning at 7 AM
-        //setAlarmManager();
+        setAlarmManager();
         // DataBase Clearer
         deleteDbData();
     }
@@ -205,8 +205,8 @@ public class MainActivity extends AppCompatActivity
     public void deleteDbData() {
         boolean check = (PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(getBaseContext(), ClearDbReceiver.class), PendingIntent.FLAG_NO_CREATE)) == null;
         if (check) {
-            int alarmHour=14;
-            int alarmMinutes=40;
+            int alarmHour=2;
+            int alarmMinutes=30;
             long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
             Calendar clearDbTime = Calendar.getInstance();
@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getBaseContext(), ClearDbReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
             Log.d("DB","Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
 //            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }else{

@@ -48,12 +48,12 @@
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/drawable/notification_tile_bg.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/drawable/abc_btn_radio_material.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/design_password_eye.xml",
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/drawable/design_password_eye.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/drawable/abc_btn_radio_material.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
@@ -82,10 +82,6 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/design_bottom_navigation_item_background.xml",
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/drawable/design_bottom_navigation_item_background.xml"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/design_ic_visibility.xml",
-        "source": "/root/.android/build-cache/444ed183ba78108857efcd170ff0eb713c9c90f9/output/res/drawable/design_ic_visibility.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",

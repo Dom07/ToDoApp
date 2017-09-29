@@ -12,10 +12,6 @@
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/layout/design_bottom_sheet_dialog.xml"
     },
@@ -32,20 +28,12 @@
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/layout/design_layout_snackbar.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_template_big_media.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
@@ -76,12 +64,12 @@
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
-        "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/layout/design_menu_item_action_area.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/layout/design_menu_item_action_area.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
@@ -144,10 +132,6 @@
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow_custom.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_template_big_media_narrow_custom.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/yesterdayspendingtaskitem.xml",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/layout/yesterdayspendingtaskitem.xml"
     },
@@ -182,10 +166,6 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/layout/design_layout_snackbar_include.xml"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_template_big_media_custom.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
@@ -266,10 +246,6 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/root/.android/build-cache/a73085d96c9bb50a7e4c1cf61b7dab2b3e1408c9/output/res/layout/notification_media_cancel_action.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/layout/completedtaskitem.xml",

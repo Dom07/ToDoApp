@@ -4,10 +4,6 @@
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim-v21/design_appbar_state_list_animator.xml",
-        "source": "/root/.android/build-cache/444ed183ba78108857efcd170ff0eb713c9c90f9/output/res/anim-v21/design_appbar_state_list_animator.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
         "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
     }

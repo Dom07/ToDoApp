@@ -12,13 +12,14 @@
                 android:icon="@drawable/ic_done_black_24dp"
                 android:title="Completed Task" />
             <item
+                android:id="@+id/nav_yesterdaysPending"
+                android:icon="@drawable/ic_library_books_black_24dp"
+                android:title="Yesterday's Pending Task" />
+            <item
                 android:id="@+id/nav_insights"
                 android:icon="@drawable/ic_timeline_black_24dp"
                 android:title="Insights" />
-            <item
-                android:id="@+id/nav_log"
-                android:icon="@drawable/ic_library_books_black_24dp"
-                android:title="Log" />
+
         </menu>
     </item>
 

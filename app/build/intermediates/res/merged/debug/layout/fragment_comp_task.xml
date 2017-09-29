@@ -5,6 +5,7 @@
     android:layout_margin="10dp"
     tools:context="com.developers.mytodoapp.CompTaskFragment"
     android:id="@+id/srlCompTaskFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="No task has been marked has completed yet."
+            android:text="No task has been marked has complete yet."
             android:textSize="20sp"/>
 
         <android.support.v7.widget.RecyclerView

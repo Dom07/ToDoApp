@@ -13,11 +13,8 @@ import android.util.Log;
 public class ClearDbReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = taskHelper.getWritableDatabase();
-        db.execSQL("DELETE FROM TASK_LIST");
-        Log.d("DB","Rows Deleted");
-        taskHelper.close();
-        db.close();
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        Log.d("DB","Executing DB Clear method");
+        sqLiteTaskHelper.clearDb(context);
     }
 }

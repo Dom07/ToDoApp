@@ -6,12 +6,10 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
-import android.text.format.DateFormat;
 import android.text.style.StrikethroughSpan;
 import android.util.Log;
 import android.view.View;
@@ -27,8 +25,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -58,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 
         // Alarm Manager For Notification, Every Morning at 7 AM
-        setAlarmManager();
+        //setAlarmManager();
         // DataBase Clearer
         deleteDbData();
     }
@@ -94,9 +90,9 @@ public class MainActivity extends AppCompatActivity
             setTitle("Insights");
             fragmentManager.beginTransaction().replace(R.id.fragment, new InsightFragment()).commit();
 
-        } else if (id == R.id.nav_log) {
-            setTitle("Log");
-            fragmentManager.beginTransaction().replace(R.id.fragment, new LogFragment()).commit();
+        } else if (id == R.id.nav_yesterdaysPending) {
+            setTitle("Yesterday's Pending Task");
+            fragmentManager.beginTransaction().replace(R.id.fragment, new YesterdaysPendingFragment()).commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -196,19 +192,21 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getBaseContext(),NotificationReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_HOUR,pendingIntent);
-            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
+            Log.d("Notification Service","Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
+//            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
         }else {
 //            if alarm already exist just show toast
-            Toast.makeText(getBaseContext(),"Alarm Service Already Exist",Toast.LENGTH_SHORT).show();
+            Log.d("Notification Service","Alarm Service Already Exist");
+//            Toast.makeText(getBaseContext(),"Alarm Service Already Exist",Toast.LENGTH_SHORT).show();
         }
     }
 
     public void deleteDbData() {
         boolean check = (PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(getBaseContext(), ClearDbReceiver.class), PendingIntent.FLAG_NO_CREATE)) == null;
         if (check) {
-            int alarmHour=2;
-            int alarmMinutes=30;
+            int alarmHour=14;
+            int alarmMinutes=40;
             long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
             Calendar clearDbTime = Calendar.getInstance();
@@ -238,11 +236,13 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getBaseContext(), ClearDbReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_HOUR, pendingIntent);
-            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+            Log.d("DB","Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
+//            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }else{
+                Log.d("DB","DbClear Service Already Exist");
 //            if service already exist
-            Toast.makeText(getBaseContext(),"DbClear Service Already Exist",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getBaseContext(),"DbClear Service Already Exist",Toast.LENGTH_SHORT).show();
         }
     }
 }

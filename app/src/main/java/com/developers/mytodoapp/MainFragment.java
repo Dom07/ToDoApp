@@ -110,7 +110,7 @@ public class MainFragment extends Fragment {
                         values1.put(taskHelper.KEY_STATUS,Task_Status);
                         long row1 = db.insert(taskHelper.TABLE_TASK_INSIGHT,null,values1);
                         Log.d("TASK_INSIGHT","Task "+TaskName+ "inserted successfully");
-                        Toast.makeText(getContext(), "row number is: "+row+" and "+row1, Toast.LENGTH_SHORT).show();
+//                      Toast.makeText(getContext(), "row number is: "+row+" and "+row1, Toast.LENGTH_SHORT).show();
                         db.close();
                         taskHelper.close();
 //                      Method to check weather to Display A Message (or not) on the home screen if no active task available

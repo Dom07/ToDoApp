@@ -24,7 +24,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 .setContentTitle("Plan Your Day")
                 .setContentText("List down the tasks you want to accomplish today")
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                .setSmallIcon(R.drawable.ic_library_books_black_24dp);
+                .setSmallIcon(R.mipmap.ic_launcher);
         notificationManager.notify(100, builder.build());
     }
 }

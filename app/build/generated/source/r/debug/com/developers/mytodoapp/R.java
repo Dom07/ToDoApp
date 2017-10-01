@@ -3200,13 +3200,13 @@ containing a value of this type.
         public static final int fragment=0x7f0e0082;
         public static final int home=0x7f0e0004;
         public static final int homeAsUp=0x7f0e001c;
-        public static final int ibMenuButton=0x7f0e00c2;
         public static final int icon=0x7f0e0050;
         public static final int icon_group=0x7f0e00b6;
         public static final int ifRoom=0x7f0e0043;
         public static final int image=0x7f0e004d;
         public static final int info=0x7f0e00b2;
         public static final int item_touch_helper_previous_elevation=0x7f0e0005;
+        public static final int ivMenuButton=0x7f0e00c2;
         public static final int ivTaskDelete=0x7f0e0081;
         public static final int largeLabel=0x7f0e0084;
         public static final int left=0x7f0e0034;

@@ -148,8 +148,9 @@ public class MainActivity extends AppCompatActivity
                 db.close();
                 taskHelper.close();
                 taskName.setSpan(new StrikethroughSpan(),0,taskName.length(),0);
-                ivTaskDelete.setVisibility(View.INVISIBLE);
                 tvCompletedTask.setText(taskName);
+                ivTaskDelete.setVisibility(View.INVISIBLE);
+
             }
         });
         builder.setNegativeButton("No", null);

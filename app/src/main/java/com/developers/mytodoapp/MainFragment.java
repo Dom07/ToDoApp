@@ -21,7 +21,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 /**
@@ -86,7 +85,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
                         final String Task_Id = null;
-                        final String Task_Status = "2";
+                        final String Task_Status = "0";
                         ContentValues values = new ContentValues();
                         values.put("TASK_ID", Task_Id);
                         values.put("TASK_NAME", TaskName);

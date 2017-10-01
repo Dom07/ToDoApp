@@ -1,13 +1,18 @@
 package com.developers.mytodoapp;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,11 +43,11 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         Task task = PendingTaskList.get(position);
         holder.tvPendingTaskName.setText(task.getTaskName());
         holder.tvPendingTag.setText(task.getTags());
-        holder.ibMenuButton.setOnClickListener(new View.OnClickListener() {
+        holder.ivMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                PopupMenu popupMenu = new PopupMenu(context, holder.ibMenuButton);
+                PopupMenu popupMenu = new PopupMenu(context, holder.ivMenuButton);
                 popupMenu.inflate(R.menu.pending_menu);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -52,14 +57,18 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                             case R.id.MenuItemTaskDelete:
                                 TaskName = holder.tvPendingTaskName.getText().toString();
                                 SqLiteTaskHelper.delItem(context,TaskName);
-                                YesterdaysPendingFragment fragment = new YesterdaysPendingFragment();
-                                holder.ibMenuButton.setVisibility(View.INVISIBLE);
+                                holder.ivMenuButton.setVisibility(View.INVISIBLE);
+                                SpannableString spTaskName = SpannableString.valueOf(TaskName);
+                                spTaskName.setSpan(new StrikethroughSpan(),0,spTaskName.length(),0);
+                                holder.tvPendingTaskName.setText(spTaskName);
                                 Toast.makeText(context,"Task deleted successfully, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
+
                             case R.id.MenuItemTaskRestore:
                                 TaskName = holder.tvPendingTaskName.getText().toString();
                                 SqLiteTaskHelper.changeStatus(context,TaskName);
-                                holder.ibMenuButton.setVisibility(View.INVISIBLE);
+                                holder.ivMenuButton.setVisibility(View.INVISIBLE);
+                                holder.tvPendingTaskName.setText(TaskName+" (Restored)");
                                 Toast.makeText(context,"Task restored to active task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                         }
@@ -79,14 +88,14 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
          TextView tvPendingTaskName;
-         ImageButton ibMenuButton;
+         ImageView ivMenuButton;
          TextView tvPendingTag;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvPendingTaskName= (TextView)itemView.findViewById(R.id.tvPendingTaskName);
             tvPendingTag = (TextView)itemView.findViewById(R.id.tvPendingTag);
-            ibMenuButton = (ImageButton) itemView.findViewById(R.id.ibMenuButton);
+            ivMenuButton = (ImageView) itemView.findViewById(R.id.ivMenuButton);
         }
     }
 }

@@ -25,8 +25,8 @@ import java.util.jar.Manifest;
 public class YesterdaysPendingFragment extends Fragment {
 
     RecyclerView rvYesterdaysPendingTask;
-    ArrayList<Task> PendingTaskList = new ArrayList<Task>();
-    PendingTaskAdapter pendingTaskAdapter;
+    ArrayList<Task> pendingTaskList = new ArrayList<Task>();
+    PendingTaskAdapter pendingTaskAdapter = new PendingTaskAdapter(pendingTaskList,getContext());
     SwipeRefreshLayout srlYesterdaysPendingLayout;
     TextView tvNoPendingTaskYest;
 
@@ -37,8 +37,8 @@ public class YesterdaysPendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_yesterdayspending, container, false);
-        pendingTaskAdapter= new PendingTaskAdapter(PendingTaskList, getContext());
+        final View view = inflater.inflate(R.layout.fragment_yesterdayspending, container, false);
+        pendingTaskAdapter= new PendingTaskAdapter(pendingTaskList, getContext());
         rvYesterdaysPendingTask = (RecyclerView)view.findViewById(R.id.rvYesterdaysPendingTask);
         srlYesterdaysPendingLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlYesterdaysPendingLayout);
         tvNoPendingTaskYest = (TextView)view.findViewById(R.id.tvNoPendingTaskYest);
@@ -65,8 +65,8 @@ public class YesterdaysPendingFragment extends Fragment {
         return view;
     }
 
-    private void preparePendingTaskList(Context context){
-        PendingTaskList.clear();
+    public void preparePendingTaskList(Context context){
+        pendingTaskList.clear();
         SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
         String Projection[]={"TASK_NAME","TASK_TAGS","TASK_STATUS"};
@@ -75,7 +75,7 @@ public class YesterdaysPendingFragment extends Fragment {
             String status_check = cursor.getString(2);
             if (status_check.equals("2")) {
                 Task task = new Task(cursor.getString(0), cursor.getString(1));
-                PendingTaskList.add(task);
+                pendingTaskList.add(task);
             }
         }
         cursor.close();
@@ -92,5 +92,7 @@ public class YesterdaysPendingFragment extends Fragment {
             tvNoPendingTaskYest.setVisibility(View.INVISIBLE);
         }
     }
+
+
 
 }

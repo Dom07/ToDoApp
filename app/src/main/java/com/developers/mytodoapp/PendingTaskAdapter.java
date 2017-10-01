@@ -34,7 +34,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Task task = PendingTaskList.get(position);
         holder.tvPendingTaskName.setText(task.getTaskName());
         holder.tvPendingTag.setText(task.getTags());
@@ -52,11 +52,14 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                             case R.id.MenuItemTaskDelete:
                                 TaskName = holder.tvPendingTaskName.getText().toString();
                                 SqLiteTaskHelper.delItem(context,TaskName);
+                                YesterdaysPendingFragment fragment = new YesterdaysPendingFragment();
+                                holder.ibMenuButton.setVisibility(View.INVISIBLE);
                                 Toast.makeText(context,"Task deleted successfully, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.MenuItemTaskRestore:
                                 TaskName = holder.tvPendingTaskName.getText().toString();
                                 SqLiteTaskHelper.changeStatus(context,TaskName);
+                                holder.ibMenuButton.setVisibility(View.INVISIBLE);
                                 Toast.makeText(context,"Task restored to active task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                         }

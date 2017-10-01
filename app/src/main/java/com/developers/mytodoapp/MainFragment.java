@@ -1,7 +1,5 @@
 package com.developers.mytodoapp;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,20 +17,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -96,7 +86,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
                         final String Task_Id = null;
-                        final String Task_Status = "0";
+                        final String Task_Status = "2";
                         ContentValues values = new ContentValues();
                         values.put("TASK_ID", Task_Id);
                         values.put("TASK_NAME", TaskName);
@@ -104,13 +94,7 @@ public class MainFragment extends Fragment {
                         values.put("TASK_STATUS", Task_Status);
                         long row = db.insert("TASK_LIST", null, values);
                         Log.d("TASK_LIST","Task "+TaskName+ "inserted successfully");
-                        ContentValues values1 = new ContentValues();
-                        values1.put(taskHelper.KEY_ID,Task_Id);
-                        values1.put(taskHelper.KEY_NAME,TaskName);
-                        values1.put(taskHelper.KEY_STATUS,Task_Status);
-                        long row1 = db.insert(taskHelper.TABLE_TASK_INSIGHT,null,values1);
-                        Log.d("TASK_INSIGHT","Task "+TaskName+ "inserted successfully");
-//                      Toast.makeText(getContext(), "row number is: "+row+" and "+row1, Toast.LENGTH_SHORT).show();
+//                      Toast.makeText(getContext(), "row number is: "+row, Toast.LENGTH_SHORT).show();
                         db.close();
                         taskHelper.close();
 //                      Method to check weather to Display A Message (or not) on the home screen if no active task available

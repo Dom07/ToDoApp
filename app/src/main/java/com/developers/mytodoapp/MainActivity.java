@@ -21,6 +21,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -110,10 +112,6 @@ public class MainActivity extends AppCompatActivity
             values.put("TASK_STATUS", "1");
             db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
             Log.d("TASK_LIST","Task "+TaskName+" status set to 1");
-            ContentValues values1 = new ContentValues();
-            values1.put(taskHelper.KEY_STATUS,"1");
-            db.update(taskHelper.TABLE_TASK_INSIGHT,values1,"TASK_INSIGHT_NAME='"+TaskName+"'",null);
-            Log.d("TASK_INSIGHT","Task "+TaskName+" status set to 1");
             db.close();
             taskHelper.close();
             Toast.makeText(getBaseContext(),"Task moved to completed task list. Swipe down to refresh",Toast.LENGTH_SHORT).show();
@@ -139,6 +137,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 RelativeLayout rlCompletedTask = (RelativeLayout) view.findViewById(R.id.ivTaskDelete).getParent();
+                ImageView ivTaskDelete = (ImageView) view.findViewById(R.id.ivTaskDelete);
                 TextView tvCompletedTask = (TextView) rlCompletedTask.findViewById(R.id.tvCompletedTaskName);
                 SpannableString taskName = SpannableString.valueOf(tvCompletedTask.getText().toString());
                 SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(getBaseContext());
@@ -149,6 +148,7 @@ public class MainActivity extends AppCompatActivity
                 db.close();
                 taskHelper.close();
                 taskName.setSpan(new StrikethroughSpan(),0,taskName.length(),0);
+                ivTaskDelete.setVisibility(View.INVISIBLE);
                 tvCompletedTask.setText(taskName);
             }
         });
@@ -193,11 +193,11 @@ public class MainActivity extends AppCompatActivity
             PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
             alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
-            Log.d("Notification Service","Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
+            Log.d("AlarmManager","Time Remaining for Notification Reminder: "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
 //            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
         }else {
 //            if alarm already exist just show toast
-            Log.d("Notification Service","Alarm Service Already Exist");
+            Log.d("AlarmManager","Alarm Service Already Exist");
 //            Toast.makeText(getBaseContext(),"Alarm Service Already Exist",Toast.LENGTH_SHORT).show();
         }
     }
@@ -237,10 +237,10 @@ public class MainActivity extends AppCompatActivity
             PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
             alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-            Log.d("DB","Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
+            Log.d("AlarmManager","Time Remaining For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
 //            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }else{
-                Log.d("DB","DbClear Service Already Exist");
+                Log.d("AlarmManager","DbClear Service Already Exist");
 //            if service already exist
 //            Toast.makeText(getBaseContext(),"DbClear Service Already Exist",Toast.LENGTH_SHORT).show();
         }

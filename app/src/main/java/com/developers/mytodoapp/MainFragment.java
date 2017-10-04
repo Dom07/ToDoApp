@@ -102,6 +102,7 @@ public class MainFragment extends Fragment {
                     }
                 });
                 AlertDialog dialog = builder.create();
+                dialog.getWindow().getAttributes().windowAnimations=R.style.DialogAnimationUpDown;
                 dialog.show();
             }
         });

@@ -61,7 +61,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                                 SpannableString spTaskName = SpannableString.valueOf(TaskName);
                                 spTaskName.setSpan(new StrikethroughSpan(),0,spTaskName.length(),0);
                                 holder.tvPendingTaskName.setText(spTaskName);
-                                Toast.makeText(context,"Task deleted successfully, swipe down to refresh",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Task deleted, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.MenuItemTaskRestore:
@@ -69,7 +69,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                                 SqLiteTaskHelper.changeStatus(context,TaskName);
                                 holder.ivMenuButton.setVisibility(View.INVISIBLE);
                                 holder.tvPendingTaskName.setText(TaskName+" (Restored)");
-                                Toast.makeText(context,"Task restored to active task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Task added to today's task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
                                 break;
                         }
                         return true;

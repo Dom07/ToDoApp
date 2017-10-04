@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             Log.d("TASK_LIST","Task "+TaskName+" status set to 1");
             db.close();
             taskHelper.close();
-            Toast.makeText(getBaseContext(),"Task moved to completed task list. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(),"Great! Swipe down to refresh",Toast.LENGTH_SHORT).show();
         }else{
             SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(getBaseContext());
             String TaskName = ((CheckBox) view).getText().toString();
@@ -124,18 +124,12 @@ public class MainActivity extends AppCompatActivity
             db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
             db.close();
             taskHelper.close();
-            Toast.makeText(getBaseContext(),"Task restored to Active Task List. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(),"Task restored",Toast.LENGTH_SHORT).show();
         }
     }
 
     // This method is directly set on the image-icon trash button in completed task list
     public void onDelete(final View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Confirmation");
-        builder.setMessage("Are you sure you want to delete this task?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
                 RelativeLayout rlCompletedTask = (RelativeLayout) view.findViewById(R.id.ivTaskDelete).getParent();
                 ImageView ivTaskDelete = (ImageView) view.findViewById(R.id.ivTaskDelete);
                 TextView tvCompletedTask = (TextView) rlCompletedTask.findViewById(R.id.tvCompletedTaskName);
@@ -144,18 +138,12 @@ public class MainActivity extends AppCompatActivity
                 SQLiteDatabase db = taskHelper.getWritableDatabase();
                 db.delete("TASK_LIST", "TASK_NAME='" + taskName + "'", null);
                 Log.d("TASK_LIST", "Task "+taskName+" deleted");
-                Toast.makeText(getBaseContext(),"Task Deleted Successfully. Swipe down to refresh",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"Task Deleted. Swipe down to refresh",Toast.LENGTH_SHORT).show();
                 db.close();
                 taskHelper.close();
                 taskName.setSpan(new StrikethroughSpan(),0,taskName.length(),0);
                 tvCompletedTask.setText(taskName);
                 ivTaskDelete.setVisibility(View.INVISIBLE);
-
-            }
-        });
-        builder.setNegativeButton("No", null);
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     public void setAlarmManager(){

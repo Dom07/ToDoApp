@@ -34,7 +34,7 @@ public class MainFragment extends Fragment {
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;
     ArrayList<Task> taskArrayList = new ArrayList<Task>();
-    TaskAdapter taskAdapter = new TaskAdapter(taskArrayList);
+    TaskAdapter taskAdapter;
 
     //  newTask popup window layout objects
     EditText etNewTag;
@@ -53,7 +53,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
-
+        taskAdapter =  new TaskAdapter(taskArrayList,getContext());
 //      Method to check weather to Display A Message (or not) on the home screen if no active task available
         noTaskMsgToggle(view);
 

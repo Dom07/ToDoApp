@@ -3129,8 +3129,9 @@ containing a value of this type.
         public static final int notify_panel_notification_icon_bg=0x7f02006c;
     }
     public static final class id {
-        public static final int MenuItemTaskDelete=0x7f0e00ca;
-        public static final int MenuItemTaskRestore=0x7f0e00c9;
+        public static final int MenuItemTaskDelete=0x7f0e00cb;
+        public static final int MenuItemTaskRestore=0x7f0e00ca;
+        public static final int TaskMenuItemDelete=0x7f0e00cc;
         public static final int action0=0x7f0e00a8;
         public static final int action_bar=0x7f0e006b;
         public static final int action_bar_activity_content=0x7f0e0000;
@@ -3206,24 +3207,25 @@ containing a value of this type.
         public static final int image=0x7f0e004d;
         public static final int info=0x7f0e00b2;
         public static final int item_touch_helper_previous_elevation=0x7f0e0005;
-        public static final int ivMenuButton=0x7f0e00c2;
+        public static final int ivMenuButton=0x7f0e00c3;
         public static final int ivTaskDelete=0x7f0e0081;
+        public static final int ivTaskMenuButton=0x7f0e00bf;
         public static final int largeLabel=0x7f0e0084;
         public static final int left=0x7f0e0034;
         public static final int line1=0x7f0e00b7;
         public static final int line3=0x7f0e00b9;
         public static final int listMode=0x7f0e0018;
         public static final int list_item=0x7f0e004f;
-        public static final int masked=0x7f0e00c4;
+        public static final int masked=0x7f0e00c5;
         public static final int media_actions=0x7f0e00ab;
         public static final int middle=0x7f0e0040;
         public static final int mini=0x7f0e003e;
         public static final int multiply=0x7f0e0027;
-        public static final int nav_completedTask=0x7f0e00c6;
-        public static final int nav_home=0x7f0e00c5;
-        public static final int nav_insights=0x7f0e00c8;
+        public static final int nav_completedTask=0x7f0e00c7;
+        public static final int nav_home=0x7f0e00c6;
+        public static final int nav_insights=0x7f0e00c9;
         public static final int nav_view=0x7f0e007b;
-        public static final int nav_yesterdaysPending=0x7f0e00c7;
+        public static final int nav_yesterdaysPending=0x7f0e00c8;
         public static final int navigation_header_container=0x7f0e0089;
         public static final int never=0x7f0e0044;
         public static final int none=0x7f0e0017;
@@ -3319,16 +3321,16 @@ containing a value of this type.
         public static final int tvNoOfInCompTask=0x7f0e0095;
         public static final int tvNoPendingTaskYest=0x7f0e00a0;
         public static final int tvNoTask=0x7f0e009a;
-        public static final int tvPendingTag=0x7f0e00c1;
-        public static final int tvPendingTagHeader=0x7f0e00c0;
-        public static final int tvPendingTaskName=0x7f0e00bf;
+        public static final int tvPendingTag=0x7f0e00c2;
+        public static final int tvPendingTagHeader=0x7f0e00c1;
+        public static final int tvPendingTaskName=0x7f0e00c0;
         public static final int tvTagHeader=0x7f0e00bd;
         public static final int tvTags=0x7f0e00be;
         public static final int tvTaskName=0x7f0e00bc;
         public static final int up=0x7f0e000d;
         public static final int useLogo=0x7f0e0020;
         public static final int view_offset_helper=0x7f0e000e;
-        public static final int visible=0x7f0e00c3;
+        public static final int visible=0x7f0e00c4;
         public static final int withText=0x7f0e0045;
         public static final int wrap=0x7f0e0011;
         public static final int wrap_content=0x7f0e002c;
@@ -3420,6 +3422,7 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_main_drawer=0x7f0f0000;
         public static final int pending_menu=0x7f0f0001;
+        public static final int task_menu=0x7f0f0002;
     }
     public static final class mipmap {
         public static final int ic_delete_icon=0x7f030000;

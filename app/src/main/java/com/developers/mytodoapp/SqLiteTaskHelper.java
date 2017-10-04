@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
 import android.util.Log;
 
 /**
@@ -120,6 +121,18 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         }else{
             Log.d("TASK_LIST","No Task with status 0 available to change to status 2");
         }
+        db.close();
+        sqLiteTaskHelper.close();
+    }
+
+    public static void editDetails(Context context,String TaskName,String EditedTaskName,String EditedTags){
+        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_NAME",EditedTaskName);
+        values.put("TASK_TAGS", EditedTags);
+        db.update("TASK_LIST",values,"TASK_NAME='"+TaskName+"'",null);
+        Log.d("TASK_LIST",TaskName+"edited to"+EditedTaskName);
         db.close();
         sqLiteTaskHelper.close();
     }

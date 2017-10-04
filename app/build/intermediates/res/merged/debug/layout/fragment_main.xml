@@ -34,9 +34,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="25dp"
+        android:layout_marginRight="50dp"
         android:src="@drawable/ic_add_white_24dp"
         app:backgroundTint="@color/colorAccent"
         app:elevation="5dp"
-        />
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp" />
 </RelativeLayout>

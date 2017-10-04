@@ -5,16 +5,16 @@
         <menu>
             <item
                 android:id="@+id/nav_home"
-                android:icon="@drawable/ic_home_black_24dp"
-                android:title="Home" />
+                android:icon="@drawable/ic_today_black_24dp"
+                android:title="Today's To-Do List" />
             <item
                 android:id="@+id/nav_completedTask"
                 android:icon="@drawable/ic_done_black_24dp"
-                android:title="Completed Task" />
+                android:title="Completed Tasks" />
             <item
                 android:id="@+id/nav_yesterdaysPending"
-                android:icon="@drawable/ic_library_books_black_24dp"
-                android:title="Yesterday's Pending Task" />
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Yesterday's Incomplete Tasks" />
             <item
                 android:id="@+id/nav_insights"
                 android:icon="@drawable/ic_timeline_black_24dp"

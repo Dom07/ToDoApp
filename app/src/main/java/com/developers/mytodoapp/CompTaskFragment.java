@@ -53,7 +53,8 @@ public class CompTaskFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                prepareCompletedTask(getContext());
+                swipeRefreshLayout.setRefreshing(true);
+                refreshTaskList(getContext());
                 swipeRefreshLayout.setRefreshing(false);
                 noDataMsgToggle();
             }
@@ -92,5 +93,11 @@ public class CompTaskFragment extends Fragment {
         }else{
             tvNoDataCompFrag.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private void refreshTaskList(Context context){
+        rvCompletedTaskList.setAdapter(null);
+        rvCompletedTaskList.setAdapter(completedTaskAdapter);
+        prepareCompletedTask(context);
     }
 }

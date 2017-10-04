@@ -85,7 +85,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
                         final String Task_Id = null;
-                        final String Task_Status = "0";
+                        final String Task_Status = "1";
                         ContentValues values = new ContentValues();
                         values.put("TASK_ID", Task_Id);
                         values.put("TASK_NAME", TaskName);
@@ -117,6 +117,7 @@ public class MainFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
                 refreshTaskList(getContext());
                 noTaskMsgToggle(view);
                 swipeRefreshLayout.setRefreshing(false);
@@ -154,7 +155,7 @@ public class MainFragment extends Fragment {
         taskAdapter.notifyDataSetChanged();
     }
 
-    public void refreshTaskList(Context context){
+    private void refreshTaskList(Context context){
 
 //      un-setting and resetting the adapter so the view is redrawn without old style
         rvTaskList.setAdapter(null);

@@ -52,7 +52,8 @@ public class YesterdaysPendingFragment extends Fragment {
         srlYesterdaysPendingLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                preparePendingTaskList(getContext());
+                srlYesterdaysPendingLayout.setRefreshing(true);
+                refreshTaskList(getContext());
                 noDataMsgToggle();
                 srlYesterdaysPendingLayout.setRefreshing(false);
             }
@@ -93,6 +94,10 @@ public class YesterdaysPendingFragment extends Fragment {
         }
     }
 
-
+    private void refreshTaskList(Context context){
+        rvYesterdaysPendingTask.setAdapter(null);
+        rvYesterdaysPendingTask.setAdapter(pendingTaskAdapter);
+        preparePendingTaskList(context);
+    }
 
 }

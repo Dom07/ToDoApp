@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Oct 04 18:49:18 IST 2017
+#Wed Oct 04 19:06:11 IST 2017
 210.set=ANDROID_RESOURCE
 282.file=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/resources-debug.ap_/res/color/abc_tint_btn_checkable.xml
 14.set=ANDROID_RESOURCE

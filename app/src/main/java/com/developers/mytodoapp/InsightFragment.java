@@ -86,13 +86,14 @@ public class InsightFragment extends Fragment {
     }
 
     private void setXValues(){
-        xValues.add("Completed Task");
-        xValues.add("Pending Task");
+        xValues.add("Completed Tasks");
+        xValues.add("Incomplete Tasks");
     }
 
     private void setDataSet(){
         dataSet = new PieDataSet(yValues,"");
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
+        dataSet.setValueTextSize(15);
     }
 
     private void setData(){

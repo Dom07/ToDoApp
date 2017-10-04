@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="No task has been marked has complete yet."
+            android:text="This list is empty, complete some tasks to see them here."
             android:textSize="20sp"/>
 
         <android.support.v7.widget.RecyclerView

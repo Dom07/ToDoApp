@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_home) {
-            setTitle("Home");
+            setTitle("Today's To-Do List");
 
             fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.fragment, new InsightFragment()).commit();
 
         } else if (id == R.id.nav_yesterdaysPending) {
-            setTitle("Yesterday's Pending Task");
+            setTitle("Yesterday's Incomplete Task");
             fragmentManager.beginTransaction().replace(R.id.fragment, new YesterdaysPendingFragment()).commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

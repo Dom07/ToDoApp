@@ -85,7 +85,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Tags = etNewTag.getText().toString().trim();
                         final String Task_Id = null;
-                        final String Task_Status = "1";
+                        final String Task_Status = "0";
                         ContentValues values = new ContentValues();
                         values.put("TASK_ID", Task_Id);
                         values.put("TASK_NAME", TaskName);

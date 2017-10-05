@@ -49,7 +49,7 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -98,7 +98,7 @@ public class MainFragment extends Fragment {
                         taskHelper.close();
 //                      Method to check weather to Display A Message (or not) on the home screen if no active task available
                         noTaskMsgToggle(view);
-                        prepareTask(getContext());
+                        refreshTaskList(getContext());
                     }
                 });
                 AlertDialog dialog = builder.create();

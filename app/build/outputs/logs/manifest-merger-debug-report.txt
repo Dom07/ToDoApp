@@ -38,7 +38,7 @@ MERGED from [com.android.support:support-compat:25.3.1] /root/.android/build-cac
 	android:supportsRtl
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:12:9-35
 	android:roundIcon
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:11:9-54
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:11:9-48
 	android:allowBackup
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:8:9-36
 	android:icon

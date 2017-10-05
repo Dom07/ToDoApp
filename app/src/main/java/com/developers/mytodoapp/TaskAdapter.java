@@ -66,7 +66,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                                 SqLiteTaskHelper.delItem(context,TaskName);
                                 holder.tvTaskName.setText(SSTaskName);
                                 holder.ivTaskMenuButton.setVisibility(View.INVISIBLE);
-                                Toast.makeText(context,"Task Deleted",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Task Deleted, Swipe to Refresh",Toast.LENGTH_SHORT).show();
                                 break;
                         }
                         return false;

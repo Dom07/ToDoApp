@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Set the default home fragment
-        setTitle("Home");
+        setTitle("Today's To-Do List");
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
 

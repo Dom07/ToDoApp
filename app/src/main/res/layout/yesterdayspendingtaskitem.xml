@@ -15,34 +15,19 @@
 
     <TextView
         android:id="@+id/tvPendingTaskName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TaskName"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvPendingTagHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tags:"
-        android:layout_below="@+id/tvPendingTaskName"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:textSize="15sp"/>
-
-    <TextView
-        android:id="@+id/tvPendingTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tag1,tag2,tag3"
-        android:layout_below="@+id/tvPendingTagHeader"
-        android:textSize="12sp"/>
+        android:layout_alignTop="@+id/ivMenuButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="10dp"/>
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/ivMenuButton"
         android:src="@drawable/ic_arrow_drop_down_black_24dp"
         android:layout_centerVertical="true"

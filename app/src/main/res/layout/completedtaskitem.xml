@@ -16,42 +16,28 @@
 
     <TextView
         android:id="@+id/tvCompletedTaskName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TaskName"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvCompletedTagHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tags:"
-        android:layout_below="@+id/tvCompletedTaskName"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:textSize="15sp"/>
-
-    <TextView
-        android:id="@+id/tvCompletedTags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tag1,tag2,tag3"
-        android:layout_below="@+id/tvCompletedTagHeader"
-        android:textSize="12sp"/>
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="10dp"/>
 
     <ImageView
         android:id="@+id/ivTaskDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_delete_icon"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:onClick="onDelete"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="14dp"
-        android:layout_marginEnd="14dp"
-        android:onClick="onDelete" />
+        />
 
 
 </RelativeLayout>

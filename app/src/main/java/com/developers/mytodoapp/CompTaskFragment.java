@@ -71,12 +71,12 @@ public class CompTaskFragment extends Fragment {
         completedTaskList.clear();
         SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
-        String Projection[]={"TASK_NAME","TASK_TAGS","TASK_STATUS"};
+        String Projection[]={"TASK_NAME", "TASK_STATUS"};
         Cursor cursor = db.query("TASK_LIST",Projection,null,null,null,null,null);
         while(cursor.moveToNext()) {
-            String status_check = cursor.getString(2);
+            String status_check = cursor.getString(1);
             if (status_check.equals("1")) {
-                Task task = new Task(cursor.getString(0), cursor.getString(1));
+                Task task = new Task(cursor.getString(0));
                 completedTaskList.add(task);
             }
         }

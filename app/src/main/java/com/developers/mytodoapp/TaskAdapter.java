@@ -51,7 +51,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         final SpannableString SSTaskName = SpannableString.valueOf(TaskName);
         SSTaskName.setSpan(new StrikethroughSpan(),0,SSTaskName.length(),0);
         holder.tvTaskName.setText(task.getTaskName());
-        holder.tvTags.setText(task.getTags());
         holder.ivTaskMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,14 +83,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTaskName;
-        TextView tvTags;
         ImageView ivTaskMenuButton;
 
         public MyViewHolder(View view) {
             super(view);
             tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
             ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
-            tvTags = (TextView)view.findViewById(R.id.tvTags);
             ivTaskMenuButton = (ImageView)view.findViewById(R.id.ivTaskMenuButton);
         }
     }

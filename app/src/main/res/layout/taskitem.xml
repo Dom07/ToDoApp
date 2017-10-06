@@ -14,39 +14,21 @@
 
     <CheckBox
         android:id="@+id/tvTaskName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:text="testCheck"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="bold"
         android:checked="false"
-        android:onClick="onSelect" />
-
-    <TextView
-        android:id="@+id/tvTagHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTaskName"
-        android:layout_marginTop="5dp"
-        android:text="Tags:"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvTags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTagHeader"
-        android:text="tag1,tag2,tag3"
-        android:textSize="12sp" />
+        android:onClick="onSelect"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="10dp"/>
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/ivTaskMenuButton"
         android:src="@drawable/ic_arrow_drop_down_black_24dp"
         android:layout_centerVertical="true"
@@ -54,5 +36,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="5dp"
         android:layout_marginEnd="5dp"
+        android:padding="10dp"
         />
 </RelativeLayout>

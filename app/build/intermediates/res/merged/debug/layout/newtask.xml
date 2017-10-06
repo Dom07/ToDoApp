@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="100dp">
             <TextView
                 android:id="@+id/tvLabelTaskName"
                 android:layout_width="wrap_content"
@@ -25,26 +25,6 @@
                 android:layout_marginLeft="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                />
-
-            <TextView
-                android:id="@+id/tvLabelTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/etNewTaskName"
-                android:layout_marginLeft="25dp"
-                android:text="Enter Tags"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:layout_marginTop="25dp"/>
-
-            <EditText
-                android:id="@+id/etNewTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvLabelTags"
-                android:layout_marginLeft="25dp"
-                android:ems="10"
                 />
 
     </RelativeLayout>

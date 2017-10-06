@@ -42,7 +42,6 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Task task = PendingTaskList.get(position);
         holder.tvPendingTaskName.setText(task.getTaskName());
-        holder.tvPendingTag.setText(task.getTags());
         holder.ivMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,12 +88,10 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     public class MyViewHolder extends RecyclerView.ViewHolder{
          TextView tvPendingTaskName;
          ImageView ivMenuButton;
-         TextView tvPendingTag;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvPendingTaskName= (TextView)itemView.findViewById(R.id.tvPendingTaskName);
-            tvPendingTag = (TextView)itemView.findViewById(R.id.tvPendingTag);
             ivMenuButton = (ImageView) itemView.findViewById(R.id.ivMenuButton);
         }
     }

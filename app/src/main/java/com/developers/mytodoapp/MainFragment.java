@@ -37,7 +37,6 @@ public class MainFragment extends Fragment {
     TaskAdapter taskAdapter;
 
     //  newTask popup window layout objects
-    EditText etNewTag;
     EditText etNewTaskName;
 
 
@@ -69,8 +68,6 @@ public class MainFragment extends Fragment {
 //              New Task AlertBox code
                 View alertBox = inflater.inflate(R.layout.newtask, null);
                 etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
-                etNewTag = (EditText) alertBox.findViewById(R.id.etNewTags);
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("New Task");
                 builder.setView(alertBox);
@@ -83,13 +80,11 @@ public class MainFragment extends Fragment {
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
                         final String TaskName = etNewTaskName.getText().toString().trim();
-                        final String Tags = etNewTag.getText().toString().trim();
                         final String Task_Id = null;
                         final String Task_Status = "0";
                         ContentValues values = new ContentValues();
                         values.put("TASK_ID", Task_Id);
                         values.put("TASK_NAME", TaskName);
-                        values.put("TASK_TAGS", Tags);
                         values.put("TASK_STATUS", Task_Status);
                         long row = db.insert("TASK_LIST", null, values);
                         Log.d("TASK_LIST","Task "+TaskName+ "inserted");
@@ -139,14 +134,14 @@ public class MainFragment extends Fragment {
         taskArrayList.clear();
         SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
-        String Projection[] = {"TASK_NAME", "TASK_TAGS", "TASK_STATUS"};
+        String Projection[] = {"TASK_NAME", "TASK_STATUS"};
         Cursor cursor = db.query("TASK_LIST", Projection, null, null, null, null, null);
 
 //      Repopulating it
         while (cursor.moveToNext()) {
-            String status_check = cursor.getString(2);
+            String status_check = cursor.getString(1);
             if (status_check.equals("0")) {
-                Task task = new Task(cursor.getString(0), cursor.getString(1));
+                Task task = new Task(cursor.getString(0));
                 taskArrayList.add(task);
             }
         }

@@ -32,7 +32,6 @@ public class CompletedTaskAdapter extends RecyclerView.Adapter<CompletedTaskAdap
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Task task = TaskList.get(position);
         holder.tvCompletedTaskName.setText(task.getTaskName());
-        holder.tvCompletedTags.setText(task.getTags());
     }
 
     @Override
@@ -42,12 +41,10 @@ public class CompletedTaskAdapter extends RecyclerView.Adapter<CompletedTaskAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvCompletedTaskName;
-        TextView tvCompletedTags;
 
         public MyViewHolder(View view) {
             super(view);
             tvCompletedTaskName = (TextView)view.findViewById(R.id.tvCompletedTaskName);
-            tvCompletedTags = (TextView)view.findViewById(R.id.tvCompletedTags);
         }
     }
 }

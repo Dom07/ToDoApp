@@ -72,7 +72,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
         db.delete("TASK_LIST","TASK_NAME='"+TaskName+"'",null);
-        Log.d("TASK_LIST","Task "+TaskName+" Deleted");
+//        Log.d("TASK_LIST","Task "+TaskName+" Deleted");
         db.close();
         sqLiteTaskHelper.close();
     }
@@ -83,7 +83,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("TASK_STATUS","0");
         db.update("TASK_LIST",values,"TASK_NAME='"+TaskName+"'",null);
-        Log.d("TASK_LIST",TaskName+" status changed from 2 to 0");
+//        Log.d("TASK_LIST",TaskName+" status changed from 2 to 0");
         db.close();
         sqLiteTaskHelper.close();
     }
@@ -96,19 +96,19 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         int countNoOfCompleteTask = getNoOfCompletedTask(context);
         if(countNoOfCompleteTask!=0){
             db.delete("TASK_LIST","TASK_STATUS='"+1+"'",null);
-            Log.d("TASK_LIST","Tasks with status 1 has been deleted");
+//            Log.d("TASK_LIST","Tasks with status 1 has been deleted");
         }else{
-            Log.d("TASK_LIST","No Task with status 1 available to delete");
+//            Log.d("TASK_LIST","No Task with status 1 available to delete");
         }
 
 //        Deleting all abandoned PendingTasks
         int countNoOfYestPendingTask = getNoOfYesterdaysPendingTask(context);
         if (countNoOfYestPendingTask!=0){
             db.delete("TASK_LIST","TASK_STATUS='"+2+"'",null);
-            Log.d("TASK_LIST","Tasks with status 2 has been deleted");
+//            Log.d("TASK_LIST","Tasks with status 2 has been deleted");
 
         }else{
-            Log.d("TASK_LIST","No Task with status 2 available to delete");
+//            Log.d("TASK_LIST","No Task with status 2 available to delete");
         }
 
 //        Changing status of all incomplete tasks(status = 0) to yesterday's pending task(status = 2)
@@ -117,9 +117,9 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put("TASK_STATUS","2");
             db.update("TASK_LIST",values,"TASK_STATUS='"+0+"'",null);
-            Log.d("TASK_LIST","Tasks with status 0 has been changed to status 2");
+//            Log.d("TASK_LIST","Tasks with status 0 has been changed to status 2");
         }else{
-            Log.d("TASK_LIST","No Task with status 0 available to change to status 2");
+//            Log.d("TASK_LIST","No Task with status 0 available to change to status 2");
         }
         db.close();
         sqLiteTaskHelper.close();
@@ -132,7 +132,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         values.put("TASK_NAME",EditedTaskName);
         values.put("TASK_TAGS", EditedTags);
         db.update("TASK_LIST",values,"TASK_NAME='"+TaskName+"'",null);
-        Log.d("TASK_LIST",TaskName+"edited to"+EditedTaskName);
+//        Log.d("TASK_LIST",TaskName+"edited to"+EditedTaskName);
         db.close();
         sqLiteTaskHelper.close();
     }

@@ -40,41 +40,17 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Task task = PendingTaskList.get(position);
+        final Task task = PendingTaskList.get(position);
+        final SpannableString TaskName = SpannableString.valueOf(task.getTaskName().toString());
         holder.tvPendingTaskName.setText(task.getTaskName());
-        holder.ivMenuButton.setOnClickListener(new View.OnClickListener() {
+        holder.ivRestoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                PopupMenu popupMenu = new PopupMenu(context, holder.ivMenuButton);
-                popupMenu.inflate(R.menu.pending_menu);
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        String TaskName;
-                        switch (item.getItemId()){
-                            case R.id.MenuItemTaskDelete:
-                                TaskName = holder.tvPendingTaskName.getText().toString();
-                                SqLiteTaskHelper.delItem(context,TaskName);
-                                holder.ivMenuButton.setVisibility(View.INVISIBLE);
-                                SpannableString spTaskName = SpannableString.valueOf(TaskName);
-                                spTaskName.setSpan(new StrikethroughSpan(),0,spTaskName.length(),0);
-                                holder.tvPendingTaskName.setText(spTaskName);
-                                Toast.makeText(context,"Task deleted, swipe down to refresh",Toast.LENGTH_SHORT).show();
-                                break;
-
-                            case R.id.MenuItemTaskRestore:
-                                TaskName = holder.tvPendingTaskName.getText().toString();
-                                SqLiteTaskHelper.changeStatus(context,TaskName);
-                                holder.ivMenuButton.setVisibility(View.INVISIBLE);
-                                holder.tvPendingTaskName.setText(TaskName+" (Restored)");
-                                Toast.makeText(context,"Task added to today's task list, swipe down to refresh",Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                        return true;
-                    }
-                });
-                popupMenu.show();
+                SqLiteTaskHelper.changeStatus(context,task.getTaskName());
+                TaskName.setSpan(new StrikethroughSpan(),0,TaskName.length(),0);
+                holder.tvPendingTaskName.setText(TaskName);
+                Toast.makeText(context,"Task Restored",Toast.LENGTH_SHORT).show();
+                holder.ivRestoreButton.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -87,12 +63,12 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
          TextView tvPendingTaskName;
-         ImageView ivMenuButton;
+         ImageView ivRestoreButton;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvPendingTaskName= (TextView)itemView.findViewById(R.id.tvPendingTaskName);
-            ivMenuButton = (ImageView) itemView.findViewById(R.id.ivMenuButton);
+            ivRestoreButton = (ImageView) itemView.findViewById(R.id.ivRestoreButton);
         }
     }
 }

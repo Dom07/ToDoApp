@@ -21,23 +21,18 @@
         android:text="TaskName"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:id="@+id/ivTaskDelete"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_delete_icon"
-        android:layout_marginRight="14dp"
-        android:layout_marginEnd="14dp"
-        android:onClick="onDelete"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        />
+        app:srcCompat="@mipmap/ic_green_check"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

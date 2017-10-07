@@ -51,27 +51,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         final SpannableString SSTaskName = SpannableString.valueOf(TaskName);
         SSTaskName.setSpan(new StrikethroughSpan(),0,SSTaskName.length(),0);
         holder.tvTaskName.setText(task.getTaskName());
-        holder.ivTaskMenuButton.setOnClickListener(new View.OnClickListener() {
+        holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                PopupMenu popupMenu = new PopupMenu(context, holder.ivTaskMenuButton);
-                popupMenu.inflate(R.menu.task_menu);
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()){
-                            case R.id.TaskMenuItemDelete:
-                                SqLiteTaskHelper.delItem(context,TaskName);
-                                holder.tvTaskName.setText(SSTaskName);
-                                holder.ivTaskMenuButton.setVisibility(View.INVISIBLE);
-                                Toast.makeText(context,"Task Deleted, Swipe to Refresh",Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                        return false;
-                    }
-                });
-                popupMenu.show();
+                SqLiteTaskHelper.delItem(context,TaskName);
+                SSTaskName.setSpan(new StrikethroughSpan(),0,SSTaskName.length(),0);
+                holder.tvTaskName.setText(SSTaskName);
+                holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -83,13 +69,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTaskName;
-        ImageView ivTaskMenuButton;
+        ImageView ivTaskDeleteMain;
 
         public MyViewHolder(View view) {
             super(view);
             tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
             ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
-            ivTaskMenuButton = (ImageView)view.findViewById(R.id.ivTaskMenuButton);
+            ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
         }
     }
 }

@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,18 +84,22 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Task_Id = null;
                         final String Task_Status = "0";
-                        ContentValues values = new ContentValues();
-                        values.put("TASK_ID", Task_Id);
-                        values.put("TASK_NAME", TaskName);
-                        values.put("TASK_STATUS", Task_Status);
-                        long row = db.insert("TASK_LIST", null, values);
-                        Log.d("TASK_LIST","Task "+TaskName+ "inserted");
-                        Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
-                        db.close();
-                        taskHelper.close();
-//                      Method to check weather to Display A Message (or not) on the home screen if no active task available
-                        noTaskMsgToggle(view);
-                        refreshTaskList(getContext());
+                        if(TaskName.equals("")){
+                            Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
+                        }else{
+                            ContentValues values = new ContentValues();
+                            values.put("TASK_ID", Task_Id);
+                            values.put("TASK_NAME", TaskName);
+                            values.put("TASK_STATUS", Task_Status);
+                            long row = db.insert("TASK_LIST", null, values);
+//                            Log.d("TASK_LIST","Task "+TaskName+ "inserted");
+                            Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
+                            db.close();
+                            taskHelper.close();
+    //                      Method to check weather to Display A Message (or not) on the home screen if no active task available
+                            noTaskMsgToggle(view);
+                            refreshTaskList(getContext());
+                        }
                     }
                 });
                 AlertDialog dialog = builder.create();
@@ -125,7 +131,6 @@ public class MainFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
         return view;
-
     }
 
     public void prepareTask(Context context) {

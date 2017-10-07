@@ -60,12 +60,12 @@
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/anim/abc_popup_exit.xml"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/anim/abc_slide_in_top.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim/slide_up.xml",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/anim/slide_up.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/anim/abc_slide_in_top.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",

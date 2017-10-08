@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.nfc.Tag;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by dom on 14/8/17.
@@ -125,15 +126,26 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         sqLiteTaskHelper.close();
     }
 
-    public static void editDetails(Context context,String TaskName,String EditedTaskName,String EditedTags){
-        SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
+    public static void markTaskAsComplete(Context context, String TaskName){
+        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("TASK_NAME",EditedTaskName);
-        values.put("TASK_TAGS", EditedTags);
-        db.update("TASK_LIST",values,"TASK_NAME='"+TaskName+"'",null);
-//        Log.d("TASK_LIST",TaskName+"edited to"+EditedTaskName);
+        values.put("TASK_STATUS", "1");
+        db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
+//      Log.d("TASK_LIST", "Task " + TaskName + " status set to 1");
         db.close();
-        sqLiteTaskHelper.close();
+        taskHelper.close();
+        Toast.makeText(context, "Good Job! ", Toast.LENGTH_SHORT).show();
+    }
+
+    public static void markTaskAsNotComplete(Context context, String TaskName){
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_STATUS", "0");
+        db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
+        db.close();
+        taskHelper.close();
+        Toast.makeText(context, "Task restored", Toast.LENGTH_SHORT).show();
     }
 }

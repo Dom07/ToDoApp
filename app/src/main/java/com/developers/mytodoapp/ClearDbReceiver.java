@@ -14,7 +14,7 @@ public class ClearDbReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
-        Log.d("DB","Executing DB Clear method");
+//        Log.d("DB","Executing DB Clear method");
         sqLiteTaskHelper.clearDb(context);
     }
 }

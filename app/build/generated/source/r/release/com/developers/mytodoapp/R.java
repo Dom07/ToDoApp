@@ -3203,10 +3203,10 @@ containing a value of this type.
         public static final int icon_group=0x7f0d00b2;
         public static final int ifRoom=0x7f0d0043;
         public static final int image=0x7f0d004d;
+        public static final int imageView=0x7f0d007f;
         public static final int info=0x7f0d00ae;
         public static final int item_touch_helper_previous_elevation=0x7f0d0005;
-        public static final int ivMenuButton=0x7f0d00bb;
-        public static final int ivTaskDelete=0x7f0d007f;
+        public static final int ivRestoreButton=0x7f0d00bb;
         public static final int ivTaskDeleteMain=0x7f0d00b9;
         public static final int largeLabel=0x7f0d0082;
         public static final int left=0x7f0d0034;
@@ -3416,10 +3416,13 @@ containing a value of this type.
         public static final int task_menu=0x7f0e0002;
     }
     public static final class mipmap {
-        public static final int ic_delete_icon=0x7f030000;
-        public static final int ic_delete_icon_not_filled=0x7f030001;
-        public static final int ic_drop_down_menu=0x7f030002;
-        public static final int ic_launcher=0x7f030003;
+        public static final int ic_blue_add=0x7f030000;
+        public static final int ic_delete_icon=0x7f030001;
+        public static final int ic_delete_icon_not_filled=0x7f030002;
+        public static final int ic_drop_down_menu=0x7f030003;
+        public static final int ic_green_add=0x7f030004;
+        public static final int ic_green_check=0x7f030005;
+        public static final int ic_launcher=0x7f030006;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;

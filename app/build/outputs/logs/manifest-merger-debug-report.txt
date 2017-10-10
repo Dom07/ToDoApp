@@ -10,7 +10,7 @@ ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManif
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
 	android:versionCode
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:4:5-27
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:4:5-28
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
 	xmlns:android

@@ -27,7 +27,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE TASK_LIST (TASK_ID INTEGER PRIMARY KEY AUTOINCREMENT, TASK_NAME TEXT, TASK_STATUS INT(1))");
+        db.execSQL("CREATE TABLE TASK_LIST (TASK_ID INTEGER PRIMARY KEY AUTOINCREMENT, TASK_NAME TEXT, TASK_STATUS INT(1), TASK_ALARM TEXT)");
     }
 
     @Override
@@ -137,5 +137,27 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         db.close();
         taskHelper.close();
         Toast.makeText(context, "Task restored", Toast.LENGTH_SHORT).show();
+    }
+
+    public static void updateAlarmTime(Context context, String TaskName, int Hour, int Minute){
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_ALARM",Hour+":"+Minute);
+        db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'",null);
+        db.close();
+        taskHelper.close();
+        Toast.makeText(context,"Reminder Set", Toast.LENGTH_SHORT).show();
+    }
+
+    public static String getAlarmTime(Context context,String TaskName){
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getReadableDatabase();
+        String Projection[]={"TASK_ALARM"};
+        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_NAME='"+TaskName+"'",null,null,null,null,null);
+        cursor.moveToFirst();
+        String AlarmTime = cursor.getString(0);
+        cursor.close();
+        return AlarmTime;
     }
 }

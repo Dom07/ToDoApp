@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -36,4 +37,35 @@
         android:layout_marginRight="5dp"
         android:layout_marginEnd="5dp"
         />
+
+    <ImageView
+        android:id="@+id/ivAlarmAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ivTaskDeleteMain"
+        android:layout_toStartOf="@+id/ivTaskDeleteMain"
+        app:srcCompat="@mipmap/ic_alarm_add" />
+
+    <TextView
+        android:id="@+id/tvAlarmTime"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ivAlarmAdd"
+        android:layout_toLeftOf="@+id/ivTaskDeleteMain"
+        android:layout_toStartOf="@+id/ivTaskDeleteMain" />
+
+    <ImageView
+        android:id="@+id/ivAlarmOn"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ivAlarmAdd"
+        android:layout_alignStart="@+id/ivAlarmAdd"
+        android:layout_centerVertical="true"
+        app:srcCompat="@mipmap/ic_alarm_on" />
 </RelativeLayout>

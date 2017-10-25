@@ -24,7 +24,15 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-mdpi/ic_delete_icon_not_filled.png"
     },
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_alarm_add.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-mdpi/ic_alarm_add.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_alarm_on.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-mdpi/ic_alarm_on.png"
     }
 ]

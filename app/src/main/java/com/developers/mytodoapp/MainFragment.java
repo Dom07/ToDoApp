@@ -84,6 +84,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = etNewTaskName.getText().toString().trim();
                         final String Task_Id = null;
                         final String Task_Status = "0";
+                        final String Task_Alarm = "00:00";
                         if(TaskName.equals("")){
                             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
                         }else{
@@ -91,8 +92,9 @@ public class MainFragment extends Fragment {
                             values.put("TASK_ID", Task_Id);
                             values.put("TASK_NAME", TaskName);
                             values.put("TASK_STATUS", Task_Status);
+                            values.put("TASK_ALARM", Task_Alarm);
                             long row = db.insert("TASK_LIST", null, values);
-//                            Log.d("TASK_LIST","Task "+TaskName+ "inserted");
+                            Log.d("TASK_LIST","Task "+Task_Alarm+ "inserted");
                             Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
                             db.close();
                             taskHelper.close();
@@ -156,7 +158,7 @@ public class MainFragment extends Fragment {
         taskAdapter.notifyDataSetChanged();
     }
 
-    private void refreshTaskList(Context context){
+    public void refreshTaskList(Context context){
 
 //      un-setting and resetting the adapter so the view is redrawn without old style
         rvTaskList.setAdapter(null);

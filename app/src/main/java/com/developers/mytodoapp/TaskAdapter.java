@@ -40,10 +40,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     int Minute;
     String TaskName;
     int AlarmFlag=0;
+    View fragmentView;
 
-    public TaskAdapter(ArrayList<Task> taskArrayList,Context context) {
+    public TaskAdapter(ArrayList<Task> taskArrayList,Context context,View fragmentView) {
         this.taskArrayList = taskArrayList;
         this.context = context;
+        this.fragmentView = fragmentView;
     }
 
     @Override
@@ -53,19 +55,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
         TaskName = task.getTaskName().toString();
-        final SpannableString SSTaskName = SpannableString.valueOf(TaskName);
-        SSTaskName.setSpan(new StrikethroughSpan(), 0, SSTaskName.length(), 0);
         holder.tvTaskName.setText(task.getTaskName());
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SqLiteTaskHelper.delItem(context, TaskName);
-                SSTaskName.setSpan(new StrikethroughSpan(), 0, SSTaskName.length(), 0);
-                holder.tvTaskName.setText(SSTaskName);
-                holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
+                Task TaskItem = taskArrayList.get(position);
+                String ItemLabel = TaskItem.getTaskName().toString();
+                SqLiteTaskHelper.delItem(context, ItemLabel);
+                taskArrayList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,taskArrayList.size());
+                MainFragment mainFragment = new MainFragment();
+                mainFragment.noTaskMsgToggle(fragmentView);
             }
         });
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -88,7 +92,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     AlarmFlag =1;
                     holder.ivAlarmOn.setVisibility(View.VISIBLE);
                     holder.ivAlarmAdd.setVisibility(View.INVISIBLE);
-                    holder.tvAlarmTime.setText("10:00");
+                    holder.tvAlarmTime.setText("Reminder Set : 10:00 AM");
                 }
             }
         });

@@ -3422,12 +3422,9 @@ containing a value of this type.
         public static final int ic_alarm_add=0x7f030000;
         public static final int ic_alarm_on=0x7f030001;
         public static final int ic_blue_add=0x7f030002;
-        public static final int ic_delete_icon=0x7f030003;
-        public static final int ic_delete_icon_not_filled=0x7f030004;
-        public static final int ic_drop_down_menu=0x7f030005;
-        public static final int ic_green_add=0x7f030006;
-        public static final int ic_green_check=0x7f030007;
-        public static final int ic_launcher=0x7f030008;
+        public static final int ic_delete=0x7f030003;
+        public static final int ic_green_check=0x7f030004;
+        public static final int ic_launcher=0x7f030005;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;

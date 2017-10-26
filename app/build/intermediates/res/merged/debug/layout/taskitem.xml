@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ivTaskDeleteMain"
-        android:src="@mipmap/ic_delete_icon_not_filled"
+        android:src="@mipmap/ic_delete"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -44,20 +44,19 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/ivTaskDeleteMain"
-        android:layout_toStartOf="@+id/ivTaskDeleteMain"
         app:srcCompat="@mipmap/ic_alarm_add" />
 
     <TextView
         android:id="@+id/tvAlarmTime"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text=""
         android:textAlignment="center"
         android:visibility="visible"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/ivAlarmAdd"
-        android:layout_toLeftOf="@+id/ivTaskDeleteMain"
-        android:layout_toStartOf="@+id/ivTaskDeleteMain" />
+        android:layout_below="@+id/tvTaskName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/ivAlarmOn"

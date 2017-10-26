@@ -54,7 +54,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
-        taskAdapter =  new TaskAdapter(taskArrayList,getContext());
+        taskAdapter =  new TaskAdapter(taskArrayList,getContext(),view);
 //      Method to check weather to Display A Message (or not) on the home screen if no active task available
         noTaskMsgToggle(view);
 

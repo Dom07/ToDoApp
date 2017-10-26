@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -70,7 +71,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
         db.delete("TASK_LIST","TASK_NAME='"+TaskName+"'",null);
-//        Log.d("TASK_LIST","Task "+TaskName+" Deleted");
+        Log.d("TASK_LIST","Task "+TaskName+" Deleted");
         db.close();
         sqLiteTaskHelper.close();
     }

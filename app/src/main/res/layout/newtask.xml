@@ -75,11 +75,17 @@
 
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_toRightOf="@id/etMinute"
-            android:layout_toEndOf="@id/etMinute"
-            android:layout_below="@+id/tvLabelReminder"
             android:layout_height="wrap_content"
             android:id="@+id/spAMPM"
-            android:layout_alignBaseline="@+id/etMinute"
+            android:layout_toRightOf="@+id/etMinute"
+            android:layout_alignTop="@+id/tvColonHour"
             />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvLabelReminder"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@id/etNewTaskName"
+            android:layout_marginTop="25dp"/>
 </RelativeLayout>

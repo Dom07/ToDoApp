@@ -126,7 +126,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
 //      Log.d("TASK_LIST", "Task " + TaskName + " status set to 1");
         db.close();
         taskHelper.close();
-//        Toast.makeText(context, "Good Job! ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Good Job! ", Toast.LENGTH_SHORT).show();
     }
 
     public static void markTaskAsNotComplete(Context context, String TaskName){

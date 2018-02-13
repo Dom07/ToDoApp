@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
@@ -31,15 +32,16 @@ import static android.view.View.inflate;
  * Created by dom on 2/8/17.
  */
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>  {
 
     ArrayList<Task> taskArrayList;
+
     Context context;
+
     Calendar calendar = Calendar.getInstance();
-    int Hour;
-    int Minute;
-    String TaskName;
-    int AlarmFlag=0;
+
+    int Hour, Minute, AlarmFlag=0;
+
     View fragmentView;
 
     public TaskAdapter(ArrayList<Task> taskArrayList,Context context,View fragmentView) {
@@ -57,21 +59,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
-        TaskName = task.getTaskName().toString();
+        final String TaskName = task.getTaskName().toString();
         holder.tvTaskName.setText(task.getTaskName());
+
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Task TaskItem = taskArrayList.get(position);
-                String ItemLabel = TaskItem.getTaskName().toString();
-                SqLiteTaskHelper.delItem(context, ItemLabel);
+                SqLiteTaskHelper.delItem(context, TaskName);
                 taskArrayList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,taskArrayList.size());
-                MainFragment mainFragment = new MainFragment();
-                mainFragment.noTaskMsgToggle(fragmentView);
             }
         });
+
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -85,29 +85,30 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             }
         });
 
-        holder.ivAlarmAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(AlarmFlag==0){
-                    AlarmFlag =1;
-                    holder.ivAlarmOn.setVisibility(View.VISIBLE);
-                    holder.ivAlarmAdd.setVisibility(View.INVISIBLE);
-                    holder.tvAlarmTime.setText("Reminder Set : 10:00 AM");
-                }
-            }
-        });
+//        holder.ivAlarmAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(AlarmFlag==0){
+//                    AlarmFlag =1;
+//                    holder.ivAlarmOn.setVisibility(View.VISIBLE);
+//                    holder.ivAlarmAdd.setVisibility(View.INVISIBLE);
+//                    holder.tvAlarmTime.setText("Reminder Set : 10:00 AM");
+//                }
+//            }
+//        });
+//
+//        holder.ivAlarmOn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(AlarmFlag==1){
+//                    AlarmFlag=0;
+//                    holder.tvAlarmTime.setText("");
+//                    holder.ivAlarmAdd.setVisibility(View.VISIBLE);
+//                    holder.ivAlarmOn.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
 
-        holder.ivAlarmOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(AlarmFlag==1){
-                    AlarmFlag=0;
-                    holder.tvAlarmTime.setText("");
-                    holder.ivAlarmAdd.setVisibility(View.VISIBLE);
-                    holder.ivAlarmOn.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
     }
 
     @Override

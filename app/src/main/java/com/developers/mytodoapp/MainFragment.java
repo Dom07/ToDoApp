@@ -13,12 +13,16 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -32,6 +36,9 @@ import java.util.Locale;
 public class MainFragment extends Fragment {
 
     TextView tvNoTask;
+    Spinner spAMPM;
+    EditText etHour;
+    EditText etMinute;
     RecyclerView rvTaskList;
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;
@@ -70,6 +77,14 @@ public class MainFragment extends Fragment {
 //              New Task AlertBox code
                 View alertBox = inflater.inflate(R.layout.newtask, null);
                 etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
+                etHour = (EditText) alertBox.findViewById(R.id.etHour);
+                etMinute = (EditText) alertBox.findViewById(R.id.etMinute);
+                spAMPM = (Spinner)alertBox.findViewById(R.id.spAMPM);
+
+                ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getContext(),R.array.AMPMSelector,android.R.layout.simple_spinner_item);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spAMPM.setAdapter(aa);
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("New Task");
                 builder.setView(alertBox);
@@ -81,10 +96,16 @@ public class MainFragment extends Fragment {
 //                        Inserting Values into database
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
-                        final String TaskName = etNewTaskName.getText().toString().trim();
+
+                        final String Hour = etHour.getText().toString().trim();
+                        final String Minute = etMinute.getText().toString().trim();
+                        final String AMPM = spAMPM.getSelectedItem().toString().trim();
+                        Task newTask = new Task(etNewTaskName.getText().toString().trim());
+                        newTask.setAlarmTime(Hour,Minute,AMPM);
                         final String Task_Id = null;
-                        final String Task_Status = "0";
-                        final String Task_Alarm = "00:00";
+                        final String TaskName = newTask.getTaskName();
+                        final String Task_Status = newTask.TaskStatus;
+                        final String Task_Alarm = newTask.getAlarmTime();
                         if(TaskName.equals("")){
                             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
                         }else{
@@ -94,7 +115,7 @@ public class MainFragment extends Fragment {
                             values.put("TASK_STATUS", Task_Status);
                             values.put("TASK_ALARM", Task_Alarm);
                             long row = db.insert("TASK_LIST", null, values);
-                            Log.d("TASK_LIST","Task "+Task_Alarm+ "inserted");
+                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm);
                             Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
                             db.close();
                             taskHelper.close();
@@ -134,6 +155,7 @@ public class MainFragment extends Fragment {
                 android.R.color.holo_red_light);
         return view;
     }
+
 
     public void prepareTask(Context context) {
 

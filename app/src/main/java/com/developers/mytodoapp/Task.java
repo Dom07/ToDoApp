@@ -8,6 +8,8 @@ import android.nfc.Tag;
 
 public class Task {
     String TaskName;
+    String AlarmTime;
+    String TaskStatus = "0";
 
     public Task(String TaskName){
         this.setTaskName(TaskName);
@@ -20,4 +22,13 @@ public class Task {
     public void setTaskName(String taskName) {
         TaskName = taskName;
     }
+
+    public void setAlarmTime(String Hour, String Minute, String AMPM){
+        AlarmTime = Hour+":"+Minute+":"+AMPM;
+    }
+
+    public String getAlarmTime(){
+        return AlarmTime;
+    }
+
 }

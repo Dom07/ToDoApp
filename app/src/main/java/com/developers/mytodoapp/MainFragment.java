@@ -37,8 +37,7 @@ public class MainFragment extends Fragment {
 
     TextView tvNoTask;
     Spinner spAMPM;
-    EditText etHour;
-    EditText etMinute;
+//    EditText etHour, etMinute;
     RecyclerView rvTaskList;
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;
@@ -77,13 +76,13 @@ public class MainFragment extends Fragment {
 //              New Task AlertBox code
                 View alertBox = inflater.inflate(R.layout.newtask, null);
                 etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
-                etHour = (EditText) alertBox.findViewById(R.id.etHour);
-                etMinute = (EditText) alertBox.findViewById(R.id.etMinute);
-                spAMPM = (Spinner)alertBox.findViewById(R.id.spAMPM);
+//                etHour = (EditText) alertBox.findViewById(R.id.etHour);
+//                etMinute = (EditText) alertBox.findViewById(R.id.etMinute);
+//                spAMPM = (Spinner)alertBox.findViewById(R.id.spAMPM);
 
-                ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getContext(),R.array.AMPMSelector,android.R.layout.simple_spinner_item);
-                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spAMPM.setAdapter(aa);
+//                ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getContext(),R.array.AMPMSelector,android.R.layout.simple_spinner_item);
+//                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                spAMPM.setAdapter(aa);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("New Task");
@@ -97,9 +96,17 @@ public class MainFragment extends Fragment {
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
 
-                        final String Hour = etHour.getText().toString().trim();
-                        final String Minute = etMinute.getText().toString().trim();
-                        final String AMPM = spAMPM.getSelectedItem().toString().trim();
+//                        final String Hour = etHour.getText().toString().trim();
+//                        final String Minute = etMinute.getText().toString().trim();
+//                        final String AMPM = spAMPM.getSelectedItem().toString().trim();
+
+//                        temprory initialization, use above code  when alarm module is developed
+
+                        final String Hour = "0";
+                        final String Minute = "0";
+                        final String AMPM = "AM";
+
+
                         Task newTask = new Task(etNewTaskName.getText().toString().trim());
                         newTask.setAlarmTime(Hour,Minute,AMPM);
                         final String Task_Id = null;

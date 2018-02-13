@@ -131,8 +131,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             checkBox = (CheckBox)view.findViewById(R.id.tvTaskName);
             ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
-            ivAlarmAdd = (ImageView)view.findViewById(R.id.ivAlarmAdd);
-            ivAlarmOn = (ImageView)view.findViewById(R.id.ivAlarmOn);
+//            ivAlarmAdd = (ImageView)view.findViewById(R.id.ivAlarmAdd);
+//            ivAlarmOn = (ImageView)view.findViewById(R.id.ivAlarmOn);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
         }
     }

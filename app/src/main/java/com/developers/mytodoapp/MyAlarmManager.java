@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -25,8 +26,8 @@ public class MyAlarmManager {
     public void setMorningAlarm(){
 
         long timeDifference;
-        int alarmHour = 7;
-        int alarmMin = 1;
+        int alarmHour = 13;
+        int alarmMin = 50;
 
 
 //         make calendar instance for now and the time when we want to set the alarm
@@ -57,13 +58,13 @@ public class MyAlarmManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE) ;
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
-//            Log.d("AlarmManager","Time Remaining for Notification Reminder: "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
+            Log.d("AlarmManager","Time Remaining for Notification Reminder: "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
 //            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
     }
 
     public void deleteDbData() {
-        int alarmHour=2;
-        int alarmMinutes=30;
+        int alarmHour=13;
+        int alarmMinutes=52;
         long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
         Calendar clearDbTime = Calendar.getInstance();
@@ -94,7 +95,7 @@ public class MyAlarmManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-//            Log.d("AlarmManager","Time Remaining For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
+            Log.d("AlarmManager","Time Remaining For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
 //            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
     }
 

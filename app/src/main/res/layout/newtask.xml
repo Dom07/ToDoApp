@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="150dp">
             <TextView
                 android:id="@+id/tvLabelTaskName"
                 android:layout_width="wrap_content"
@@ -24,68 +24,71 @@
                 android:inputType="textPersonName"
                 />
 
-            <TextView
-                android:layout_below="@+id/etNewTaskName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reminder: "
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginStart="25dp"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:id="@+id/tvLabelReminder"
-                />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvLabelReminder"
-                android:layout_marginLeft="25dp"
-                android:layout_marginStart="25dp"
-                android:ems="2"
-                android:inputType="number"
-                android:id="@+id/etHour"
-                android:text="02"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/etHour"
-                android:layout_toEndOf="@+id/etHour"
-                android:layout_below="@+id/tvLabelReminder"
-                android:text=":"
-                android:ems="1"
-                android:id="@+id/tvColonHour"
-                android:layout_alignBaseline="@+id/etHour"
-                />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvLabelReminder"
-                android:layout_toRightOf="@+id/tvColonHour"
-                android:layout_toEndOf="@+id/etHour"
-                android:ems="2"
-                android:inputType="number"
-                android:id="@+id/etMinute"
-                android:text="02"
-                />
-
-        <Spinner
+    <!--
+        <TextView
+            android:layout_below="@+id/etNewTaskName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spAMPM"
-            android:layout_toRightOf="@+id/etMinute"
-            android:layout_alignTop="@+id/tvColonHour"
+            android:text="Reminder: "
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:id="@+id/tvLabelReminder"
             />
 
-        <Switch
+
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tvLabelReminder"
-            android:layout_marginLeft="100dp"
-            android:layout_below="@id/etNewTaskName"
-            android:layout_marginTop="25dp"/>
+            android:layout_below="@+id/tvLabelReminder"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:ems="2"
+            android:inputType="number"
+            android:id="@+id/etHour"
+            android:text="02"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/etHour"
+            android:layout_toEndOf="@+id/etHour"
+            android:layout_below="@+id/tvLabelReminder"
+            android:text=":"
+            android:ems="1"
+            android:id="@+id/tvColonHour"
+            android:layout_alignBaseline="@+id/etHour"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLabelReminder"
+            android:layout_toRightOf="@+id/tvColonHour"
+            android:layout_toEndOf="@+id/etHour"
+            android:ems="2"
+            android:inputType="number"
+            android:id="@+id/etMinute"
+            android:text="02"
+            />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spAMPM"
+        android:layout_toRightOf="@+id/etMinute"
+        android:layout_alignTop="@+id/tvColonHour"
+        />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvLabelReminder"
+        android:layout_marginLeft="100dp"
+        android:layout_below="@id/etNewTaskName"
+        android:layout_marginTop="25dp"/>
+    -->
 </RelativeLayout>

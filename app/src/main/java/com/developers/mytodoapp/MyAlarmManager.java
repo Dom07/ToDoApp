@@ -26,8 +26,8 @@ public class MyAlarmManager {
     public void setMorningAlarm(){
 
         long timeDifference;
-        int alarmHour = 13;
-        int alarmMin = 50;
+        int alarmHour = 7;
+        int alarmMin = 1;
 
 
 //         make calendar instance for now and the time when we want to set the alarm
@@ -63,8 +63,8 @@ public class MyAlarmManager {
     }
 
     public void deleteDbData() {
-        int alarmHour=13;
-        int alarmMinutes=52;
+        int alarmHour=2;
+        int alarmMinutes=30;
         long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
         Calendar clearDbTime = Calendar.getInstance();

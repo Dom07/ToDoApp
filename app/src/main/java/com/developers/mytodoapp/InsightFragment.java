@@ -93,7 +93,7 @@ public class InsightFragment extends Fragment {
     private void setDataSet(){
         dataSet = new PieDataSet(yValues,"");
         dataSet.setColors(ColorTemplate.PASTEL_COLORS);
-        dataSet.setValueTextSize(15);
+        dataSet.setValueTextSize(13f);
     }
 
     private void setData(){

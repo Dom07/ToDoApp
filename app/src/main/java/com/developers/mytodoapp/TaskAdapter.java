@@ -60,8 +60,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
+        final String AlarmTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
         holder.tvTaskName.setText(task.getTaskName());
-
+        holder.tvAlarmTime.setText(AlarmTime);
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,8 +122,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         TextView tvTaskName;
         CheckBox checkBox;
         ImageView ivTaskDeleteMain;
-        ImageView ivAlarmAdd;
-        ImageView ivAlarmOn;
+        ImageView ivAlarmStatus;
         TextView tvAlarmTime;
 
         public MyViewHolder(View view) {
@@ -131,8 +131,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             checkBox = (CheckBox)view.findViewById(R.id.tvTaskName);
             ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
-//            ivAlarmAdd = (ImageView)view.findViewById(R.id.ivAlarmAdd);
-//            ivAlarmOn = (ImageView)view.findViewById(R.id.ivAlarmOn);
+//            ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmAdd);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
         }
     }

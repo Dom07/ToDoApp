@@ -1,5 +1,6 @@
 package com.developers.mytodoapp;
 
+import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,7 +24,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,7 +40,6 @@ public class MainFragment extends Fragment {
 
     TextView tvNoTask;
     Spinner spAMPM;
-//    EditText etHour, etMinute;
     RecyclerView rvTaskList;
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;
@@ -46,6 +48,9 @@ public class MainFragment extends Fragment {
 
     //  newTask popup window layout objects
     EditText etNewTaskName;
+    TextView tvReminder;
+    Switch switchReminder;
+    int mHour, mMinute;
 
 
     //  SQL
@@ -76,13 +81,27 @@ public class MainFragment extends Fragment {
 //              New Task AlertBox code
                 View alertBox = inflater.inflate(R.layout.newtask, null);
                 etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
-//                etHour = (EditText) alertBox.findViewById(R.id.etHour);
-//                etMinute = (EditText) alertBox.findViewById(R.id.etMinute);
-//                spAMPM = (Spinner)alertBox.findViewById(R.id.spAMPM);
+                tvReminder = (TextView)alertBox.findViewById(R.id.tvReminder);
+                switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
 
-//                ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getContext(),R.array.AMPMSelector,android.R.layout.simple_spinner_item);
-//                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                spAMPM.setAdapter(aa);
+                tvReminder.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Calendar c = Calendar.getInstance();
+                        mHour = c.get(Calendar.HOUR_OF_DAY);
+                        mMinute = c.get(Calendar.MINUTE);
+                        TimePickerDialog  timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                mHour = hourOfDay;
+                                mMinute = minute;
+                                tvReminder.setText("Alarm Set:"+hourOfDay+":"+minute);
+                                switchReminder.setChecked(true);
+                            }
+                        },mHour, mMinute, false);
+                        timePickerDialog.show();
+                    }
+                });
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("New Task");
@@ -96,19 +115,9 @@ public class MainFragment extends Fragment {
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
 
-//                        final String Hour = etHour.getText().toString().trim();
-//                        final String Minute = etMinute.getText().toString().trim();
-//                        final String AMPM = spAMPM.getSelectedItem().toString().trim();
-
-//                        temprory initialization, use above code  when alarm module is developed
-
-                        final String Hour = "0";
-                        final String Minute = "0";
-                        final String AMPM = "AM";
-
 
                         Task newTask = new Task(etNewTaskName.getText().toString().trim());
-                        newTask.setAlarmTime(Hour,Minute,AMPM);
+                        newTask.setAlarmTime(mHour,mMinute);
                         final String Task_Id = null;
                         final String TaskName = newTask.getTaskName();
                         final String Task_Status = newTask.TaskStatus;
@@ -170,7 +179,7 @@ public class MainFragment extends Fragment {
         taskArrayList.clear();
         SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
-        String Projection[] = {"TASK_NAME", "TASK_STATUS"};
+        String Projection[] = {"TASK_NAME", "TASK_STATUS", "TASK_ALARM"};
         Cursor cursor = db.query("TASK_LIST", Projection, null, null, null, null, null);
 
 //      Repopulating it

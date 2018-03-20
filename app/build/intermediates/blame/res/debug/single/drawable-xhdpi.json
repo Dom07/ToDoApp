@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_alarm_on.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xhdpi/ic_alarm_on.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_timeline_black_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_timeline_black_24dp.png"
     },
@@ -14,6 +18,10 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home_black_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_home_black_24dp.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_alarm_cancel.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xhdpi/ic_alarm_cancel.png"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_add_white_24dp.png",

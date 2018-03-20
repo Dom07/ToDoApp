@@ -12,6 +12,10 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_access_time_black_24dp.png"
     },
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_alarm_on.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_alarm_on.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_add_white_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_add_white_24dp.png"
     },

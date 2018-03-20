@@ -23,8 +23,14 @@ public class Task {
         TaskName = taskName;
     }
 
-    public void setAlarmTime(String Hour, String Minute, String AMPM){
-        AlarmTime = Hour+":"+Minute+":"+AMPM;
+    public void setAlarmTime(int Hour, int Minute){
+        if(Hour > 12){
+            Hour = Hour - 12;
+            AlarmTime = Hour+":"+Minute+" PM";
+        }else{
+            AlarmTime = Hour+":"+Minute+" AM";
+        }
+
     }
 
     public String getAlarmTime(){

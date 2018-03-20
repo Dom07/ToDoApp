@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/layout/abc_action_bar_title_item.xml",
-        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/layout/abc_action_menu_layout.xml",
         "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/layout/abc_action_bar_title_item.xml",
+        "source": "/root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/layout/taskitem.xml",

@@ -39,7 +39,6 @@ import java.util.Locale;
 public class MainFragment extends Fragment {
 
     TextView tvNoTask;
-    Spinner spAMPM;
     RecyclerView rvTaskList;
     FloatingActionButton fabAddTask;
     CheckBox tvTaskName;

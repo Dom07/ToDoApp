@@ -61,6 +61,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
         final String AlarmTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
+       // holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
         holder.tvTaskName.setText(task.getTaskName());
         holder.tvAlarmTime.setText(AlarmTime);
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +132,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             checkBox = (CheckBox)view.findViewById(R.id.tvTaskName);
             ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
-//            ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmAdd);
+            ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmStatus);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
         }
     }

@@ -38,10 +38,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     Context context;
 
-    Calendar calendar = Calendar.getInstance();
-
-    int Hour, Minute, AlarmFlag=0;
-
     View fragmentView;
 
     public TaskAdapter(ArrayList<Task> taskArrayList,Context context,View fragmentView) {
@@ -60,10 +56,17 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
-        final String AlarmTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
+        int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
+        if(alarmRequestCode != 0){
+            final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
+            holder.tvAlarmTime.setText(reminderTime);
+        }else{
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
+            holder.tvAlarmTime.setText("");
+        }
        // holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
         holder.tvTaskName.setText(task.getTaskName());
-        holder.tvAlarmTime.setText(AlarmTime);
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,37 +83,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                 if (isChecked) {
                     SqLiteTaskHelper.markTaskAsComplete(context, TaskName);
                     holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
+                    holder.ivAlarmStatus.setVisibility(View.INVISIBLE);
+                    holder.tvAlarmTime.setVisibility(View.INVISIBLE);
                 } else {
                     SqLiteTaskHelper.markTaskAsNotComplete(context, TaskName);
                     holder.ivTaskDeleteMain.setVisibility(View.VISIBLE);
+                    holder.ivAlarmStatus.setVisibility(View.VISIBLE);
+                    holder.tvAlarmTime.setVisibility(View.VISIBLE);
                 }
             }
         });
-
-//        holder.ivAlarmAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(AlarmFlag==0){
-//                    AlarmFlag =1;
-//                    holder.ivAlarmOn.setVisibility(View.VISIBLE);
-//                    holder.ivAlarmAdd.setVisibility(View.INVISIBLE);
-//                    holder.tvAlarmTime.setText("Reminder Set : 10:00 AM");
-//                }
-//            }
-//        });
-//
-//        holder.ivAlarmOn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(AlarmFlag==1){
-//                    AlarmFlag=0;
-//                    holder.tvAlarmTime.setText("");
-//                    holder.ivAlarmAdd.setVisibility(View.VISIBLE);
-//                    holder.ivAlarmOn.setVisibility(View.INVISIBLE);
-//                }
-//            }
-//        });
-
     }
 
     @Override

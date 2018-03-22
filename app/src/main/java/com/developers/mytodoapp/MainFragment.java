@@ -50,6 +50,7 @@ public class MainFragment extends Fragment {
 
     //  SQL
     SqLiteTaskHelper taskHelper;
+    SQLiteDatabase db;
 
     public MainFragment() {
 //         Required empty public constructor
@@ -94,8 +95,21 @@ public class MainFragment extends Fragment {
                                     setCal.set(Calendar.HOUR_OF_DAY,mHour);
                                     setCal.set(Calendar.MINUTE,mMinute);
                                     reminderTimeInMillis = setCal.getTimeInMillis();
-                                    tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
-                                    switchReminder.setChecked(true);
+
+                                    long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
+
+                                    if(reminderTimeInMillis - currentTimeinMillis < 0){
+                                        Toast.makeText(getContext(), "The time set for reminder has already passed", Toast.LENGTH_LONG).show();
+                                        reminderTimeInMillis = 0;
+                                        mHour = 0;
+                                        mMinute = 0;
+                                        tvReminder.setText("Tap here to set reminder time");
+                                        switchReminder.setChecked(false);
+                                    }else{
+                                        tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
+                                        switchReminder.setChecked(true);
+                                    }
+
                                 }
                             }, mHour, mMinute, false);
                             timePickerDialog.show();
@@ -107,6 +121,8 @@ public class MainFragment extends Fragment {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             ReminderSwitch = true;
+                        }else{
+                            ReminderSwitch = false;
                         }
                     }
                 });
@@ -119,21 +135,31 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-
-//                        Inserting Values into database
-                        taskHelper = SqLiteTaskHelper.getInstance(getContext());
-                        SQLiteDatabase db = taskHelper.getWritableDatabase();
-
                         Task newTask = new Task(etNewTaskName.getText().toString().trim());
                         newTask.setAlarmTime(mHour,mMinute);
                         final String Task_Id = null;
                         final String TaskName = newTask.getTaskName();
                         final String Task_Status = newTask.TaskStatus;
                         final String Task_Alarm = newTask.getAlarmTime();
-                        final int Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
+                        final int Task_Alarm_Request_Code;
+
                         if(TaskName.equals("")){
                             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
                         }else{
+
+//                          Setting the alarm
+                            if(ReminderSwitch.equals(true)){
+                                Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
+                                MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
+                                myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
+                                ReminderSwitch = false;
+                            }else{
+                                Task_Alarm_Request_Code = 0;
+                            }
+
+//                          Inserting into Db
+                            taskHelper = SqLiteTaskHelper.getInstance(getContext());
+                            db = taskHelper.getWritableDatabase();
                             ContentValues values = new ContentValues();
                             values.put("TASK_ID", Task_Id);
                             values.put("TASK_NAME", TaskName);
@@ -141,18 +167,10 @@ public class MainFragment extends Fragment {
                             values.put("TASK_ALARM", Task_Alarm);
                             values.put("TASK_ALARM_REQUEST_CODE", Task_Alarm_Request_Code);
                             long row = db.insert("TASK_LIST", null, values);
-                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm+"Task_Request_Code: "+Task_Alarm_Request_Code);
-                            Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
-
-//                          Setting alarm
-                            if(ReminderSwitch.equals(true)){
-                                MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
-                                myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
-                                ReminderSwitch = false;
-                            }
-
                             db.close();
                             taskHelper.close();
+                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm+" Task_Request_Code: "+Task_Alarm_Request_Code);
+                            Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
     //                      Method to check weather to Display A Message (or not) on the home screen if no active task available
                             noTaskMsgToggle(view);
                             refreshTaskList(getContext());
@@ -195,8 +213,8 @@ public class MainFragment extends Fragment {
 
 //      Clearing the Array List
         taskArrayList.clear();
-        SqLiteTaskHelper taskHelper = SqLiteTaskHelper.getInstance(context);
-        SQLiteDatabase db = taskHelper.getReadableDatabase();
+        taskHelper = SqLiteTaskHelper.getInstance(context);
+        db = taskHelper.getReadableDatabase();
         String Projection[] = {"TASK_NAME", "TASK_STATUS", "TASK_ALARM"};
         Cursor cursor = db.query("TASK_LIST", Projection, null, null, null, null, null);
 

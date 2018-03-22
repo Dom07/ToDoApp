@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -50,6 +52,7 @@ public class MainFragment extends Fragment {
     TextView tvReminder;
     Switch switchReminder;
     int mHour, mMinute;
+    boolean ReminderFlag = false;
 
 
     //  SQL
@@ -86,19 +89,50 @@ public class MainFragment extends Fragment {
                 tvReminder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        final Calendar c = Calendar.getInstance();
-                        mHour = c.get(Calendar.HOUR_OF_DAY);
-                        mMinute = c.get(Calendar.MINUTE);
-                        TimePickerDialog  timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                mHour = hourOfDay;
-                                mMinute = minute;
-                                tvReminder.setText("Alarm Set:"+hourOfDay+":"+minute);
-                                switchReminder.setChecked(true);
+                        if(!ReminderFlag) {
+                            final Calendar c = Calendar.getInstance();
+                            mHour = c.get(Calendar.HOUR_OF_DAY);
+                            mMinute = c.get(Calendar.MINUTE);
+                            TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                                @Override
+                                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                    mHour = hourOfDay;
+                                    mMinute = minute;
+                                    tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
+                                    switchReminder.setChecked(true);
+                                }
+                            }, mHour, mMinute, false);
+                            timePickerDialog.show();
+                            ReminderFlag = true;
+                        }
+                    }
+                });
+
+                switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(isChecked){
+                            if(!ReminderFlag) {
+                                final Calendar c = Calendar.getInstance();
+                                mHour = c.get(Calendar.HOUR_OF_DAY);
+                                mMinute = c.get(Calendar.MINUTE);
+                                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                                    @Override
+                                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                        mHour = hourOfDay;
+                                        mMinute = minute;
+                                        tvReminder.setText("Reminder Set at "+hourOfDay+":"+ minute);
+                                        switchReminder.setChecked(true);
+                                    }
+                                }, mHour, mMinute, false);
+                                timePickerDialog.show();
+                                ReminderFlag = true;
                             }
-                        },mHour, mMinute, false);
-                        timePickerDialog.show();
+                        }else{
+                            Toast.makeText(getContext(),"Reminder is turned off", Toast.LENGTH_SHORT).show();
+                            tvReminder.setText("Tap here to set a reminder");
+                            ReminderFlag = false;
+                        }
                     }
                 });
 

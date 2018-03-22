@@ -100,5 +100,11 @@ public class MyAlarmManager {
     }
 
 
-
+    public void setReminder(long timeInMillis){
+        Intent intent = new Intent(context, ReminderService.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+        Log.d("AlarmManager","Reminder Set");
+    }
 }

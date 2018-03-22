@@ -23,6 +23,7 @@
         </activity>
         <receiver android:name=".NotificationReceiver"/>
         <receiver android:name=".ClearDbReceiver"/>
+        <receiver android:name=".ReminderService"/>
     </application>
 
 </manifest>

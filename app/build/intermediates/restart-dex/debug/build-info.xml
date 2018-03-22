@@ -2,34 +2,34 @@
 <instant-run
     abi="armeabi-v7a,armeabi"
     api-level="25"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1521692582557"
+    timestamp="1521697642623"
     token="6360366534842331531"
-    verifier="COMPATIBLE" >
+    verifier="CLASS_ADDED" >
 
     <task
         name="javac"
-        duration="160" />
+        duration="106" />
     <task
         name="instant-run-dex"
-        duration="38" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="53" />
+        duration="12" />
     <task
         name="verifier"
-        duration="3" />
+        duration="1" />
 
     <artifact
-        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1521692413490"
+        timestamp="1521696659875"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -69,28 +69,26 @@
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1521692479634"
-        verifier="COMPATIBLE" >
+        build-mode="COLD"
+        timestamp="1521697392936"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/builds/debug/1521692479634/classes.dex"
-            type="RELOAD_DEX" />
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1521692565628"
-        verifier="COMPATIBLE" >
+        build-mode="COLD"
+        timestamp="1521697642623"
+        verifier="CLASS_ADDED" >
         <artifact
-            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/builds/debug/1521692565628/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1521692582557"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

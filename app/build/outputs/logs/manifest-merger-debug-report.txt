@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
@@ -20,7 +20,7 @@ ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManif
 	android:name
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:6:22-75
 application
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:7:5-26:19
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:7:5-27:19
 MERGED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:25.3.1] /root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /root/.android/build-cache/9ced7bf52a1fb7f0df3684c0c8a0e74e10426894/output/AndroidManifest.xml:26:5-20
@@ -71,6 +71,10 @@ receiver#com.developers.mytodoapp.ClearDbReceiver
 ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:25:9-52
 	android:name
 		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:25:19-50
+receiver#com.developers.mytodoapp.ReminderService
+ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:26:9-52
+	android:name
+		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:26:19-50
 uses-sdk
 INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:21:5-23:62

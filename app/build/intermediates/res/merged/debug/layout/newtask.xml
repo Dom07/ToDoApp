@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp">
+    android:layout_height="200dp">
 
             <TextView
                 android:id="@+id/tvLabelTaskName"
@@ -30,25 +30,15 @@
             android:layout_below="@+id/etNewTaskName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reminder: "
+            android:text="Remind Me"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="25dp"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:id="@+id/tvLabelReminder"
+            android:id="@+id/tvLabelRemindMe"
             />
 
-
-        <TextView
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tap here to set reminder"
-            android:id="@+id/tvReminder"
-            android:textSize="18sp"
-            android:layout_below="@+id/tvLabelReminder"/>
 
     <Switch
         android:id="@+id/switchReminder"
@@ -56,6 +46,27 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/etNewTaskName"
         android:layout_alignRight="@+id/etNewTaskName"
-        android:layout_alignTop="@+id/tvLabelReminder" />
+        android:layout_alignTop="@+id/tvLabelRemindMe" />
+
+    <TextView
+        android:id="@+id/tvLabelReminderTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLabelRemindMe"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Reminder Time"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap here to set reminder time"
+        android:id="@+id/tvReminder"
+        android:textSize="14sp"
+        android:layout_below="@+id/tvLabelReminderTime"/>
 
 </RelativeLayout>

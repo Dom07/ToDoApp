@@ -52,8 +52,8 @@ public class MainFragment extends Fragment {
     TextView tvReminder;
     Switch switchReminder;
     int mHour, mMinute;
-    boolean ReminderFlag = false;
-
+    long reminderTimeInMillis;
+    Boolean ReminderSwitch = false;
 
     //  SQL
     SqLiteTaskHelper taskHelper;
@@ -89,8 +89,7 @@ public class MainFragment extends Fragment {
                 tvReminder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!ReminderFlag) {
-                            final Calendar c = Calendar.getInstance();
+                            Calendar c = Calendar.getInstance();
                             mHour = c.get(Calendar.HOUR_OF_DAY);
                             mMinute = c.get(Calendar.MINUTE);
                             TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
@@ -98,40 +97,23 @@ public class MainFragment extends Fragment {
                                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                     mHour = hourOfDay;
                                     mMinute = minute;
+                                    Calendar setCal = Calendar.getInstance();
+                                    setCal.set(Calendar.HOUR_OF_DAY,mHour);
+                                    setCal.set(Calendar.MINUTE,mMinute);
+                                    reminderTimeInMillis = setCal.getTimeInMillis();
                                     tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
                                     switchReminder.setChecked(true);
                                 }
                             }, mHour, mMinute, false);
                             timePickerDialog.show();
-                            ReminderFlag = true;
                         }
-                    }
                 });
 
                 switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
-                            if(!ReminderFlag) {
-                                final Calendar c = Calendar.getInstance();
-                                mHour = c.get(Calendar.HOUR_OF_DAY);
-                                mMinute = c.get(Calendar.MINUTE);
-                                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                                    @Override
-                                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                        mHour = hourOfDay;
-                                        mMinute = minute;
-                                        tvReminder.setText("Reminder Set at "+hourOfDay+":"+ minute);
-                                        switchReminder.setChecked(true);
-                                    }
-                                }, mHour, mMinute, false);
-                                timePickerDialog.show();
-                                ReminderFlag = true;
-                            }
-                        }else{
-                            Toast.makeText(getContext(),"Reminder is turned off", Toast.LENGTH_SHORT).show();
-                            tvReminder.setText("Tap here to set a reminder");
-                            ReminderFlag = false;
+                            ReminderSwitch = true;
                         }
                     }
                 });
@@ -144,10 +126,15 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+//                        Setting alarm
+                        if(ReminderSwitch.equals(true)){
+                            MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
+                            myAlarmManager.setReminder(reminderTimeInMillis);
+                        }
+
 //                        Inserting Values into database
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
                         SQLiteDatabase db = taskHelper.getWritableDatabase();
-
 
                         Task newTask = new Task(etNewTaskName.getText().toString().trim());
                         newTask.setAlarmTime(mHour,mMinute);

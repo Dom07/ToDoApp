@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -15,25 +14,19 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -126,11 +119,6 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-//                        Setting alarm
-                        if(ReminderSwitch.equals(true)){
-                            MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
-                            myAlarmManager.setReminder(reminderTimeInMillis);
-                        }
 
 //                        Inserting Values into database
                         taskHelper = SqLiteTaskHelper.getInstance(getContext());
@@ -142,6 +130,7 @@ public class MainFragment extends Fragment {
                         final String TaskName = newTask.getTaskName();
                         final String Task_Status = newTask.TaskStatus;
                         final String Task_Alarm = newTask.getAlarmTime();
+                        final int Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
                         if(TaskName.equals("")){
                             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
                         }else{
@@ -150,9 +139,18 @@ public class MainFragment extends Fragment {
                             values.put("TASK_NAME", TaskName);
                             values.put("TASK_STATUS", Task_Status);
                             values.put("TASK_ALARM", Task_Alarm);
+                            values.put("TASK_ALARM_REQUEST_CODE", Task_Alarm_Request_Code);
                             long row = db.insert("TASK_LIST", null, values);
-                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm);
+                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm+"Task_Request_Code: "+Task_Alarm_Request_Code);
                             Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
+
+//                          Setting alarm
+                            if(ReminderSwitch.equals(true)){
+                                MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
+                                myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
+                                ReminderSwitch = false;
+                            }
+
                             db.close();
                             taskHelper.close();
     //                      Method to check weather to Display A Message (or not) on the home screen if no active task available

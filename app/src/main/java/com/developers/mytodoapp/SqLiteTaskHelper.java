@@ -28,7 +28,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE TASK_LIST (TASK_ID INTEGER PRIMARY KEY AUTOINCREMENT, TASK_NAME TEXT, TASK_STATUS INT(1), TASK_ALARM TEXT)");
+        db.execSQL("CREATE TABLE TASK_LIST (TASK_ID INTEGER PRIMARY KEY AUTOINCREMENT, TASK_NAME TEXT, TASK_STATUS INT(1), TASK_ALARM TEXT, TASK_ALARM_REQUEST_CODE TEXT)");
     }
 
     @Override
@@ -162,4 +162,14 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         return AlarmTime;
     }
 
+    public static int getAlarmRequestCode(Context context,String TaskName){
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getReadableDatabase();
+        String Projection[]={"TASK_ALARM_REQUEST_CODE"};
+        Cursor cursor = db.query("TASK_LIST", Projection,"TASK_NAME='"+TaskName+"'",null,null,null,null,null);
+        cursor.moveToFirst();
+        String AlarmTime = cursor.getString(0);
+        cursor.close();
+        return Integer.parseInt(AlarmTime);
+    }
 }

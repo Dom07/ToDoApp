@@ -30,5 +30,9 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_timeline_black_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_timeline_black_24dp.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_alarm_cancel.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_alarm_cancel.png"
     }
 ]

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="testCheck"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:checked="false"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
@@ -27,19 +27,22 @@
         android:padding="10dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_toRightOf="@+id/tvTaskName">
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/ivAlarmStatus"
                 android:visibility="visible"
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_alarm_on" />
@@ -60,16 +63,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/ivTaskDeleteMain"
             android:src="@mipmap/ic_delete"
+            android:layout_marginLeft="10dp"
             />
 
     </LinearLayout>
-
-
-
-
-
-
-
-
 
 </RelativeLayout>

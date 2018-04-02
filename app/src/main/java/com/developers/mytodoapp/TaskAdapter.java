@@ -43,6 +43,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     View fragmentView;
 
+    MyAlarmManager myAlarmManager;
+
     public TaskAdapter(ArrayList<Task> taskArrayList,Context context,View fragmentView) {
         this.taskArrayList = taskArrayList;
         this.context = context;
@@ -59,6 +61,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
+        myAlarmManager = new MyAlarmManager(context);
         final int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
 
         if(alarmRequestCode != 0){
@@ -71,13 +74,17 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         }
 
         holder.tvTaskName.setText(task.getTaskName());
+
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SqLiteTaskHelper.delItem(context, TaskName);
+                myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
                 taskArrayList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,taskArrayList.size());
+                MainFragment mainFragment = new MainFragment();
+                mainFragment.noTaskMsgToggle(fragmentView);
             }
         });
 
@@ -103,7 +110,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             public void onClick(View v) {
                 final int refetchedAlarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
                 if(refetchedAlarmRequestCode !=0){
-                    MyAlarmManager myAlarmManager = new MyAlarmManager(context);
                     myAlarmManager.cancelReminder(alarmRequestCode, TaskName);
                     holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
                     holder.tvAlarmTime.setText("");

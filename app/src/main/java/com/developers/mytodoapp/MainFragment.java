@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -47,6 +48,7 @@ public class MainFragment extends Fragment {
     int mHour, mMinute;
     long reminderTimeInMillis;
     Boolean ReminderSwitch = false;
+    RelativeLayout rlAddReminder;
 
     //  SQL
     SqLiteTaskHelper taskHelper;
@@ -79,8 +81,9 @@ public class MainFragment extends Fragment {
                 etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
                 tvReminder = (TextView)alertBox.findViewById(R.id.tvReminder);
                 switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
+                rlAddReminder = (RelativeLayout)alertBox.findViewById(R.id.rlAddReminder);
 
-                tvReminder.setOnClickListener(new View.OnClickListener() {
+                rlAddReminder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Calendar c = Calendar.getInstance();
@@ -106,7 +109,9 @@ public class MainFragment extends Fragment {
                                     tvReminder.setText("Tap here to set reminder time");
                                     switchReminder.setChecked(false);
                                 }else{
-                                    tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
+                                    Task temp = new Task("Temp");
+                                    temp.setAlarmTime(hourOfDay, minute);
+                                    tvReminder.setText("Reminder Set at "+temp.getAlarmTime());
                                     switchReminder.setChecked(true);
                                     mHour = hourOfDay;
                                     mMinute = minute;

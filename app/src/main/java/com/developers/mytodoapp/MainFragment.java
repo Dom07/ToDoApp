@@ -45,9 +45,8 @@ public class MainFragment extends Fragment {
     EditText etNewTaskName;
     TextView tvReminder;
     Switch switchReminder;
-    int mHour, mMinute;
+    int mHour = 0, mMinute;
     long reminderTimeInMillis;
-    Boolean ReminderSwitch = false;
     RelativeLayout rlAddReminder;
 
     //  SQL
@@ -83,54 +82,14 @@ public class MainFragment extends Fragment {
                 switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
                 rlAddReminder = (RelativeLayout)alertBox.findViewById(R.id.rlAddReminder);
 
-                rlAddReminder.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Calendar c = Calendar.getInstance();
-                        mHour = c.get(Calendar.HOUR_OF_DAY);
-                        mMinute = c.get(Calendar.MINUTE);
-                        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                mHour = hourOfDay;
-                                mMinute = minute;
-                                Calendar setCal = Calendar.getInstance();
-                                setCal.set(Calendar.HOUR_OF_DAY,mHour);
-                                setCal.set(Calendar.MINUTE,mMinute);
-                                reminderTimeInMillis = setCal.getTimeInMillis();
-
-                                long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
-
-                                if(reminderTimeInMillis - currentTimeinMillis < 0){
-                                    Toast.makeText(getContext(), "The time set for reminder has already passed", Toast.LENGTH_LONG).show();
-                                    reminderTimeInMillis = 0;
-                                    mHour = 0;
-                                    mMinute = 0;
-                                    tvReminder.setText("Tap here to set reminder time");
-                                    switchReminder.setChecked(false);
-                                }else{
-                                    Task temp = new Task("Temp");
-                                    temp.setAlarmTime(hourOfDay, minute);
-                                    tvReminder.setText("Reminder Set at "+temp.getAlarmTime());
-                                    switchReminder.setChecked(true);
-                                    mHour = hourOfDay;
-                                    mMinute = minute;
-                                }
-
-                            }
-                        }, mHour, mMinute, false);
-                        timePickerDialog.show();
-                    }
-                });
-
-
                 switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
-                            ReminderSwitch = true;
-                        }else{
-                            ReminderSwitch = false;
+                            pickTime();
+                            rlAddReminder.setVisibility(View.VISIBLE);
+                        }else {
+                            rlAddReminder.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
@@ -155,13 +114,12 @@ public class MainFragment extends Fragment {
                         if(TaskName.equals("")){
                             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
                         }else{
-
 //                          Setting the alarm
-                            if(ReminderSwitch.equals(true)){
+                            if(switchReminder.isChecked()){
                                 Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
                                 MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
                                 myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
-                                ReminderSwitch = false;
+                                switchReminder.setChecked(false);
                             }else{
                                 Task_Alarm_Request_Code = 0;
                             }
@@ -260,7 +218,47 @@ public class MainFragment extends Fragment {
         }
     }
 
+    public void pickTime(){
+        Calendar c = Calendar.getInstance();
+        mHour = c.get(Calendar.HOUR_OF_DAY);
+        mMinute = c.get(Calendar.MINUTE);
+        final TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                mHour = hourOfDay;
+                mMinute = minute;
+                Calendar setCal = Calendar.getInstance();
+                setCal.set(Calendar.HOUR_OF_DAY,mHour);
+                setCal.set(Calendar.MINUTE,mMinute);
+                reminderTimeInMillis = setCal.getTimeInMillis();
 
+                long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
+
+                if(reminderTimeInMillis - currentTimeinMillis < 0){
+                    Toast.makeText(getContext(), "The time set for reminder has already passed", Toast.LENGTH_LONG).show();
+                    reminderTimeInMillis = 0;
+                    mHour = 0;
+                    mMinute = 0;
+                    tvReminder.setText("Tap here to set reminder time");
+                    switchReminder.setChecked(false);
+                }else{
+                    Task temp = new Task("Temp");
+                    temp.setAlarmTime(hourOfDay, minute);
+                    tvReminder.setText("Reminder Set at "+temp.getAlarmTime());
+                    switchReminder.setChecked(true);
+                    mHour = hourOfDay;
+                    mMinute = minute;
+                }
+            }
+        }, mHour, mMinute, false);
+        timePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                switchReminder.setChecked(false);
+            }
+        });
+        timePickerDialog.show();
+    }
 }
 
 

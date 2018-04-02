@@ -29,9 +29,10 @@ public class ReminderService extends BroadcastReceiver {
                 .setContentTitle("Reminder")
                 .setContentText(TaskName)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                .setSmallIcon(R.drawable.ic_alarm_on)
+                .setSmallIcon(R.drawable.ic_reminder_small_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher));
         notificationManager.notify(AlarmRequestCode, builder.build());
+        SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
         Log.d("AlarmManager","Notification for task : "+ TaskName);
     }
 }

@@ -140,17 +140,6 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         Toast.makeText(context, "Task restored", Toast.LENGTH_SHORT).show();
     }
 
-    public static void updateAlarmTime(Context context, String TaskName, int Hour, int Minute){
-        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
-        SQLiteDatabase db = taskHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("TASK_ALARM",Hour+":"+Minute);
-        db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'",null);
-        db.close();
-        taskHelper.close();
-        Toast.makeText(context,"Reminder Set", Toast.LENGTH_SHORT).show();
-    }
-
     public static String getAlarmTime(Context context,String TaskName){
         SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
         SQLiteDatabase db = taskHelper.getReadableDatabase();
@@ -171,5 +160,28 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         String AlarmTime = cursor.getString(0);
         cursor.close();
         return Integer.parseInt(AlarmTime);
+    }
+
+    public static void updateAlarmRequestCode(Context context, String TaskName, int Task_Request_Code){
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_ALARM_REQUEST_CODE",Task_Request_Code);
+        db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'",null);
+        db.close();
+        taskHelper.close();
+    }
+
+    public static void updateAlarmTime(Context context, String TaskName, int Hour, int Minute){
+        Task temp = new Task("Temp");
+        temp.setAlarmTime(Hour,Minute);
+        SqLiteTaskHelper taskHelper = new SqLiteTaskHelper(context);
+        SQLiteDatabase db = taskHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_ALARM",temp.getAlarmTime());
+        db.update("TASK_LIST", values, "TASK_NAME='"+TaskName+"'",null);
+        db.close();
+        taskHelper.close();
+        Toast.makeText(context,"Reminder Set", Toast.LENGTH_SHORT).show();
     }
 }

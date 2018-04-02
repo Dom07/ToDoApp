@@ -108,4 +108,13 @@ public class MyAlarmManager {
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
         Log.d("AlarmManager","Reminder Set for the task : "+TaskName);
     }
+
+    public void cancelReminder(int AlarmRequestCode, String TaskName){
+        Intent intent = new Intent(context, ReminderService.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context,AlarmRequestCode,intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+        pendingIntent.cancel();
+        SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
+    }
 }

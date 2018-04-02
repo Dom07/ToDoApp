@@ -28,18 +28,21 @@
 
     <LinearLayout
         android:layout_centerVertical="true"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:orientation="horizontal"
-        android:layout_toRightOf="@+id/tvTaskName">
+        android:layout_toRightOf="@+id/tvTaskName"
+        android:layout_alignParentRight="true"
+        android:gravity="right">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rlAlarmStatusContainer"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
+                android:layout_centerVertical="true"
                 android:id="@+id/ivAlarmStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,14 +51,15 @@
                 app:srcCompat="@drawable/ic_alarm_on" />
 
             <TextView
+                android:layout_below="@id/ivAlarmStatus"
                 android:id="@+id/tvAlarmTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10:00 PM"
+                android:text="10:30 AM"
                 android:visibility="visible"
                 android:textSize="10sp"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <ImageView
@@ -63,7 +67,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ivTaskDeleteMain"
             android:src="@mipmap/ic_delete"
-            android:layout_marginLeft="10dp"
             />
 
     </LinearLayout>

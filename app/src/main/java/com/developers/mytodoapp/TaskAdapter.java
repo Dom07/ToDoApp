@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -33,6 +34,8 @@ import static android.view.View.inflate;
  */
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>  {
+
+    int mHour=0, mMinute=0;
 
     ArrayList<Task> taskArrayList;
 
@@ -56,14 +59,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(final TaskAdapter.MyViewHolder holder, final int position) {
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
-        int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
+        final int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
 
         if(alarmRequestCode != 0){
             final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
             holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
             holder.tvAlarmTime.setText(reminderTime);
         }else{
-            holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
             holder.tvAlarmTime.setText("");
         }
 
@@ -94,6 +97,52 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                 }
             }
         });
+
+        holder.rlAlarmStatusContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int refetchedAlarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
+                if(refetchedAlarmRequestCode !=0){
+                    MyAlarmManager myAlarmManager = new MyAlarmManager(context);
+                    myAlarmManager.cancelReminder(alarmRequestCode, TaskName);
+                    holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
+                    holder.tvAlarmTime.setText("");
+                    Toast.makeText(context, "Alarm cancelled for "+TaskName,Toast.LENGTH_SHORT).show();
+                }else{
+                    Calendar c = Calendar.getInstance();
+                    mHour = c.get(Calendar.HOUR_OF_DAY);
+                    mMinute = c.get(Calendar.MINUTE);
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                            mHour = hourOfDay;
+                            mMinute = minute;
+                            Calendar newCal = Calendar.getInstance();
+                            newCal.set(Calendar.HOUR_OF_DAY, mHour);
+                            newCal.set(Calendar.MINUTE, mMinute);
+                            long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
+                            if(newCal.getTimeInMillis() - currentTimeinMillis >= 0){
+                                int RequestCode = (int) Calendar.getInstance().getTimeInMillis();
+                                long AlarmTimeinMillis = newCal.getTimeInMillis();
+
+                                SqLiteTaskHelper.updateAlarmRequestCode(context,TaskName, RequestCode);
+                                SqLiteTaskHelper.updateAlarmTime(context,TaskName,mHour,mMinute);
+
+                                MyAlarmManager myAlarmManager = new MyAlarmManager(context);
+                                myAlarmManager.setReminder(AlarmTimeinMillis,RequestCode,TaskName);
+
+                                holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
+                                holder.tvAlarmTime.setText(SqLiteTaskHelper.getAlarmTime(context,TaskName));
+
+                            }else{
+                                Toast.makeText(context,"Time you selected has already passed",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    },mHour, mMinute, false);
+                    timePickerDialog.show();
+                }
+            }
+        });
     }
 
     @Override
@@ -108,6 +157,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         ImageView ivTaskDeleteMain;
         ImageView ivAlarmStatus;
         TextView tvAlarmTime;
+        RelativeLayout rlAlarmStatusContainer;
 
         public MyViewHolder(View view) {
             super(view);
@@ -117,6 +167,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
             ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmStatus);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
+            rlAlarmStatusContainer = (RelativeLayout)view.findViewById(R.id.rlAlarmStatusContainer);
         }
     }
 

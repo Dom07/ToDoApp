@@ -83,38 +83,41 @@ public class MainFragment extends Fragment {
                 tvReminder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                            Calendar c = Calendar.getInstance();
-                            mHour = c.get(Calendar.HOUR_OF_DAY);
-                            mMinute = c.get(Calendar.MINUTE);
-                            TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                                @Override
-                                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        Calendar c = Calendar.getInstance();
+                        mHour = c.get(Calendar.HOUR_OF_DAY);
+                        mMinute = c.get(Calendar.MINUTE);
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                mHour = hourOfDay;
+                                mMinute = minute;
+                                Calendar setCal = Calendar.getInstance();
+                                setCal.set(Calendar.HOUR_OF_DAY,mHour);
+                                setCal.set(Calendar.MINUTE,mMinute);
+                                reminderTimeInMillis = setCal.getTimeInMillis();
+
+                                long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
+
+                                if(reminderTimeInMillis - currentTimeinMillis < 0){
+                                    Toast.makeText(getContext(), "The time set for reminder has already passed", Toast.LENGTH_LONG).show();
+                                    reminderTimeInMillis = 0;
+                                    mHour = 0;
+                                    mMinute = 0;
+                                    tvReminder.setText("Tap here to set reminder time");
+                                    switchReminder.setChecked(false);
+                                }else{
+                                    tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
+                                    switchReminder.setChecked(true);
                                     mHour = hourOfDay;
                                     mMinute = minute;
-                                    Calendar setCal = Calendar.getInstance();
-                                    setCal.set(Calendar.HOUR_OF_DAY,mHour);
-                                    setCal.set(Calendar.MINUTE,mMinute);
-                                    reminderTimeInMillis = setCal.getTimeInMillis();
-
-                                    long currentTimeinMillis = Calendar.getInstance().getTimeInMillis();
-
-                                    if(reminderTimeInMillis - currentTimeinMillis < 0){
-                                        Toast.makeText(getContext(), "The time set for reminder has already passed", Toast.LENGTH_LONG).show();
-                                        reminderTimeInMillis = 0;
-                                        mHour = 0;
-                                        mMinute = 0;
-                                        tvReminder.setText("Tap here to set reminder time");
-                                        switchReminder.setChecked(false);
-                                    }else{
-                                        tvReminder.setText("Reminder Set:" + hourOfDay + ":" + minute);
-                                        switchReminder.setChecked(true);
-                                    }
-
                                 }
-                            }, mHour, mMinute, false);
-                            timePickerDialog.show();
-                        }
+
+                            }
+                        }, mHour, mMinute, false);
+                        timePickerDialog.show();
+                    }
                 });
+
 
                 switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -134,6 +137,7 @@ public class MainFragment extends Fragment {
                 builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
 
                         Task newTask = new Task(etNewTaskName.getText().toString().trim());
                         newTask.setAlarmTime(mHour,mMinute);
@@ -250,6 +254,8 @@ public class MainFragment extends Fragment {
             tvNoTask.setVisibility(TextView.INVISIBLE);
         }
     }
+
+
 }
 
 

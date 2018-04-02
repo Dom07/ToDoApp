@@ -24,20 +24,25 @@ public class Task {
     }
 
     public void setAlarmTime(int Hour, int Minute){
-        if(Hour > 12){
-            Hour = Hour - 12;
-            if(Minute <10) {
-                AlarmTime = Hour + ": 0"+ Minute + " PM";
-            }else {
-                AlarmTime = Hour + ": "+ Minute + " PM";
-            }
+        if(Hour == 25){
+            AlarmTime = "0";
         }else{
-            if(Minute <10) {
-                AlarmTime = Hour + ": 0"+ Minute + " AM";
-            }else {
-                AlarmTime = Hour + ": "+ Minute + " AM";
+            if(Hour > 12){
+                Hour = Hour - 12;
+                if(Minute <10) {
+                    AlarmTime = Hour + ": 0"+ Minute + " PM";
+                }else {
+                    AlarmTime = Hour + ": "+ Minute + " PM";
+                }
+            }else{
+                if(Minute <10) {
+                    AlarmTime = Hour + ": 0"+ Minute + " AM";
+                }else {
+                    AlarmTime = Hour + ": "+ Minute + " AM";
+                }
             }
         }
+
     }
 
     public String getAlarmTime(){

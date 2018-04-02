@@ -57,6 +57,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
         int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
+
         if(alarmRequestCode != 0){
             final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
             holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
@@ -65,7 +66,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
             holder.tvAlarmTime.setText("");
         }
-       // holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_cancel);
+
         holder.tvTaskName.setText(task.getTaskName());
         holder.ivTaskDeleteMain.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,16 +8,8 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_blue_add.png"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_alarm_add.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_alarm_add.png"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_green_check.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_green_check.png"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_alarm_on.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_alarm_on.png"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_delete.png",

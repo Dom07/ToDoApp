@@ -1,4 +1,4 @@
-#Mon Apr 02 14:14:34 IST 2018
+#Wed Apr 04 21:37:06 IST 2018
 base.0=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8b12b2b06d2cf0eb329ba6a6262e9ce0ff0f5bab
 renamed.1=classes.dex
 renamed.0=classes2.dex

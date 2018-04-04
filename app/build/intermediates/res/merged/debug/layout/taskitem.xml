@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/ic_alarm_on" />
+                app:srcCompat="@drawable/ic_done_black_24dp" />
 
             <TextView
                 android:layout_below="@id/ivAlarmStatus"

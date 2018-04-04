@@ -13,7 +13,7 @@
                 android:title="Completed Tasks" />
             <item
                 android:id="@+id/nav_yesterdaysPending"
-                android:icon="@drawable/ic_access_time_black_24dp"
+                android:icon="@drawable/ic_access_time_black"
                 android:title="Yesterday's Incomplete Tasks" />
             <item
                 android:id="@+id/nav_insights"

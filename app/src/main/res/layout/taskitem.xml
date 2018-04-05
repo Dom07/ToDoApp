@@ -89,7 +89,6 @@
             android:src="@drawable/ic_access_time_black"/>
 
         <TextView
-                android:layout_below="@id/ivAlarmStatus"
                 android:id="@+id/tvAlarmTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

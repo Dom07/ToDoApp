@@ -28,7 +28,7 @@
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <!--android.support.design.widget.FloatingActionButton
             android:id="@+id/fabAddTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +39,6 @@
             app:backgroundTint="@color/colorAccent"
             app:elevation="5dp"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp" />
+            android:layout_marginBottom="25dp" /-->
     
 </RelativeLayout>

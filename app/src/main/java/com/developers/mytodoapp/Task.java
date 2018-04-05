@@ -1,7 +1,5 @@
 package com.developers.mytodoapp;
 
-import android.nfc.Tag;
-
 /**
  * Created by dom on 1/8/17.
  */

@@ -130,7 +130,6 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         db.update("TASK_LIST", values, "TASK_NAME='" + TaskName + "'", null);
         db.close();
         taskHelper.close();
-        Toast.makeText(context, "Task restored", Toast.LENGTH_SHORT).show();
     }
 
     public static String getAlarmTime(Context context,String TaskName){

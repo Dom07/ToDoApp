@@ -80,12 +80,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     }
                     holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
                     holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
+                    holder.ivAlarmStatus.setVisibility(View.INVISIBLE);
                 }else{
                     holder.ivTaskStatus.setImageResource(R.drawable.ic_check_circle_unchecked);
                     holder.checked = false;
                     SqLiteTaskHelper.markTaskAsNotComplete(context, TaskName);
                     holder.ivTaskDeleteMain.setVisibility(View.VISIBLE);
                     holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
+                    holder.ivAlarmStatus.setVisibility(View.VISIBLE);
                 }
                 setAlarmViewItems(TaskName, SqLiteTaskHelper.getAlarmRequestCode(context,TaskName),holder);
             }

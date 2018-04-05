@@ -28,6 +28,14 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_timeline_black_24dp.png"
     },
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_cancel_alarm.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_cancel_alarm.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_delete_task.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_delete_task.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_add_alarm.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_add_alarm.png"
     }

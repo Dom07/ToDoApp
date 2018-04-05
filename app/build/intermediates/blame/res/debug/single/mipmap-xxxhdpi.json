@@ -4,10 +4,6 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xxxhdpi/ic_green_check.png"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_delete.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xxxhdpi/ic_delete.png"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },

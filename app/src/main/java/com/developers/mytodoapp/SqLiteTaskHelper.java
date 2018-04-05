@@ -148,6 +148,8 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         String AlarmTime = cursor.getString(0);
         cursor.close();
+        db.close();
+        taskHelper.close();
         return AlarmTime;
     }
 
@@ -159,6 +161,8 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         String AlarmTime = cursor.getString(0);
         cursor.close();
+        db.close();
+        taskHelper.close();
         return Integer.parseInt(AlarmTime);
     }
 

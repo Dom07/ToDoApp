@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -66,11 +67,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
         if(alarmRequestCode != 0){
             final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
-            holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
             holder.tvAlarmTime.setText(reminderTime);
+            holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
         }else{
             holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
-            holder.tvAlarmTime.setText("");
+            holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
         }
 
         holder.tvTaskName.setText(task.getTaskName());
@@ -105,7 +107,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             }
         });
 
-        holder.rlAlarmStatusContainer.setOnClickListener(new View.OnClickListener() {
+        holder.ivAlarmStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final int refetchedAlarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
@@ -113,6 +115,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     myAlarmManager.cancelReminder(alarmRequestCode, TaskName);
                     holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
                     holder.tvAlarmTime.setText("");
+                    holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
                     Toast.makeText(context, "Alarm cancelled for "+TaskName,Toast.LENGTH_SHORT).show();
                 }else{
                     Calendar c = Calendar.getInstance();
@@ -137,8 +140,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                                 MyAlarmManager myAlarmManager = new MyAlarmManager(context);
                                 myAlarmManager.setReminder(AlarmTimeinMillis,RequestCode,TaskName);
 
-                                holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
+                                holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
                                 holder.tvAlarmTime.setText(SqLiteTaskHelper.getAlarmTime(context,TaskName));
+                                holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
 
                             }else{
                                 Toast.makeText(context,"Time you selected has already passed",Toast.LENGTH_SHORT).show();
@@ -163,7 +167,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         ImageView ivTaskDeleteMain;
         ImageView ivAlarmStatus;
         TextView tvAlarmTime;
-        RelativeLayout rlAlarmStatusContainer;
+        LinearLayout llAlarmTimeContainer;
 
         public MyViewHolder(View view) {
             super(view);
@@ -173,7 +177,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
             ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmStatus);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
-            rlAlarmStatusContainer = (RelativeLayout)view.findViewById(R.id.rlAlarmStatusContainer);
+            llAlarmTimeContainer = (LinearLayout)view.findViewById(R.id.llAlarmTimeContainer);
         }
     }
 

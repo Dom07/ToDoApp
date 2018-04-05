@@ -10,9 +10,5 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_green_check.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_green_check.png"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_delete.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/mipmap-xhdpi/ic_delete.png"
     }
 ]

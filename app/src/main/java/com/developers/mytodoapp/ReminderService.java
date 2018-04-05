@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 /**
  * Created by root on 22/3/18.
@@ -33,6 +32,5 @@ public class ReminderService extends BroadcastReceiver {
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher));
         notificationManager.notify(AlarmRequestCode, builder.build());
         SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
-        Log.d("AlarmManager","Notification for task : "+ TaskName);
     }
 }

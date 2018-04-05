@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_done_black_24dp.xml",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_done_black_24dp.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_timeline_black_24dp.xml",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_timeline_black_24dp.xml"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_today_black_24dp.xml",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_today_black_24dp.xml"
+    }
+]

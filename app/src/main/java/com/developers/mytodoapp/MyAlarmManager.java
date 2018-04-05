@@ -4,8 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -58,7 +56,6 @@ public class MyAlarmManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE) ;
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
-            Log.d("AlarmManager","Time Remaining for Notification Reminder: "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds");
 //            Toast.makeText(getBaseContext(),"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" ,Toast.LENGTH_LONG).show();
     }
 
@@ -95,7 +92,6 @@ public class MyAlarmManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-            Log.d("AlarmManager","Time Remaining For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds");
 //            Toast.makeText(getBaseContext(), "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
     }
 
@@ -106,7 +102,6 @@ public class MyAlarmManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
-        Log.d("AlarmManager","Reminder Set for the task : "+TaskName);
     }
 
     public void cancelReminder(int AlarmRequestCode, String TaskName){

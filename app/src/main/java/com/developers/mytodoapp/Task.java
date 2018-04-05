@@ -25,8 +25,10 @@ public class Task {
         if(Hour == 25){
             AlarmTime = "0";
         }else{
-            if(Hour > 12){
-                Hour = Hour - 12;
+            if(Hour >= 12){
+                if(Hour > 12) {
+                    Hour = Hour - 12;
+                }
                 if(Minute <10) {
                     AlarmTime = Hour + ": 0"+ Minute + " PM";
                 }else {

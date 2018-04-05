@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_today_black_24dp"
+                android:title="Today's To-Do List" />
+            <item
+                android:id="@+id/nav_completedTask"
+                android:icon="@drawable/ic_done_black_24dp"
+                android:title="Completed Tasks" />
+            <item
+                android:id="@+id/nav_yesterdaysPending"
+                android:icon="@drawable/ic_access_time_black"
+                android:title="Yesterday's Incomplete Tasks" />
+            <item
+                android:id="@+id/nav_insights"
+                android:icon="@drawable/ic_timeline_black_24dp"
+                android:title="Insights" />
+
+        </menu>
+    </item>
+
+
+</menu>

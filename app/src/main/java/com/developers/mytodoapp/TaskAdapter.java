@@ -2,35 +2,17 @@ package com.developers.mytodoapp;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.text.SpannableString;
-import android.text.style.StrikethroughSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.zip.Inflater;
-
-import static android.view.View.INVISIBLE;
-import static android.view.View.inflate;
 
 /**
  * Created by dom on 2/8/17.
@@ -95,7 +77,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     if(tempRequestCode!=0){
                         myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
                         SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
-                        Log.d("Reminder","Reminder Cancelled");
                     }
                     holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
                     holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
@@ -147,7 +128,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                                 holder.tvAlarmTime.setText(SqLiteTaskHelper.getAlarmTime(context,TaskName));
                                 holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
                             }else{
-                                Toast.makeText(context,"Time you selected has already passed",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"The time you selected has already passed, please try again",Toast.LENGTH_SHORT).show();
                             }
                         }
                     },mHour, mMinute, false);

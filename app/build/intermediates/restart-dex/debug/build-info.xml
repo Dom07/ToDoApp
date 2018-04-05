@@ -6,29 +6,29 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1522906674896"
+    timestamp="1522918374942"
     token="6360366534842331531"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="184" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="7" />
+        duration="0" />
     <task
         name="verifier"
-        duration="29" />
+        duration="0" />
 
-    <artifact
-        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-        type="SPLIT" />
     <artifact
         location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
         type="SPLIT_MAIN" />
+    <artifact
+        location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
     <artifact
         location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
@@ -62,14 +62,14 @@
 
     <build
         build-mode="FULL"
-        timestamp="1522906674896"
+        timestamp="1522918374942"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/outputs/apk/app-debug.apk"
             type="SPLIT_MAIN" />
+        <artifact
+            location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
         <artifact
             location="/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />

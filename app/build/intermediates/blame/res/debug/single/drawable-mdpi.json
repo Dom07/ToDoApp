@@ -32,6 +32,14 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-mdpi/ic_add_item.png"
     },
     {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_check_circle_checked.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-mdpi/ic_check_circle_checked.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_check_circle_unchecked.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-mdpi/ic_check_circle_unchecked.png"
+    },
+    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_done_black_24dp.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-mdpi/ic_done_black_24dp.png"
     },

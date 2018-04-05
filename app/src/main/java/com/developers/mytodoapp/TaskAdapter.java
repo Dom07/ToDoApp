@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.zip.Inflater;
 
+import static android.view.View.INVISIBLE;
 import static android.view.View.inflate;
 
 /**
@@ -65,16 +67,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         final String TaskName = task.getTaskName().toString();
         myAlarmManager = new MyAlarmManager(context);
         final int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
-
-        if(alarmRequestCode != 0){
-            final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
-            holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
-            holder.tvAlarmTime.setText(reminderTime);
-            holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
-        }else{
-            holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
-            holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
-        }
+        setAlarmViewItems(TaskName,alarmRequestCode, holder);
 
         holder.tvTaskName.setText(task.getTaskName());
 
@@ -98,37 +91,24 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     holder.ivTaskStatus.setImageResource(R.drawable.ic_check_circle_checked);
                     holder.checked = true;
                     SqLiteTaskHelper.markTaskAsComplete(context, TaskName);
+                    int tempRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context,TaskName);
+                    if(tempRequestCode!=0){
+                        myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
+                        SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
+                        Log.d("Reminder","Reminder Cancelled");
+                    }
                     holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
-                    holder.ivAlarmStatus.setVisibility(View.INVISIBLE);
-                    holder.tvAlarmTime.setVisibility(View.INVISIBLE);
-                }else {
+                    holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
+                }else{
                     holder.ivTaskStatus.setImageResource(R.drawable.ic_check_circle_unchecked);
                     holder.checked = false;
                     SqLiteTaskHelper.markTaskAsNotComplete(context, TaskName);
                     holder.ivTaskDeleteMain.setVisibility(View.VISIBLE);
-                    holder.ivAlarmStatus.setVisibility(View.VISIBLE);
-                    holder.tvAlarmTime.setVisibility(View.VISIBLE);
+                    holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
                 }
+                setAlarmViewItems(TaskName, SqLiteTaskHelper.getAlarmRequestCode(context,TaskName),holder);
             }
         });
-
-
-//        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    SqLiteTaskHelper.markTaskAsComplete(context, TaskName);
-//                    holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
-//                    holder.ivAlarmStatus.setVisibility(View.INVISIBLE);
-//                    holder.tvAlarmTime.setVisibility(View.INVISIBLE);
-//                } else {
-//                    SqLiteTaskHelper.markTaskAsNotComplete(context, TaskName);
-//                    holder.ivTaskDeleteMain.setVisibility(View.VISIBLE);
-//                    holder.ivAlarmStatus.setVisibility(View.VISIBLE);
-//                    holder.tvAlarmTime.setVisibility(View.VISIBLE);
-//                }
-//            }
-//        });
 
         holder.ivAlarmStatus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +146,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                                 holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
                                 holder.tvAlarmTime.setText(SqLiteTaskHelper.getAlarmTime(context,TaskName));
                                 holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
-
                             }else{
                                 Toast.makeText(context,"Time you selected has already passed",Toast.LENGTH_SHORT).show();
                             }
@@ -183,10 +162,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         return taskArrayList.size();
     }
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTaskName;
-//        CheckBox checkBox;
         ImageView ivTaskDeleteMain;
         ImageView ivAlarmStatus;
         TextView tvAlarmTime;
@@ -197,8 +174,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         public MyViewHolder(View view) {
             super(view);
             tvTaskName = (TextView) view.findViewById(R.id.tvTaskName);
-//            checkBox = (CheckBox)view.findViewById(R.id.tvTaskName);
-//            ((CheckBox)view.findViewById(R.id.tvTaskName)).setChecked(false);
             ivTaskDeleteMain = (ImageView)view.findViewById(R.id.ivTaskDeleteMain);
             ivAlarmStatus = (ImageView)view.findViewById(R.id.ivAlarmStatus);
             tvAlarmTime = (TextView)view.findViewById(R.id.tvAlarmTime);
@@ -207,5 +182,15 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         }
     }
 
-
+    private void setAlarmViewItems(String TaskName, int alarmRequestCode, final TaskAdapter.MyViewHolder holder){
+        if(alarmRequestCode != 0){
+            final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
+            holder.tvAlarmTime.setText(reminderTime);
+            holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
+        }else{
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
+            holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
+        }
+    }
 }

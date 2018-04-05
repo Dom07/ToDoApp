@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.developers.mytodoapp.MainFragment">
 
         <TextView
@@ -27,18 +26,5 @@
             </android.support.v7.widget.RecyclerView>
 
         </android.support.v4.widget.SwipeRefreshLayout>
-
-        <!--android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabAddTask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/ic_add_item"
-            app:backgroundTint="@color/colorAccent"
-            app:elevation="5dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp" /-->
     
 </RelativeLayout>

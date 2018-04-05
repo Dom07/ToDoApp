@@ -43,8 +43,6 @@ public class MainFragment extends Fragment {
     LayoutInflater inflater;
     TextView tvNoTask;
     RecyclerView rvTaskList;
-    FloatingActionButton fabAddTask;
-    CheckBox tvTaskName;
     ArrayList<Task> taskArrayList = new ArrayList<Task>();
     TaskAdapter taskAdapter;
 
@@ -73,90 +71,6 @@ public class MainFragment extends Fragment {
         taskAdapter =  new TaskAdapter(taskArrayList,getContext(),view);
 //      Method to check weather to Display A Message (or not) on the home screen if no active task available
         noTaskMsgToggle(view);
-
-//      Check Box
-        tvTaskName = (CheckBox) view.findViewById(R.id.tvTaskName);
-
-//      Floating Action Button
-//        fabAddTask = (FloatingActionButton) view.findViewById(R.id.fabAddTask);
-//        fabAddTask.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-
-//              New Task AlertBox code
-//                View alertBox = inflater.inflate(R.layout.newtask, null);
-//                etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
-//                tvReminder = (TextView)alertBox.findViewById(R.id.tvReminder);
-//                switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
-//                rlAddReminder = (RelativeLayout)alertBox.findViewById(R.id.rlAddReminder);
-//
-//                switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//                    @Override
-//                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                        if(isChecked){
-//                            pickTime();
-//                            rlAddReminder.setVisibility(View.VISIBLE);
-//                        }else {
-//                            rlAddReminder.setVisibility(View.INVISIBLE);
-//                        }
-//                    }
-//                });
-//
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//                builder.setTitle("New Task");
-//                builder.setView(alertBox);
-//                builder.setNegativeButton("Cancel", null);
-//                builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//
-//                        Task newTask = new Task(etNewTaskName.getText().toString().trim());
-//                        newTask.setAlarmTime(mHour,mMinute);
-//                        final String Task_Id = null;
-//                        final String TaskName = newTask.getTaskName();
-//                        final String Task_Status = newTask.TaskStatus;
-//                        final String Task_Alarm = newTask.getAlarmTime();
-//                        final int Task_Alarm_Request_Code;
-//
-//                        if(TaskName.equals("")){
-//                            Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
-//                        }else{
-////                          Setting the alarm
-//                            if(switchReminder.isChecked()){
-//                                Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
-//                                MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
-//                                myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
-//                                switchReminder.setChecked(false);
-//                            }else{
-//                                Task_Alarm_Request_Code = 0;
-//                            }
-//
-////                          Inserting into Db
-//                            taskHelper = SqLiteTaskHelper.getInstance(getContext());
-//                            db = taskHelper.getWritableDatabase();
-//                            ContentValues values = new ContentValues();
-//                            values.put("TASK_ID", Task_Id);
-//                            values.put("TASK_NAME", TaskName);
-//                            values.put("TASK_STATUS", Task_Status);
-//                            values.put("TASK_ALARM", Task_Alarm);
-//                            values.put("TASK_ALARM_REQUEST_CODE", Task_Alarm_Request_Code);
-//                            long row = db.insert("TASK_LIST", null, values);
-//                            db.close();
-//                            taskHelper.close();
-//                            Log.d("TASK_LIST","Task Name: "+TaskName+" Task_Statues: "+Task_Status+" Task_Alarm: "+Task_Alarm+" Task_Request_Code: "+Task_Alarm_Request_Code);
-//                            Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
-//    //                      Method to check weather to Display A Message (or not) on the home screen if no active task available
-//                            noTaskMsgToggle(view);
-//                            refreshTaskList(getContext());
-//                        }
-//                    }
-//                });
-//                AlertDialog dialog = builder.create();
-//                dialog.getWindow().getAttributes().windowAnimations=R.style.DialogAnimationUpDown;
-//                dialog.show();
-//            }
-//        });
 
         rvTaskList = (RecyclerView) view.findViewById(R.id.rvTaskList);
         rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -359,7 +273,6 @@ public class MainFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.getWindow().getAttributes().windowAnimations=R.style.DialogAnimationUpDown;
         dialog.show();
-
     }
 }
 

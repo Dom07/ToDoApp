@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="This list is empty, click on the red button below to add a new task."
+            android:text="Tap on the plus icon at the top right corner to add a new task"
             android:textSize="20sp" />
 
         <android.support.v4.widget.SwipeRefreshLayout

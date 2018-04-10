@@ -2,8 +2,6 @@ package com.developers.mytodoapp;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +19,12 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
 
     ArrayList<Task> PendingTaskList;
     Context context;
+    View fragmentView;
 
-    public PendingTaskAdapter(ArrayList<Task> PendingTaskList,Context context){
+    public PendingTaskAdapter(ArrayList<Task> PendingTaskList,Context context, View fragmentView){
         this.PendingTaskList = PendingTaskList;
         this.context = context;
+        this.fragmentView = fragmentView;
     }
 
     @Override
@@ -36,16 +36,18 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final Task task = PendingTaskList.get(position);
-        final SpannableString TaskName = SpannableString.valueOf(task.getTaskName().toString());
         holder.tvPendingTaskName.setText(task.getTaskName());
+
         holder.ivRestoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SqLiteTaskHelper.changeStatus(context,task.getTaskName());
-                TaskName.setSpan(new StrikethroughSpan(),0,TaskName.length(),0);
-                holder.tvPendingTaskName.setText(TaskName);
-                Toast.makeText(context,"Task Restored",Toast.LENGTH_SHORT).show();
-                holder.ivRestoreButton.setVisibility(View.INVISIBLE);
+                SqLiteTaskHelper.restoreTask(context,task.getTaskName());
+                PendingTaskList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,PendingTaskList.size());
+                Toast.makeText(context,"Task Added To Today's List",Toast.LENGTH_SHORT).show();
+                YesterdaysPendingFragment fragment = new YesterdaysPendingFragment();
+                fragment.noDataMsgToggle(fragmentView);
             }
         });
     }

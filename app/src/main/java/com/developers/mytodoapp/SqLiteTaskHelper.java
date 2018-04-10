@@ -74,7 +74,7 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
         sqLiteTaskHelper.close();
     }
 
-    public static void changeStatus(Context context, String TaskName){
+    public static void restoreTask(Context context, String TaskName){
         SqLiteTaskHelper sqLiteTaskHelper = SqLiteTaskHelper.getInstance(context);
         SQLiteDatabase db = sqLiteTaskHelper.getWritableDatabase();
         ContentValues values = new ContentValues();

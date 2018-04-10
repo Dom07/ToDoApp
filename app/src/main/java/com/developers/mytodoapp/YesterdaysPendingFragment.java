@@ -25,7 +25,7 @@ public class YesterdaysPendingFragment extends Fragment {
 
     RecyclerView rvYesterdaysPendingTask;
     ArrayList<Task> pendingTaskList = new ArrayList<Task>();
-    PendingTaskAdapter pendingTaskAdapter = new PendingTaskAdapter(pendingTaskList,getContext());
+    PendingTaskAdapter pendingTaskAdapter;
     SwipeRefreshLayout srlYesterdaysPendingLayout;
     TextView tvNoPendingTaskYest;
 
@@ -36,8 +36,9 @@ public class YesterdaysPendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         final View view = inflater.inflate(R.layout.fragment_yesterdayspending, container, false);
-        pendingTaskAdapter= new PendingTaskAdapter(pendingTaskList, getContext());
+        pendingTaskAdapter= new PendingTaskAdapter(pendingTaskList, getContext(), view);
         rvYesterdaysPendingTask = (RecyclerView)view.findViewById(R.id.rvYesterdaysPendingTask);
         srlYesterdaysPendingLayout = (SwipeRefreshLayout)view.findViewById(R.id.srlYesterdaysPendingLayout);
         tvNoPendingTaskYest = (TextView)view.findViewById(R.id.tvNoPendingTaskYest);
@@ -45,7 +46,7 @@ public class YesterdaysPendingFragment extends Fragment {
         rvYesterdaysPendingTask.setLayoutManager(new LinearLayoutManager(getContext()));
         rvYesterdaysPendingTask.setItemAnimator(new DefaultItemAnimator());
         rvYesterdaysPendingTask.setAdapter(pendingTaskAdapter);
-        noDataMsgToggle();
+        noDataMsgToggle(view);
         preparePendingTaskList(getContext());
 
         srlYesterdaysPendingLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -53,7 +54,7 @@ public class YesterdaysPendingFragment extends Fragment {
             public void onRefresh() {
                 srlYesterdaysPendingLayout.setRefreshing(true);
                 refreshTaskList(getContext());
-                noDataMsgToggle();
+                noDataMsgToggle(view);
                 srlYesterdaysPendingLayout.setRefreshing(false);
             }
         });
@@ -84,8 +85,9 @@ public class YesterdaysPendingFragment extends Fragment {
         pendingTaskAdapter.notifyDataSetChanged();
     }
 
-    private void noDataMsgToggle(){
+    public void noDataMsgToggle(View view){
         int count = SqLiteTaskHelper.getNoOfYesterdaysPendingTask(getContext());
+        tvNoPendingTaskYest = (TextView)view.findViewById(R.id.tvNoPendingTaskYest);
         if(count==0){
             tvNoPendingTaskYest.setVisibility(View.VISIBLE);
         }else{

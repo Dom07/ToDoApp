@@ -41,6 +41,7 @@ public class MainFragment extends Fragment {
     RecyclerView rvTaskList;
     ArrayList<Task> taskArrayList = new ArrayList<Task>();
     TaskAdapter taskAdapter;
+    RelativeLayout rlAddTaskContainer;
 
     //  newTask popup window layout objects
     EditText etNewTaskName;
@@ -62,11 +63,19 @@ public class MainFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         this.inflater = inflater;
-        setHasOptionsMenu(true);
         view = inflater.inflate(R.layout.fragment_main, container, false);
         taskAdapter =  new TaskAdapter(taskArrayList,getContext(),view);
 //      Method to check weather to Display A Message (or not) on the home screen if no active task available
         noTaskMsgToggle(view);
+
+        rlAddTaskContainer = (RelativeLayout)view.findViewById(R.id.rlAddTaskContainer);
+        rlAddTaskContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rlAddTaskContainer.setVisibility(View.INVISIBLE);
+                newTaskAlertBox();
+            }
+        });
 
         rvTaskList = (RecyclerView) view.findViewById(R.id.rvTaskList);
         rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -91,24 +100,6 @@ public class MainFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
         return view;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.task_options,menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menuItemAddTask:{
-                newTaskAlertBox();
-                return true;
-            }
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public void prepareTask(Context context) {
@@ -147,7 +138,20 @@ public class MainFragment extends Fragment {
         tvNoTask = (TextView)view.findViewById(R.id.tvNoTask);
         int count = SqLiteTaskHelper.getNoOfPendingTask(getContext());
         if(count==0){
+            String displayString = "What do you want to do today?";
+            String temp = "";
             tvNoTask.setVisibility(TextView.VISIBLE);
+            Calendar cal = Calendar.getInstance();
+            int hour = cal.get(Calendar.HOUR_OF_DAY);
+            if(hour < 12 && hour >= 4) {
+                temp = "Good Morning,\n";
+            } else if (hour >=12 && hour < 16){
+                temp = "Good Afternoon,\n";
+            } else {
+                temp = "Good Evening,\n";
+            }
+            displayString = temp+displayString;
+            tvNoTask.setText(displayString);
         }else{
             tvNoTask.setVisibility(TextView.INVISIBLE);
         }
@@ -217,11 +221,23 @@ public class MainFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("New Task");
         builder.setView(alertBox);
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                rlAddTaskContainer.setVisibility(View.VISIBLE);
+            }
+        });
+
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                rlAddTaskContainer.setVisibility(View.VISIBLE);
+            }
+        });
+
         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
 
                 Task newTask = new Task(etNewTaskName.getText().toString().trim());
                 newTask.setAlarmTime(mHour,mMinute);
@@ -263,6 +279,7 @@ public class MainFragment extends Fragment {
                     noTaskMsgToggle(view);
                     refreshTaskList(getContext());
                 }
+                rlAddTaskContainer.setVisibility(View.VISIBLE);
             }
         });
         AlertDialog dialog = builder.create();

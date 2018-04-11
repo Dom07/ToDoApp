@@ -6,5 +6,6 @@
     <color name="ButtonColor">#0000FF </color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#A4A4A4</color>
+    <color name="offwhite">#F1F1F1</color>
 
 </resources>

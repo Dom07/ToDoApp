@@ -2,9 +2,5 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/menu/activity_main_drawer.xml"
-    },
-    {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/menu/task_options.xml",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/menu/task_options.xml"
     }
 ]

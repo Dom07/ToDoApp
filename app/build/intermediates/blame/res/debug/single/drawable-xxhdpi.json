@@ -12,10 +12,6 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_check_circle_checked.png"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_add_item.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_add_item.png"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_alarm_on.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_alarm_on.png"
     },
@@ -42,6 +38,10 @@
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_delete_task.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_delete_task.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_add_grey.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-xxhdpi/ic_action_add_grey.png"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_add_alarm.png",

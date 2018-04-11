@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -45,11 +44,11 @@ public class MyAlarmManager {
         }
 
 //            calculate the time difference between the alarm set time and now
-        timeDifference = alarmTimeMilli - now.getTimeInMillis();
-        int seconds = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifference);
-        int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifference);
-        int hours = (int) TimeUnit.MILLISECONDS.toHours(timeDifference);
-        int days = (int) TimeUnit.MILLISECONDS.toDays(timeDifference);
+//        timeDifference = alarmTimeMilli - now.getTimeInMillis();
+//        int seconds = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifference);
+//        int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifference);
+//        int hours = (int) TimeUnit.MILLISECONDS.toHours(timeDifference);
+//        int days = (int) TimeUnit.MILLISECONDS.toDays(timeDifference);
 
 //            setting the notification manager and the alarm manager
         Intent intent = new Intent(context,NotificationReceiver.class);
@@ -81,11 +80,11 @@ public class MyAlarmManager {
         }
 
 //            setting up the time variables
-        timeDifferenceInMillis = clearDbTimeInMillis - now.getTimeInMillis();
-        int sec = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifferenceInMillis);
-        int min = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifferenceInMillis);
-        int hour = (int) TimeUnit.MILLISECONDS.toHours(timeDifferenceInMillis);
-        int day = (int) TimeUnit.MILLISECONDS.toDays(timeDifferenceInMillis);
+//        timeDifferenceInMillis = clearDbTimeInMillis - now.getTimeInMillis();
+//        int sec = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifferenceInMillis);
+//        int min = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifferenceInMillis);
+//        int hour = (int) TimeUnit.MILLISECONDS.toHours(timeDifferenceInMillis);
+//        int day = (int) TimeUnit.MILLISECONDS.toDays(timeDifferenceInMillis);
 
 //            setting up the intent and alarm manager
         Intent intent = new Intent(context, ClearDbReceiver.class);

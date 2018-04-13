@@ -24,12 +24,12 @@
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-hdpi/ic_cancel_alarm.png"
     },
     {
-        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_done_black_24dp.png",
-        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-hdpi/ic_done_black_24dp.png"
-    },
-    {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_add_grey.png",
         "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/res/drawable-hdpi/ic_action_add_grey.png"
+    },
+    {
+        "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_done_black_24dp.png",
+        "source": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/generated/res/pngs/debug/drawable-hdpi/ic_done_black_24dp.png"
     },
     {
         "merged": "/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_today_black_24dp.png",

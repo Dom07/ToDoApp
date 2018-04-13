@@ -1,4 +1,4 @@
-#Wed Apr 11 13:10:27 IST 2018
+#Fri Apr 13 16:14:43 IST 2018
 base.0=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1
 renamed.0=classes.dex
 file.0=/home/dom/Desktop/AndroidProjects/MyTodoApp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex

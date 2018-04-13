@@ -60,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tap here to set reminder time"
+            android:text=""
             android:id="@+id/tvReminder"
             android:textSize="14sp" />
 

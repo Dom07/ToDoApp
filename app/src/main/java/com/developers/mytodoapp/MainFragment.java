@@ -178,7 +178,7 @@ public class MainFragment extends Fragment {
                     reminderTimeInMillis = 0;
                     mHour = 0;
                     mMinute = 0;
-                    tvReminder.setText("Tap here to set reminder time");
+                    tvReminder.setText("");
                     switchReminder.setChecked(false);
                 }else{
                     Task temp = new Task("Temp");

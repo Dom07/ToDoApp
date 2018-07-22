@@ -1,120 +1,144 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:1-29:12
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+MERGED from [com.android.support:design:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\516e1bf43fca3a87ba4b0c30020cfc8e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\85aa7d2769add1f0b61accf1ab627572\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\4ad011cd20a573cc1e93e505b250d6e4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91b375386dade7d91972dc6332b971a3\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\66fcae9db675b9e2431f1204886ae454\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\9bf74b7eec6ac51514c76934ec99639e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\57997edf4f4309f34b5bd5c64f107049\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\bf3ca9f54cb019178aa182aa11b3ab93\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\67a21e3480b9e32ae2a3e5f2d5656a67\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\ae80ed7edf47290ef79998855051c3c2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\cce9d7df1280bf8a5a55d453705dda5a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\1339e39a7640128f6aac8147cc78769d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\2f2b3d7a530f0e61ad62c56c6964ab46\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6e4895a9e82777597248138f0d7aed8c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61ada3995f3d4980aefd2506b206c4d3\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\51087ee9df56a60f9ec31dbcf74638ba\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fdd4aafadcd04b306367ca09e68ebce9\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:3:5-39
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:3:5-39
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:5:5-30
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-	android:versionCode
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:4:5-28
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 uses-permission#com.android.alarm.permission.SET_ALARM
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:6:5-77
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:6:5-77
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:6:22-75
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:6:22-75
 application
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:7:5-27:19
-MERGED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] /root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /root/.android/build-cache/9ced7bf52a1fb7f0df3684c0c8a0e74e10426894/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /root/.android/build-cache/921fbca4251c59875ed698f6767ede67f41a919c/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.1] /root/.android/build-cache/dd33a4bd825a4a1abd3ef5f7b1298ad8805152ae/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /root/.android/build-cache/fb4b3ed689902a86fcc6a6eee06e357e8032c9b0/output/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:support-v4:25.3.1] /root/.android/build-cache/fa02456d31bca189a1f903f10b304d5bb0611284/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /root/.android/build-cache/9efbf0d239249030661016a63e387aabc93f9b38/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /root/.android/build-cache/d485cc6ff6f6c0679b50911868816c19b1391b4b/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] /root/.android/build-cache/3019353aab5e49c59a7d9ef96ee057cf4f45cc5c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /root/.android/build-cache/76b2adda8b8f7c66a02ab0a2ce06c8a49a50f93c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] /root/.android/build-cache/13cf476bb09e97b8a3e4f334e89f823fa49eafd7/output/AndroidManifest.xml:29:5-20
-	android:label
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:10:9-41
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:7:5-26:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91b375386dade7d91972dc6332b971a3\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91b375386dade7d91972dc6332b971a3\AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:12:9-35
-	android:roundIcon
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:11:9-48
-	android:allowBackup
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:8:9-36
-	android:icon
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:9:9-43
-	android:theme
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:13:9-40
-activity#com.developers.mytodoapp.MainActivity
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:14:9-23:20
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:16:13-45
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:10:9-41
+	android:roundIcon
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:11:9-48
+	android:icon
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:9:9-43
+	android:allowBackup
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:8:9-36
 	android:theme
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:17:13-56
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:13:9-40
+activity#com.developers.mytodoapp.MainActivity
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:14:9-22:20
+	android:label
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:16:13-45
+	android:theme
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:17:13-56
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:15:13-41
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:18:13-22:29
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:15:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:18:13-21:29
 action#android.intent.action.MAIN
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:19:17-69
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:19:25-66
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:21:17-77
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:21:27-74
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:20:27-74
 receiver#com.developers.mytodoapp.NotificationReceiver
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:24:9-57
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:23:9-57
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:24:19-55
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:23:19-55
 receiver#com.developers.mytodoapp.ClearDbReceiver
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:25:9-52
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:24:9-52
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:25:19-50
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:24:19-50
 receiver#com.developers.mytodoapp.ReminderService
-ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:26:9-52
+ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:25:9-52
 	android:name
-		ADDED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml:26:19-50
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml:25:19-50
 uses-sdk
-INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.1] /root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /root/.android/build-cache/9ced7bf52a1fb7f0df3684c0c8a0e74e10426894/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /root/.android/build-cache/921fbca4251c59875ed698f6767ede67f41a919c/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /root/.android/build-cache/9c2f0dd1cd137a4f70b588cb6c148d1e092c741d/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:transition:25.3.1] /root/.android/build-cache/dd33a4bd825a4a1abd3ef5f7b1298ad8805152ae/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /root/.android/build-cache/fb4b3ed689902a86fcc6a6eee06e357e8032c9b0/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-v4:25.3.1] /root/.android/build-cache/fa02456d31bca189a1f903f10b304d5bb0611284/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] /root/.android/build-cache/9efbf0d239249030661016a63e387aabc93f9b38/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] /root/.android/build-cache/d485cc6ff6f6c0679b50911868816c19b1391b4b/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] /root/.android/build-cache/3019353aab5e49c59a7d9ef96ee057cf4f45cc5c/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.1] /root/.android/build-cache/76b2adda8b8f7c66a02ab0a2ce06c8a49a50f93c/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] /root/.android/build-cache/13cf476bb09e97b8a3e4f334e89f823fa49eafd7/output/AndroidManifest.xml:21:5-23:58
-	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:23:9-59
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\516e1bf43fca3a87ba4b0c30020cfc8e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\516e1bf43fca3a87ba4b0c30020cfc8e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\85aa7d2769add1f0b61accf1ab627572\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\85aa7d2769add1f0b61accf1ab627572\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\4ad011cd20a573cc1e93e505b250d6e4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\4ad011cd20a573cc1e93e505b250d6e4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91b375386dade7d91972dc6332b971a3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91b375386dade7d91972dc6332b971a3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\66fcae9db675b9e2431f1204886ae454\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\66fcae9db675b9e2431f1204886ae454\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\9bf74b7eec6ac51514c76934ec99639e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\9bf74b7eec6ac51514c76934ec99639e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\57997edf4f4309f34b5bd5c64f107049\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\57997edf4f4309f34b5bd5c64f107049\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\bf3ca9f54cb019178aa182aa11b3ab93\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\bf3ca9f54cb019178aa182aa11b3ab93\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\67a21e3480b9e32ae2a3e5f2d5656a67\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\67a21e3480b9e32ae2a3e5f2d5656a67\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\ae80ed7edf47290ef79998855051c3c2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\ae80ed7edf47290ef79998855051c3c2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\cce9d7df1280bf8a5a55d453705dda5a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\cce9d7df1280bf8a5a55d453705dda5a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\1339e39a7640128f6aac8147cc78769d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\1339e39a7640128f6aac8147cc78769d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\2f2b3d7a530f0e61ad62c56c6964ab46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\2f2b3d7a530f0e61ad62c56c6964ab46\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6e4895a9e82777597248138f0d7aed8c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6e4895a9e82777597248138f0d7aed8c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61ada3995f3d4980aefd2506b206c4d3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61ada3995f3d4980aefd2506b206c4d3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\51087ee9df56a60f9ec31dbcf74638ba\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\51087ee9df56a60f9ec31dbcf74638ba\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fdd4aafadcd04b306367ca09e68ebce9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Dominic\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fdd4aafadcd04b306367ca09e68ebce9\AndroidManifest.xml:20:5-44
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 	android:maxSdkVersion
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dom/Desktop/AndroidProjects/MyTodoApp/app/src/main/AndroidManifest.xml
-meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] /root/.android/build-cache/d4873d9cdb1c27b81a7662ceab6eae5fe2049b7b/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /root/.android/build-cache/9ced7bf52a1fb7f0df3684c0c8a0e74e10426894/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /root/.android/build-cache/921fbca4251c59875ed698f6767ede67f41a919c/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /root/.android/build-cache/9c2f0dd1cd137a4f70b588cb6c148d1e092c741d/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.1] /root/.android/build-cache/dd33a4bd825a4a1abd3ef5f7b1298ad8805152ae/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] /root/.android/build-cache/fa02456d31bca189a1f903f10b304d5bb0611284/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] /root/.android/build-cache/9efbf0d239249030661016a63e387aabc93f9b38/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /root/.android/build-cache/d485cc6ff6f6c0679b50911868816c19b1391b4b/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] /root/.android/build-cache/3019353aab5e49c59a7d9ef96ee057cf4f45cc5c/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /root/.android/build-cache/76b2adda8b8f7c66a02ab0a2ce06c8a49a50f93c/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] /root/.android/build-cache/13cf476bb09e97b8a3e4f334e89f823fa49eafd7/output/AndroidManifest.xml:25:5-27:34
-	android:value
-		ADDED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:27:9-31
-	android:name
-		ADDED from [com.android.support:design:25.3.1] /root/.android/build-cache/2abfb3b9e48c968c7185e3c2acfd7f0bc2a21010/output/AndroidManifest.xml:26:9-47
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		ADDED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Android Todo App cert\MyTodoApp\app\src\main\AndroidManifest.xml

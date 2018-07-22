@@ -1,13 +1,17 @@
 package com.developers.mytodoapp;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 /**
  * Created by dom on 20/9/17.
@@ -19,6 +23,18 @@ public class NotificationReceiver extends BroadcastReceiver {
         Intent notificationIntent = new Intent(context,MainActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        int notificationId = 100;
+        String channelId = "channel100";
+        String channelName = "Daily Reminder";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ){
+            NotificationChannel mChannel = new NotificationChannel(
+                    channelId, channelName, importance);
+            notificationManager.createNotificationChannel(mChannel);
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
@@ -27,6 +43,13 @@ public class NotificationReceiver extends BroadcastReceiver {
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setSmallIcon(R.drawable.ic_notify_small_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher));
-        notificationManager.notify(100, builder.build());
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ){
+            builder.setChannelId(channelId);
+        }
+
+
+        notificationManager.notify(notificationId, builder.build());
+        Log.i("Morning Alarm", "True");
     }
 }

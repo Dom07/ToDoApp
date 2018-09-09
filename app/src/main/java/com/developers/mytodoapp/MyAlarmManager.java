@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -62,8 +63,8 @@ public class MyAlarmManager {
     }
 
     public void deleteDbData() {
-        int alarmHour=2;
-        int alarmMinutes=30;
+        int alarmHour=00;
+        int alarmMinutes=05;
         long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
         Calendar clearDbTime = Calendar.getInstance();
@@ -93,9 +94,13 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, ClearDbReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-        Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
+            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
+        }else{
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
+            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
+        }
     }
 
 

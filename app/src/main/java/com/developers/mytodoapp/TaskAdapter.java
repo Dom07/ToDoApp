@@ -18,7 +18,7 @@ import java.util.Calendar;
  * Created by dom on 2/8/17.
  */
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>  {
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
 
     int mHour=0, mMinute=0;
 
@@ -126,7 +126,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                                 MyAlarmManager myAlarmManager = new MyAlarmManager(context);
                                 myAlarmManager.setReminder(AlarmTimeinMillis,RequestCode,TaskName);
 
-                                holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
+                                holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
                                 holder.tvAlarmTime.setText(SqLiteTaskHelper.getAlarmTime(context,TaskName));
                                 holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
                             }else{
@@ -168,7 +168,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     private void setAlarmViewItems(String TaskName, int alarmRequestCode, final TaskAdapter.MyViewHolder holder){
         if(alarmRequestCode != 0){
             final String reminderTime = SqLiteTaskHelper.getAlarmTime(context, TaskName);
-            holder.ivAlarmStatus.setImageResource(R.drawable.ic_cancel_alarm);
+            holder.ivAlarmStatus.setImageResource(R.drawable.ic_alarm_on);
             holder.tvAlarmTime.setText(reminderTime);
             holder.llAlarmTimeContainer.setVisibility(View.VISIBLE);
         }else{

@@ -5,10 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -28,8 +26,7 @@ public class MyAlarmManager {
 
 //        long timeDifference;
         int alarmHour = 7;
-        int alarmMin = 1;
-
+        int alarmMin = 5;
 
 //         make calendar instance for now and the time when we want to set the alarm
         Calendar now = Calendar.getInstance();
@@ -58,14 +55,15 @@ public class MyAlarmManager {
         Intent intent = new Intent(context,NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE) ;
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
 //        Toast.makeText(context,"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" , Toast.LENGTH_LONG).show();
+
     }
 
     public void deleteDbData() {
-        int alarmHour=00;
-        int alarmMinutes=05;
-        long timeDifferenceInMillis;
+        int alarmHour=2;
+        int alarmMinutes=30;
+//        long timeDifferenceInMillis;
 //           calendar instance of the time when we want to clear db data
         Calendar clearDbTime = Calendar.getInstance();
         clearDbTime.setTimeInMillis(System.currentTimeMillis());
@@ -84,11 +82,11 @@ public class MyAlarmManager {
         }
 
 //            setting up the time variables
-        timeDifferenceInMillis = clearDbTimeInMillis - now.getTimeInMillis();
-        int sec = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifferenceInMillis);
-        int min = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifferenceInMillis);
-        int hour = (int) TimeUnit.MILLISECONDS.toHours(timeDifferenceInMillis);
-        int day = (int) TimeUnit.MILLISECONDS.toDays(timeDifferenceInMillis);
+//        timeDifferenceInMillis = clearDbTimeInMillis - now.getTimeInMillis();
+//        int sec = (int) TimeUnit.MILLISECONDS.toSeconds(timeDifferenceInMillis);
+//        int min = (int) TimeUnit.MILLISECONDS.toMinutes(timeDifferenceInMillis);
+//        int hour = (int) TimeUnit.MILLISECONDS.toHours(timeDifferenceInMillis);
+//        int day = (int) TimeUnit.MILLISECONDS.toDays(timeDifferenceInMillis);
 
 //            setting up the intent and alarm manager
         Intent intent = new Intent(context, ClearDbReceiver.class);
@@ -96,10 +94,10 @@ public class MyAlarmManager {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
-            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }else{
             alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -109,7 +107,7 @@ public class MyAlarmManager {
         intent.putExtra("TaskName",TaskName);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
     }
 
     public void cancelReminder(int AlarmRequestCode, String TaskName){

@@ -1,6 +1,5 @@
 package com.developers.mytodoapp;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -19,12 +18,12 @@ import android.util.Log;
 public class NotificationReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        int notificationId = 100;
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent notificationIntent = new Intent(context,MainActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,100,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,notificationId,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        int notificationId = 100;
         String channelId = "channel100";
         String channelName = "Daily Reminder";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -47,7 +46,6 @@ public class NotificationReceiver extends BroadcastReceiver {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ){
             builder.setChannelId(channelId);
         }
-
 
         notificationManager.notify(notificationId, builder.build());
         Log.i("Morning Alarm", "True");

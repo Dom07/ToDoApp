@@ -105,9 +105,17 @@ public class MyAlarmManager {
     public void setReminder(long timeInMillis, int RequestCode, String TaskName){
         Intent intent = new Intent(context, ReminderService.class);
         intent.putExtra("TaskName",TaskName);
+
+        ComponentName reciever = new ComponentName(context,MainActivity.class);
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(reciever,
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                PackageManager.DONT_KILL_APP);
+
+        Calendar c = Calendar.getInstance();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);   
     }
 
     public void cancelReminder(int AlarmRequestCode, String TaskName){

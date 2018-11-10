@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\2241475bc4e7f0561bf3b32a2dd1674f\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/cf91da14c4e7aa82195af75e40029470/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\4500b94f35cbd2dd2850c68e6a841cff\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

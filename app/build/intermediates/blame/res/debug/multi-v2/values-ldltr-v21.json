@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0-rc01.aar\\6975b0ed9dadc4d8ade9f22dbce968cf\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

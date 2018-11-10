@@ -2,8 +2,10 @@ package com.developers.mytodoapp;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 
 import java.util.Calendar;
@@ -106,13 +108,12 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, ReminderService.class);
         intent.putExtra("TaskName",TaskName);
 
-        ComponentName reciever = new ComponentName(context,MainActivity.class);
+        ComponentName reciever = new ComponentName(context,ReminderService.class);
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(reciever,
                 PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
                 PackageManager.DONT_KILL_APP);
 
-        Calendar c = Calendar.getInstance();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);   

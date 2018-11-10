@@ -56,6 +56,13 @@ public class MyAlarmManager {
 //            setting the notification manager and the alarm manager
         Intent intent = new Intent(context,NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        ComponentName reciever = new ComponentName(context,NotificationReceiver.class);
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(reciever,
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                PackageManager.DONT_KILL_APP);
+
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE) ;
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,alarmTimeMilli,AlarmManager.INTERVAL_DAY,pendingIntent);
 //        Toast.makeText(context,"Time Remaining : "+days+"Days"+hours+"hours "+minutes+"minutes"+seconds+"seconds" , Toast.LENGTH_LONG).show();
@@ -94,13 +101,9 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, ClearDbReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
+        alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
 //            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
-        }else{
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
-//            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
-        }
+
     }
 
 

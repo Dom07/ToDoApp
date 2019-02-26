@@ -1165,6 +1165,7 @@ id listMode
 id list_item
 id llAlarmTimeContainer
 id llIconContainer
+id mainFragment
 id masked
 id media_actions
 id message
@@ -1191,7 +1192,6 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
-id pcEfficiency
 id percent
 id pin
 id progress_circular
@@ -1202,10 +1202,7 @@ id right_icon
 id right_side
 id rlAddReminder
 id rlCompletedTask
-id rlInsightFragment
-id rvCompletedTaskList
 id rvTaskList
-id rvYesterdaysPendingTask
 id rv_Main_Body
 id save_image_matrix
 id save_non_transition_alpha
@@ -1244,9 +1241,7 @@ id spread_inside
 id src_atop
 id src_in
 id src_over
-id srlCompTaskFragment
 id srlMainFragment
-id srlYesterdaysPendingLayout
 id standard
 id start
 id status_bar_latest_event_content
@@ -1282,17 +1277,8 @@ id transition_scene_layoutid_cache
 id transition_transform
 id tvAlarmTime
 id tvCompletedTaskName
-id tvEfficiency
-id tvLabelATask
-id tvLabelCTask
-id tvLabelEfficiency
 id tvLabelRemindMe
 id tvLabelTaskName
-id tvNoData
-id tvNoDataCompFrag
-id tvNoOfCompTask
-id tvNoOfInCompTask
-id tvNoPendingTaskYest
 id tvNoTask
 id tvPendingTaskName
 id tvReminder
@@ -1371,10 +1357,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
-layout fragment_comp_task
-layout fragment_insight
 layout fragment_main
-layout fragment_yesterdayspending
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout newtask

@@ -1,93 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#f1f1f1"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
-    android:padding="5dp"
+    android:layout_height="60dp"
     android:layout_marginLeft="8dp"
+    android:layout_marginTop="5dp"
     android:layout_marginRight="8dp"
-    android:weightSum="1"
-    android:elevation="5dp">
+    android:layout_marginBottom="5dp"
+    android:background="#f1f1f1"
+    android:elevation="5dp"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:weightSum="1">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/ivTaskStatus"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_check_circle_unchecked"/>
-
-        <TextView
-            android:id="@+id/tvTaskName"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:textStyle="bold"
-            android:text="Test Task"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llIconContainer"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentRight="true"
-        android:gravity="right"
-        android:layout_marginRight="20dp">
-
-        <ImageView
             android:layout_centerVertical="true"
-            android:id="@+id/ivAlarmStatus"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:id="@+id/ivTaskStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_circle_unchecked" />
+
+            <TextView
+                android:id="@+id/tvTaskName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Test Task"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llIconContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:srcCompat="@drawable/ic_add_alarm" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:layout_marginLeft="20dp"
+            <ImageView
+                android:id="@+id/ivAlarmStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_add_alarm" />
+
+            <ImageView
+                android:id="@+id/ivTaskDeleteMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_delete_task" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAlarmTimeContainer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ivTaskDeleteMain"
-            android:src="@drawable/ic_delete_task"
-            />
+            android:layout_height="12dp"
+            android:layout_below="@+id/llIconContainer"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:visibility="invisible">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_access_time_black" />
 
-    <LinearLayout
-        android:id="@+id/llAlarmTimeContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="12dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/llIconContainer"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:visibility="invisible">
-
-        <ImageView
-            android:layout_width="12dp"
-            android:layout_height="14dp"
-            android:src="@drawable/ic_access_time_black"/>
-
-        <TextView
+            <TextView
                 android:id="@+id/tvAlarmTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="10:30 AM"
-                android:visibility="visible"
                 android:textSize="10sp"
-                android:layout_marginLeft="5dp" />
+                android:visibility="visible" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

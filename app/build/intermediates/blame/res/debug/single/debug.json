@@ -252,10 +252,6 @@
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\311e75635671a99b91ecf45d6a690fd0\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
-        "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_comp_task.xml.flat",
-        "source": "E:\\Android Todo App cert\\MyTodoApp\\app\\src\\main\\res\\layout\\fragment_comp_task.xml"
-    },
-    {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_up_container.xml.flat",
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a45eaf2032d27a4f9168f3112a6b9970\\res\\layout\\abc_action_bar_up_container.xml"
     },
@@ -1060,10 +1056,6 @@
         "source": "E:\\Android Todo App cert\\MyTodoApp\\app\\src\\main\\res\\drawable-anydpi\\ic_white_add.xml"
     },
     {
-        "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_yesterdayspending.xml.flat",
-        "source": "E:\\Android Todo App cert\\MyTodoApp\\app\\src\\main\\res\\layout\\fragment_yesterdayspending.xml"
-    },
-    {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_item_header.xml.flat",
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\311e75635671a99b91ecf45d6a690fd0\\res\\layout\\design_navigation_item_header.xml"
     },
@@ -1592,12 +1584,12 @@
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\311e75635671a99b91ecf45d6a690fd0\\res\\animator\\mtrl_chip_state_list_anim.xml"
     },
     {
-        "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
-        "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\311e75635671a99b91ecf45d6a690fd0\\res\\drawable\\navigation_empty_icon.xml"
-    },
-    {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_exit.xml.flat",
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a45eaf2032d27a4f9168f3112a6b9970\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
+        "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\311e75635671a99b91ecf45d6a690fd0\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -1770,10 +1762,6 @@
     {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\2fa60340e1d03ea0f40c8a204e4682c3\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_insight.xml.flat",
-        "source": "E:\\Android Todo App cert\\MyTodoApp\\app\\src\\main\\res\\layout\\fragment_insight.xml"
     },
     {
         "merged": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar_include.xml.flat",

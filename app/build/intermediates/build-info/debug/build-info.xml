@@ -2,70 +2,35 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="28"
-    build-mode="FULL"
+    build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="FIELD_REMOVED"
     plugin-version="3.3.0"
-    timestamp="1551260727994"
+    timestamp="1551185965567"
     token="8083293081050423566"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="3345" />
+        duration="491" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1491" />
+        duration="30" />
     <task
         name="verifier"
-        duration="859" />
+        duration="7" />
 
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
     <artifact
         location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1551260727994"
+        timestamp="1551185849996"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
@@ -89,23 +54,32 @@
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
+            location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="FIELD_REMOVED"
+        timestamp="1551185965567"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\Android Todo App cert\MyTodoApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

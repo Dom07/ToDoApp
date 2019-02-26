@@ -2,6 +2,7 @@ package com.developers.mytodoapp;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -48,8 +51,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         Task task = taskArrayList.get(position);
         final String TaskName = task.getTaskName().toString();
         myAlarmManager = new MyAlarmManager(context);
-        final int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
-        setAlarmViewItems(TaskName,alarmRequestCode, holder);
+//        final int alarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
+//        setAlarmViewItems(TaskName,alarmRequestCode, holder);
 
         holder.tvTaskName.setText(task.getTaskName());
 
@@ -57,7 +60,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 SqLiteTaskHelper.delItem(context, TaskName);
-                myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
+//                myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
                 taskArrayList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,taskArrayList.size());
@@ -75,8 +78,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     SqLiteTaskHelper.markTaskAsComplete(context, TaskName);
                     int tempRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context,TaskName);
                     if(tempRequestCode!=0){
-                        myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
-                        SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
+//                        myAlarmManager.cancelReminder(alarmRequestCode,TaskName);
+//                        SqLiteTaskHelper.updateAlarmRequestCode(context, TaskName, 0);
                     }
                     holder.ivTaskDeleteMain.setVisibility(View.INVISIBLE);
                     holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
@@ -98,7 +101,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             public void onClick(View v) {
                 final int refetchedAlarmRequestCode = SqLiteTaskHelper.getAlarmRequestCode(context, TaskName);
                 if(refetchedAlarmRequestCode !=0){
-                    myAlarmManager.cancelReminder(alarmRequestCode, TaskName);
+//                    myAlarmManager.cancelReminder(alarmRequestCode, TaskName);
                     holder.ivAlarmStatus.setImageResource(R.drawable.ic_add_alarm);
                     holder.tvAlarmTime.setText("");
                     holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
@@ -176,4 +179,5 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
             holder.llAlarmTimeContainer.setVisibility(View.INVISIBLE);
         }
     }
+
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.widget.Toast;
 
 /**
@@ -34,6 +35,20 @@ public class SqLiteTaskHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS TASK_LIST");
         onCreate(db);
+    }
+
+    public static void insertTask(Context context, Task task){
+        SqLiteTaskHelper helper = SqLiteTaskHelper.getInstance(context);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TASK_ID", task.TaskId);
+        values.put("TASK_NAME", task.getTaskName());
+        values.put("TASK_STATUS", task.TaskStatus);
+        values.put("TASK_ALARM", task.getAlarmTime());
+        values.put("TASK_ALARM_REQUEST_CODE", task.getTask_Alarm_Request_Code());
+        long row = db.insert("TASK_LIST", null, values);
+        db.close();
+        helper.close();
     }
 
     public static int getNoOfCompletedTask(Context context){

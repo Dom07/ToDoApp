@@ -199,119 +199,23 @@ public class MainFragment extends Fragment {
 //        timePickerDialog.show();
 //    }
 
-//    public void newTasklAlertBox(){
-//        View alertBox = inflater.inflate(R.layout.newtask, null);
-//        etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
-//        tvReminder = (TextView)alertBox.findViewById(R.id.tvReminder);
-//        switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//        builder.setTitle("New Task");
-//        builder.setView(alertBox);
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-////                rlAddTaskContainer.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-//            @Override
-//            public void onCancel(DialogInterface dialog) {
-////                rlAddTaskContainer.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//                Task newTask = new Task(etNewTaskName.getText().toString().trim());
-//                newTask.setAlarmTime(mHour,mMinute);
-//                final String Task_Id = null;
-//                final String TaskName = newTask.getTaskName();
-//                final String Task_Status = newTask.TaskStatus;
-//                final String Task_Alarm = newTask.getAlarmTime();
-//                final int Task_Alarm_Request_Code;
-//
-//                if(TaskName.equals("")){
-//                    Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
-//                }else{
-//
-////                  Setting the alarm
-//                    if(switchReminder.isChecked()){
-//                        Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
-//                        MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
-//                        myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
-//                        switchReminder.setChecked(false);
-//                    }else{
-//                        Task_Alarm_Request_Code = 0;
-//                    }
-//
-////                  Inserting into Db
-//                    taskHelper = SqLiteTaskHelper.getInstance(getContext());
-//                    db = taskHelper.getWritableDatabase();
-//                    ContentValues values = new ContentValues();
-//                    values.put("TASK_ID", Task_Id);
-//                    values.put("TASK_NAME", TaskName);
-//                    values.put("TASK_STATUS", Task_Status);
-//                    values.put("TASK_ALARM", Task_Alarm);
-//                    values.put("TASK_ALARM_REQUEST_CODE", Task_Alarm_Request_Code);
-//                    long row = db.insert("TASK_LIST", null, values);
-//                    db.close();
-//                    taskHelper.close();
-//                    Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
-//
-////                  Method to check weather to Display A Message (or not) on the home screen if no active task available
-//    noTaskMsgToggle(view);
-//    refreshTaskList(getContext());
-//}
-////                rlAddTaskContainer.setVisibility(View.VISIBLE);
-//            }
-//                    });
-//                    AlertDialog dialog = builder.create();
-//                    dialog.getWindow().getAttributes().windowAnimations=R.style.DialogAnimationUpDown;
-//                    dialog.show();
-//                    }
-//
     public void insertNewTask(String taskName, Boolean reminderSet){
-        Task newTask = new Task(taskName.toString().trim());
+        Task newTask = new Task(taskName);
         newTask.setAlarmTime(mHour,mMinute);
-        final String Task_Id = null;
-        final String TaskName = newTask.getTaskName();
-        final String Task_Status = newTask.TaskStatus;
-        final String Task_Alarm = newTask.getAlarmTime();
-        final int Task_Alarm_Request_Code;
 
-        if(TaskName.equals("")){
+        if(newTask.getTaskName().equals("")){
             Toast.makeText(getContext(),"Task name cannot be empty",Toast.LENGTH_SHORT).show();
         }else{
-
 //                  Setting the alarm
             if(reminderSet){
-                Task_Alarm_Request_Code = (int)Calendar.getInstance().getTimeInMillis();
+                newTask.Task_Alarm_Request_Code = String.valueOf(Calendar.getInstance().getTimeInMillis());
                 MyAlarmManager myAlarmManager = new MyAlarmManager(getContext());
-                myAlarmManager.setReminder(reminderTimeInMillis, Task_Alarm_Request_Code, TaskName);
+                myAlarmManager.setReminder(reminderTimeInMillis, Integer.valueOf(newTask.Task_Alarm_Request_Code), newTask.getTaskName());
             }else{
-                Task_Alarm_Request_Code = 0;
+               newTask.setTask_Alarm_Request_Code("0");
             }
 
-//                  Inserting into Db
-            taskHelper = SqLiteTaskHelper.getInstance(getContext());
-            db = taskHelper.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put("TASK_ID", Task_Id);
-            values.put("TASK_NAME", TaskName);
-            values.put("TASK_STATUS", Task_Status);
-            values.put("TASK_ALARM", Task_Alarm);
-            values.put("TASK_ALARM_REQUEST_CODE", Task_Alarm_Request_Code);
-            long row = db.insert("TASK_LIST", null, values);
-            db.close();
-            taskHelper.close();
-//            Toast.makeText(getContext(),"Task Added", Toast.LENGTH_SHORT).show();
-
-//                  Method to check weather to Display A Message (or not) on the home screen if no active task available
-//            noTaskMsgToggle(view);
+            SqLiteTaskHelper.insertTask(getContext(), newTask);
             prepareTask();
         }
     }

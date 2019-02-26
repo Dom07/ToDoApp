@@ -5,9 +5,20 @@ package com.developers.mytodoapp;
  */
 
 public class Task {
+    String TaskId = null;
     String TaskName;
-    String AlarmTime;
     String TaskStatus = "0";
+    String AlarmTime;
+
+    public String getTask_Alarm_Request_Code() {
+        return Task_Alarm_Request_Code;
+    }
+
+    public void setTask_Alarm_Request_Code(String task_Alarm_Request_Code) {
+        Task_Alarm_Request_Code = task_Alarm_Request_Code;
+    }
+
+    String Task_Alarm_Request_Code;
 
     public Task(String TaskName){
         this.setTaskName(TaskName);

@@ -635,6 +635,7 @@ color foreground_material_light
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color logoBlue
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1037,6 +1038,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_notify_small_icon
 drawable ic_timeline_black_24dp
 drawable ic_today_black_24dp
+drawable ic_white_add
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1057,7 +1059,6 @@ drawable tooltip_frame_light
 id ALT
 id CTRL
 id FUNCTION
-id IvAddTask
 id META
 id SHIFT
 id SYM
@@ -1128,6 +1129,7 @@ id etNewTaskName
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1199,7 +1201,6 @@ id right
 id right_icon
 id right_side
 id rlAddReminder
-id rlAddTaskContainer
 id rlCompletedTask
 id rlInsightFragment
 id rvCompletedTaskList

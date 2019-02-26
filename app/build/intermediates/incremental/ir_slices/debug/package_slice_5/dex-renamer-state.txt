@@ -1,0 +1,4 @@
+#Tue Feb 26 05:00:08 CST 2019
+base.0=E\:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+path.0=classes.dex
+renamed.0=classes.dex

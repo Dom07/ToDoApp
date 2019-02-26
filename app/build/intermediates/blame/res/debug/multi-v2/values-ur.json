@@ -1,10 +1,24 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ur\\values-ur.xml",
+            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ur/values-ur.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0-rc01.aar\\473835b3aa73cbe77c158355f626a3e7\\res\\values-ur\\values-ur.xml",
+=======
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,321,430,516,620,740,816,892,977,1085,1194,1296,1407,1507,1615,1780,1878",
+                        "endColumns": "109,105,108,85,103,119,75,75,84,107,108,101,110,99,107,164,97,79",
+                        "endOffsets": "210,316,425,511,615,735,811,887,972,1080,1189,1291,1402,1502,1610,1775,1873,1953"
+                    }
+                },
+                {
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/b11a2e3a2915b25aabbb37ce2ee49116/res/values-ur/values-ur.xml",
+>>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -19,6 +33,7 @@
                         "endColumns": "100",
                         "endOffsets": "3000"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0-rc01.aar\\2744832bb6311c245eb298f5442137a2\\res\\values-ur\\values-ur.xml",
@@ -29,6 +44,8 @@
                         "endColumns": "109,105,108,85,103,119,75,75,91,93,95,93,101,93,95,93,91,91,84,107,108,101,110,99,107,164,97,79",
                         "endOffsets": "210,316,425,511,615,735,811,887,979,1073,1169,1263,1365,1459,1555,1649,1741,1833,1918,2026,2135,2237,2348,2448,2556,2721,2819,2899"
                     }
+=======
+>>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
                 }
             ]
         }

@@ -1,10 +1,24 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pl\\values-pl.xml",
+            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0-rc01.aar\\473835b3aa73cbe77c158355f626a3e7\\res\\values-pl\\values-pl.xml",
+=======
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-pl/values-pl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,221,323,431,517,626,745,823,900,982,1091,1200,1299,1408,1519,1627,1790,1886",
+                        "endColumns": "115,101,107,85,108,118,77,76,81,108,108,98,108,110,107,162,95,81",
+                        "endOffsets": "216,318,426,512,621,740,818,895,977,1086,1195,1294,1403,1514,1622,1785,1881,1963"
+                    }
+                },
+                {
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/b11a2e3a2915b25aabbb37ce2ee49116/res/values-pl/values-pl.xml",
+>>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

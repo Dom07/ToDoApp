@@ -1,10 +1,14 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
+            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0-rc01.aar\\473835b3aa73cbe77c158355f626a3e7\\res\\values-nb\\values-nb.xml",
+=======
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/b11a2e3a2915b25aabbb37ce2ee49116/res/values-nb/values-nb.xml",
+>>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -28,6 +32,16 @@
                         "startOffsets": "105,213,308,422,508,608,721,797,873,964,1057,1153,1247,1348,1441,1536,1634,1725,1816,1896,1999,2098,2194,2298,2396,2497,2650,2747",
                         "endColumns": "107,94,113,85,99,112,75,75,90,92,95,93,100,92,94,97,90,90,79,102,98,95,103,97,100,152,96,78",
                         "endOffsets": "208,303,417,503,603,716,792,868,959,1052,1148,1242,1343,1436,1531,1629,1720,1811,1891,1994,2093,2189,2293,2391,2492,2645,2742,2821"
+                    }
+                },
+                {
+                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-nb/values-nb.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,308,422,508,608,721,797,873,953,1056,1155,1251,1355,1453,1554,1707,1804",
+                        "endColumns": "107,94,113,85,99,112,75,75,79,102,98,95,103,97,100,152,96,78",
+                        "endOffsets": "208,303,417,503,603,716,792,868,948,1051,1150,1246,1350,1448,1549,1702,1799,1878"
                     }
                 }
             ]

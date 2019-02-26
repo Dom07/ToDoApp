@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -49,7 +50,8 @@ public class MainFragment extends Fragment {
     Switch switchReminder;
     int mHour = 0, mMinute;
     long reminderTimeInMillis;
-    RelativeLayout rlAddReminder;
+//    RelativeLayout rlAddReminder;
+    FloatingActionButton fab;
 
     //  SQL
     SqLiteTaskHelper taskHelper;
@@ -68,14 +70,14 @@ public class MainFragment extends Fragment {
 //      Method to check weather to Display A Message (or not) on the home screen if no active task available
         noTaskMsgToggle(view);
 
-        rlAddTaskContainer = (RelativeLayout)view.findViewById(R.id.rlAddTaskContainer);
-        rlAddTaskContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rlAddTaskContainer.setVisibility(View.INVISIBLE);
-                newTaskAlertBox();
-            }
-        });
+//        fab = getView().findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                fab.setVisibility(View.INVISIBLE);
+//                newTaskAlertBox();
+//            }
+//        });
 
         rvTaskList = (RecyclerView) view.findViewById(R.id.rvTaskList);
         rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -204,19 +206,19 @@ public class MainFragment extends Fragment {
         etNewTaskName = (EditText) alertBox.findViewById(R.id.etNewTaskName);
         tvReminder = (TextView)alertBox.findViewById(R.id.tvReminder);
         switchReminder =(Switch)alertBox.findViewById(R.id.switchReminder);
-        rlAddReminder = (RelativeLayout)alertBox.findViewById(R.id.rlAddReminder);
-
-        switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    pickTime();
-                    rlAddReminder.setVisibility(View.VISIBLE);
-                }else {
-                    rlAddReminder.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+//        rlAddReminder = (RelativeLayout)alertBox.findViewById(R.id.rlAddReminder);
+//
+//        switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if(isChecked){
+//                    pickTime();
+//                    rlAddReminder.setVisibility(View.VISIBLE);
+//                }else {
+//                    rlAddReminder.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("New Task");

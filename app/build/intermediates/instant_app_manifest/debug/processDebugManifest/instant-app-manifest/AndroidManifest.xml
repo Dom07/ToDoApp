@@ -3,11 +3,11 @@
     package="com.developers.mytodoapp"
     android:targetSandboxVersion="2"
     android:versionCode="9"
-    android:versionName="1.2.2" >
+    android:versionName="1.2.1" >
 
     <uses-sdk
         android:maxSdkVersion="28"
-        android:minSdkVersion="23"
+        android:minSdkVersion="26"
         android:targetSdkVersion="28" />
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />

@@ -101,7 +101,6 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, ClearDbReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-<<<<<<< HEAD
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
 //            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
@@ -109,11 +108,10 @@ public class MyAlarmManager {
             alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, clearDbTimeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
 //            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
         }
-=======
+
         alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,clearDbTimeInMillis,pendingIntent);
 //            Toast.makeText(context, "Time For Db Clear : " + day + "Days" + hour + "hours " + min + "minutes" + sec + "seconds", Toast.LENGTH_LONG).show();
 
->>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
     }
 
 
@@ -129,11 +127,11 @@ public class MyAlarmManager {
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-<<<<<<< HEAD
+
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
-=======
+
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);   
->>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
+
     }
 
     public void cancelReminder(int AlarmRequestCode, String TaskName){

@@ -1,13 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dom/AndroidStudioProjects/ToDoApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "E:\\Android Todo App cert\\MyTodoApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0-rc01.aar\\7ebdc96620173cd96d0afac18b634f46\\res\\values-v24\\values-v24.xml",
-=======
-                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/714c97a638e2eba0bfaa98e6ad2b4a87/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a45eaf2032d27a4f9168f3112a6b9970\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -17,8 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/dom/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/2da6fbe19d98d2580467dd8068d12bde/res/values-v24/values-v24.xml",
->>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
+                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\0a6ad8529dd0e44e0349f0e85e601d03\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -33,19 +29,6 @@
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
                     }
-<<<<<<< HEAD
-                },
-                {
-                    "source": "C:\\Users\\Dominic\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0-rc01.aar\\2744832bb6311c245eb298f5442137a2\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-=======
->>>>>>> 79a59bdbc2b68a92097287644c4913d075c7d649
                 }
             ]
         }

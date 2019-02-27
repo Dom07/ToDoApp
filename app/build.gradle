@@ -9,13 +9,13 @@ android {
         targetSdkVersion 28
         versionCode 9
         versionName "1.2.2"
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.developers.mytodoapp"
         minSdkVersion 26
-        maxSdkVersion 27
-        targetSdkVersion 27
+        maxSdkVersion 28
+        targetSdkVersion 28
         versionCode 9
         versionName "1.2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
